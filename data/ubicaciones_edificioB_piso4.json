@@ -1,0 +1,14 @@
+[
+    {
+        "id": "Sala_Termofluidos",
+        "nombre": "Sala Termofluidos",
+        "tipo": "Sala",
+        "descripcion": "Sala Termofluidos",
+        "x": 105.337,
+        "y": 312.534,
+        "media": {
+            "foto": "imagenes/Ter_4P/Sala_Termofluidos.png",
+            "video": null
+        }
+    }
+]

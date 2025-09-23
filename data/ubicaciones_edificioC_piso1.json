@@ -1,0 +1,362 @@
+[
+    {
+        "id": "Sala_Interactiva",
+        "nombre": "Sala Interactiva",
+        "tipo": "Sala",
+        "descripcion": "Sector Fundición 1P",
+        "x": 2209.530,
+        "y": 142.055,
+        "media": {
+            "foto": "imagenes/Fun_1P/Sala_Interactiva.png",
+            "video": null
+        }
+    },
+    {
+        "id": "Sala_Ex_Fundicion",
+        "nombre": "Sala Ex-Fundición",
+        "tipo": "Sala",
+        "descripcion": "Sector Fundición 1P",
+        "x": 248.829,
+        "y": 169.095,
+        "media": {
+            "foto": "imagenes/Fun_1P/Sala_Ex_Fundicion.png",
+            "video": null
+        }
+    },
+    {
+        "id": "Oficina_IK",
+        "nombre": "Oficina Intikallpa",
+        "tipo": "Oficina",
+        "descripcion": "Sector Fundición 1P",
+        "x": 209.165,
+        "y": 141.916,
+        "media": {
+            "foto": "imagenes/Fun_1P/Oficina_IK.png",
+            "video": null
+        }
+    },
+    {
+        "id": "Lab_Fundicion",
+        "nombre": "Fundición",
+        "tipo": "Laboratorio",
+        "descripcion": "Sector Fundición 1P",
+        "x": 209.966,
+        "y": 166.632,
+        "media": {
+            "foto": "imagenes/Fun_1P/Lab_Fundicion.png",
+            "video": null
+        }
+    },
+    {
+        "id": "Lab_Mecatronica",
+        "nombre": "Laboratorio Mecatrónica",
+        "tipo": "Laboratorio",
+        "descripcion": "Sector Fundición 1P",
+        "x": 248.828,
+        "y": 177.925,
+        "media": {
+            "foto": "imagenes/Fun_1P/Lab_Mecatronica.png",
+            "video": null
+        }
+    },
+    {
+        "id": "Oficina_Estudiantes_Doctorado",
+        "nombre": "Oficina Estudiantes de Doctorado",
+        "tipo": "Oficina",
+        "descripcion": "Sector Fundición 1P",
+        "x": 248.828,
+        "y": 195.342,
+        "media": {
+            "foto": "imagenes/Fun_1P/Oficina_Estudiantes_Doctorado.png",
+            "video": null
+        }
+    },
+    {
+        "id": "Lab_MC_2",
+        "nombre": "Laboratorio Mecánica Computacional 2",
+        "tipo": "Laboratorio",
+        "descripcion": "Sector Fundición 1P",
+        "x": 248.828,
+        "y": 211.857,
+        "media": {
+            "foto": "imagenes/Fun_1P/Lab_MC_2.png",
+            "video": null
+        }
+    },
+    {
+        "id": "Lab_MC_1",
+        "nombre": "Laboratorio Mecánica Computacional 1",
+        "tipo": "Laboratorio",
+        "descripcion": "Sector Fundición 1P",
+        "x": 209.659,
+        "y": 211.857,
+        "media": {
+            "foto": "imagenes/Fun_1P/Lab_MC_1.png",
+            "video": null
+        }
+    },
+    {
+        "id": "Sala_Limpia",
+        "nombre": "Sala Limpia de Materiales Compuestos",
+        "tipo": "Laboratorio",
+        "descripcion": "Sector Fundición 1P",
+        "x": 230.419,
+        "y": 211.857,
+        "media": {
+            "foto": "imagenes/Fun_1P/Sala_Limpia.png",
+            "video": null
+        }
+    },
+    {
+        "id": "Bodega_IK_1",
+        "nombre": "Bodega Auto Solar 1",
+        "tipo": "Bodega",
+        "descripcion": "Sector Fundición 1P",
+        "x": 248.828,
+        "y": 257.384,
+        "media": {
+            "foto": "imagenes/Fun_1P/Bodega_IK_1.png",
+            "video": null
+        }
+    },
+    {
+        "id": "Bodega_IK_2",
+        "nombre": "Bodega Auto Solar 2",
+        "tipo": "Bodega",
+        "descripcion": "Sector Fundición 1P",
+        "x": 248.828,
+        "y": 249.006,
+        "media": {
+            "foto": "imagenes/Fun_1P/Bodega_IK_2.png",
+            "video": null
+        }
+    },
+    {
+        "id": "Bano_Alumnos_Varones_Fundicion",
+        "nombre": "Baño Alumnos Varones",
+        "tipo": "Baño",
+        "descripcion": "Sector Fundición 1P",
+        "x": 224.973,
+        "y": 264.656,
+        "media": {
+            "foto": "imagenes/Fun_1P/Bano_Alumnos_Varones_Fundicion.png",
+            "video": null
+        }
+    },
+    {
+        "id": "Bano_Alumnos_",
+        "nombre": "Baño Alumnos",
+        "tipo": "Baño",
+        "descripcion": "Sector Fundición 1P",
+        "x": 225.004,
+        "y": 272.503,
+        "media": {
+            "foto": "imagenes/Fun_1P/Bano_Alumnos_.png",
+            "video": null
+        }
+    },
+    {
+        "id": "Sala_Reuniones",
+        "nombre": "Sala de Reuniones DIMEC",
+        "tipo": "Sala",
+        "descripcion": "Sector Fundición 1P",
+        "x": 225.644,
+        "y": 284.636,
+        "media": {
+            "foto": "imagenes/Fun_1P/Sala_Reuniones.png",
+            "video": null
+        }
+    },
+    {
+        "id": "Bodega_Cafeteria",
+        "nombre": "Cafetaría DIMEC",
+        "tipo": "Bodega",
+        "descripcion": "Sector Fundición 1P",
+        "x": 225.632,
+        "y": 301.744,
+        "media": {
+            "foto": "imagenes/Fun_1P/Bodega_Cafeteria.png",
+            "video": null
+        }
+    },
+    {
+        "id": "Oficna_FS",
+        "nombre": "Oficina Académico FS",
+        "tipo": "Oficina",
+        "descripcion": "Sector Fundición 1P",
+        "x": 225.632,
+        "y": 308.371,
+        "media": {
+            "foto": "imagenes/Fun_1P/Oficna_FS.png",
+            "video": null
+        }
+    },
+    {
+        "id": "Oficina_GB",
+        "nombre": "Oficina Secretaría Postrados",
+        "tipo": "Oficina",
+        "descripcion": "Sector Fundición 1P",
+        "x": 252.596,
+        "y": 308.508,
+        "media": {
+            "foto": "imagenes/Fun_1P/Oficina_GB.png",
+            "video": null
+        }
+    },
+    {
+        "id": "Oficina_WV",
+        "nombre": "Oficina Académico WV",
+        "tipo": "Oficina",
+        "descripcion": "Sector Fundición 1P",
+        "x": 252.596,
+        "y": 301.511,
+        "media": {
+            "foto": "imagenes/Fun_1P/Oficina_WV.png",
+            "video": null
+        }
+    },
+    {
+        "id": "Oficina_NN_1",
+        "nombre": "Oficina Académico NN_1",
+        "tipo": "Oficina",
+        "descripcion": "Sector Fundición 1P",
+        "x": 252.596,
+        "y": 294.159,
+        "media": {
+            "foto": "imagenes/Fun_1P/Oficina_NN_1.png",
+            "video": null
+        }
+    },
+    {
+        "id": "Oficina_NN_2",
+        "nombre": "Oficina Académico NN_2",
+        "tipo": "Oficina",
+        "descripcion": "Sector Fundición 1P",
+        "x": 252.596,
+        "y": 284.603,
+        "media": {
+            "foto": "imagenes/Fun_1P/Oficina_NN_2.png",
+            "video": null
+        }
+    },
+    {
+        "id": "Bano_Funcionarios_3",
+        "nombre": "Baño Funcionarios",
+        "tipo": "Baño",
+        "descripcion": "Sector Fundición 1P",
+        "x": 247.790,
+        "y": 285.165,
+        "media": {
+            "foto": "imagenes/Fun_1P/Bano_Funcionarios_3.png",
+            "video": null
+        }
+    },
+    {
+        "id": "Bano_Funcionarias",
+        "nombre": "Baño Funcionarias",
+        "tipo": "Baño",
+        "descripcion": "Sector Fundición 1P",
+        "x": 251.467,
+        "y": 316.255,
+        "media": {
+            "foto": "imagenes/Fun_1P/Bano_Funcionarias.png",
+            "video": null
+        }
+    },
+    {
+        "id": "Bodega_DIMEC_2",
+        "nombre": "Bodega DIMEC 2",
+        "tipo": "Bodega",
+        "descripcion": "Sector Fundición 1P",
+        "x": 224.998,
+        "y": 316.738,
+        "media": {
+            "foto": "imagenes/Fun_1P/Bodega_DIMEC_2.png",
+            "video": null
+        }
+    },
+    {
+        "id": "Bodega_DIMEC_1",
+        "nombre": "Bodega DIMEC 1",
+        "tipo": "Bodega",
+        "descripcion": "Sector Fundición 1P",
+        "x": 225.508,
+        "y": 348.518,
+        "media": {
+            "foto": "imagenes/Fun_1P/Bodega_DIMEC_1.png",
+            "video": null
+        }
+    },
+    {
+        "id": "Bodega_Electrica",
+        "nombre": "Bodega Tableros Electricos",
+        "tipo": "Bodega",
+        "descripcion": "Sector Fundición 1P",
+        "x": 225.507,
+        "y": 334.397,
+        "media": {
+            "foto": "imagenes/Fun_1P/Bodega_Electrica.png",
+            "video": null
+        }
+    },
+    {
+        "id": "Bodega_Aseo_Fotocopia",
+        "nombre": "Bodega de Aseo Fotocopia",
+        "tipo": "Bodega",
+        "descripcion": "Sector Fundición 1P",
+        "x": 221.601,
+        "y": 334.506,
+        "media": {
+            "foto": "imagenes/Fun_1P/Bodega_Aseo_Fotocopia.png",
+            "video": null
+        }
+    },
+    {
+        "id": "Bano_Funcionarios",
+        "nombre": "Bano Funcionarios",
+        "tipo": "Baño",
+        "descripcion": "Sector Fundición 1P",
+        "x": 209.684,
+        "y": 334.397,
+        "media": {
+            "foto": "imagenes/Fun_1P/Bano_Funcionarios.png",
+            "video": null
+        }
+    },
+    {
+        "id": "Bodega_Fotocopiadora",
+        "nombre": "Fotocopiadora",
+        "tipo": "Bodega",
+        "descripcion": "Sector Fundición 1P",
+        "x": 209.684,
+        "y": 334.397,
+        "media": {
+            "foto": "imagenes/Fun_1P/Bodega_Fotocopiadora.png",
+            "video": null
+        }
+    },
+    {
+        "id": "Oficina_Secretaria_DIMEC",
+        "nombre": "Oficina Secretaria DIMEC",
+        "tipo": "Oficina",
+        "descripcion": "Sector Fundición 1P",
+        "x": 251.472,
+        "y": 334.912,
+        "media": {
+            "foto": "imagenes/Fun_1P/Oficina_Secretaria_DIMEC.png",
+            "video": null
+        }
+    },
+    {
+        "id": "Oficina_Direcion_DIMEC",
+        "nombre": "Oficina Direción DIMEC",
+        "tipo": "Oficina",
+        "descripcion": "Sector Fundición 1P",
+        "x": 251.475,
+        "y": 345.486,
+        "media": {
+            "foto": "imagenes/Fun_1P/Oficina_Direcion_DIMEC.png",
+            "video": null
+        }
+    }
+]

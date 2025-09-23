@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Plano DIMEC - Selector Dinámico</title>
+  <style>
+    body { margin: 0; font-family: sans-serif; }
+    #controls {
+      background: #f0f0f0;
+      padding: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      align-items: center;
+    }
+    select, input[type="text"] {
+      padding: 5px;
+      font-size: 1em;
+    }
+    #plano-container {
+      position: relative;
+      width: 100%;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    svg {
+      width: 100%;
+      height: auto;
+    }
+    .modal {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: white;
+      border: 1px solid #ccc;
+      padding: 15px;
+      max-width: 300px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+      display: none;
+      z-index: 10;
+    }
+    .modal.active {
+      display: block;
+    }
+    @media (max-width: 600px) {
+      .modal {
+        top: auto;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        max-width: none;
+        width: 100%;
+        border-radius: 10px 10px 0 0;
+      }
+    }
+  </style>
+</head>
+<body>
+<div id="controls">
+  <label>Sector:
+    <select id="edificioSelect">
+      <option value="A">Procesos</option>
+      <option value="B">Termofluidos</option>
+      <option value="C">Fundición</option>
+    </select>
+  </label>
+  <label>Piso:
+    <select id="pisoSelect">
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+    </select>
+  </label>
+  <!-- <label><input type="checkbox" class="filterType" value="aula" checked> Aula</label>  -->
+  <input type="text" id="searchInput" placeholder="Buscar por nombre de Sala/Laboratorio..." />
+  <label><input type="checkbox" class="filterType" value="sala"> Sala</label>
+  <label><input type="checkbox" class="filterType" value="laboratorio"> Laboratorio</label>
+  <label><input type="checkbox" class="filterType" value="oficina"> Oficina</label>
+  <label><input type="checkbox" class="filterType" value="bodega"> Bodega</label>
+  <label><input type="checkbox" class="filterType" value="baño"> Baño</label>
+</div>
+<p></p>
+<div id="plano-container">
+  <object id="svgPlano" type="image/svg+xml"></object>
+</div>
+
+<div id="infoModal" class="modal">
+  <button id="closeModal" style="position:absolute;top:5px;right:5px;">&times;</button>
+  <div id="modalContent"></div>
+</div>
+
+<script>
+const modal = document.getElementById('infoModal');
+let allMarkers = [];
+
+function showInfo(data) {
+  document.getElementById('modalContent').innerHTML = `
+    <h3>${data.nombre}</h3>
+    <p><strong>Tipo:</strong> ${data.tipo}</p>
+    <p>${data.descripcion}</p>
+    ${data.media.video ? `<video controls style="width:100%;" autoplay=true loop=true muted=true><source src="${data.media.video}" type="video/mp4"></video>` : ''}
+    ${data.media.foto ? `<img src="${data.media.foto}" alt="${data.nombre}" style="width:100%;">` : ''}
+  `;
+  modal.classList.add('active');
+}
+
+function placeMarkers(svgRoot, ubicaciones) {
+  allMarkers = [];
+
+  ubicaciones.forEach(ubicacion => {
+    const target = svgRoot.ownerDocument.getElementById(ubicacion.id);
+    if (target) {
+      const fillNormal = "transparent";
+      const fillHover = "#003082";
+
+      target.removeAttribute("fill");
+      target.setAttribute("fill", fillNormal);
+      target.setAttribute("opacity", "1");
+      target.setAttribute("stroke", "white");
+      target.setAttribute("pointer-events", "visiblePainted");
+      target.style.cursor = "pointer";
+
+      // ← CLAVE: añadir dataset para búsqueda y filtrado
+      target.dataset.nombre = ubicacion.nombre.toLowerCase();
+      target.dataset.tipo = ubicacion.tipo.toLowerCase();
+
+      target.addEventListener("mouseenter", () => {
+        target.setAttribute("fill", fillHover);
+      });
+
+      target.addEventListener("mouseleave", () => {
+        target.setAttribute("fill", fillNormal);
+      });
+
+      target.addEventListener("click", () => showInfo(ubicacion));
+      allMarkers.push(target);
+    } else {
+      console.warn("Elemento no encontrado en SVG:", ubicacion.id);
+    }
+  });
+
+  // Aplicar búsqueda y filtros iniciales si los hubiera
+  aplicarFiltrosYBusqueda();
+}
+
+function cargarPlano() {
+  const edificio = document.getElementById("edificioSelect").value;
+  const piso = document.getElementById("pisoSelect").value;
+  const svgFile = `edificios/edificio${edificio}_piso${piso}.svg`;
+  const jsonFile = `data/ubicaciones_edificio${edificio}_piso${piso}.json`;
+
+  const objectElem = document.getElementById("svgPlano");
+  objectElem.setAttribute("data", svgFile);
+
+  objectElem.onload = function () {
+    const svgDoc = objectElem.contentDocument;
+    const svg = svgDoc.querySelector("svg");
+
+    let gWrapper = svg.querySelector("#zoomLayer");
+    if (!gWrapper) {
+      gWrapper = document.createElementNS("http://www.w3.org/2000/svg", "g");
+      gWrapper.setAttribute("id", "zoomLayer");
+
+      while (svg.firstChild) {
+        gWrapper.appendChild(svg.firstChild);
+      }
+      svg.appendChild(gWrapper);
+    }
+
+    let scale = 1;
+    let translateX = 0;
+    let translateY = 0;
+    let isDragging = false;
+    let startX, startY;
+
+    function updateTransform() {
+      gWrapper.setAttribute("transform", `translate(${translateX},${translateY}) scale(${scale})`);
+    }
+
+  //   svg.addEventListener("wheel", (e) => {
+  //     e.preventDefault();
+  //     const delta = e.deltaY > 0 ? 0.9 : 1.1;
+  //     scale *= delta;
+  //     updateTransform();
+  //   }
+  // );
+
+    svg.addEventListener("mousedown", (e) => {
+      isDragging = true;
+      startX = e.clientX;
+      startY = e.clientY;
+    });
+
+    // svg.addEventListener("mousemove", (e) => {
+    //   if (isDragging) {
+    //     translateX += (e.clientX - startX) / scale;
+    //     translateY += (e.clientY - startY) / scale;
+    //     startX = e.clientX;
+    //     startY = e.clientY;
+    //     updateTransform();
+    //   }
+    // });
+
+    svg.addEventListener("mouseup", () => { isDragging = false; });
+    svg.addEventListener("mouseleave", () => { isDragging = false; });
+
+    fetch(jsonFile)
+      .then(res => res.json())
+      .then(data => {
+        placeMarkers(gWrapper, data);
+      });
+  };
+}
+
+document.getElementById('closeModal').addEventListener('click', () => modal.classList.remove('active'));
+window.addEventListener('click', (e) => {
+  if (e.target === modal) modal.classList.remove('active');
+});
+
+document.getElementById("edificioSelect").addEventListener("change", cargarPlano);
+document.getElementById("pisoSelect").addEventListener("change", cargarPlano);
+window.onload = cargarPlano;
+
+
+function aplicarFiltrosYBusqueda() {
+  const search = document.getElementById("searchInput").value.toLowerCase();
+  const checkedTypes = Array.from(document.querySelectorAll(".filterType:checked")).map(cb => cb.value.toLowerCase());
+
+  const fillVisible = "#003082";         // Color cuando está resaltado
+  const fillTransparent = "transparent"; // Color sin relleno
+
+  allMarkers.forEach(marker => {
+    const nombre = marker.dataset.nombre || "";
+    const tipo = marker.dataset.tipo || "";
+
+    const matchName = nombre.includes(search);
+    const matchType = checkedTypes.includes(tipo);
+
+    // Siempre visibles
+    marker.style.visibility = "visible";
+    marker.style.pointerEvents = "auto";
+
+    // Lógica de relleno según filtros y búsqueda
+    if (search.length > 0) {
+      // Si hay búsqueda, resaltamos sólo el que coincide
+      marker.setAttribute("fill", (matchName && matchType) ? fillVisible : fillTransparent);
+    } else {
+      // Si no hay búsqueda, usamos solo filtros por tipo
+      marker.setAttribute("fill", matchType ? fillVisible : fillTransparent);
+    }
+  });
+}
+
+
+
+
+
+// Eventos para búsqueda y filtrado
+document.getElementById("searchInput").addEventListener("input", aplicarFiltrosYBusqueda);
+document.querySelectorAll(".filterType").forEach(cb => {
+  cb.addEventListener("change", aplicarFiltrosYBusqueda);
+});
+
+
+</script>
+</body>
+</html>
+

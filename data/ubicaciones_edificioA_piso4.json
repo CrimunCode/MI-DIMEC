@@ -1,0 +1,14 @@
+[
+    {
+        "id": "Sala_Proyecciones",
+        "nombre": "Sala Proyecciones",
+        "tipo": "Sala",
+        "descripcion": "Sala Proyecciones",
+        "x": 17.597,
+        "y": 312.553,
+        "media": {
+            "foto": "imagenes/Pro_4P/Sala_Proyecciones.png",
+            "video": null
+        }
+    }
+]

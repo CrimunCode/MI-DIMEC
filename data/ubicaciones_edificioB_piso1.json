@@ -1,0 +1,194 @@
+[
+    {
+        "id": "Lab_Lubricacion",
+        "nombre": "Laboratorio de Lubricación",
+        "tipo": "Laboratorio",
+        "descripcion": "Labopratorio de Lubricación",
+        "x": 109.865,
+        "y": 159.979,
+        "media": {
+            "foto": "imagenes/Ter_1P/Lab_Lubricacion.png",
+            "video": null
+        }
+    },
+    {
+        "id": "Bodega_2",
+        "nombre": "Bodega 2",
+        "tipo": "Bodega",
+        "descripcion": "Bodega 2",
+        "x": 101.274,
+        "y": 166.143,
+        "media": {
+            "foto": "imagenes/Ter_1P/Bodega_2.png",
+            "video": null
+        }
+    },
+    {
+        "id": "Lab_Caldera",
+        "nombre": "Laboratorio de Calderas",
+        "tipo": "Laboratorio",
+        "descripcion": "Laboratorio de Calderas",
+        "x": 137.303,
+        "y": 160.279,
+        "media": {
+            "foto": "imagenes/Ter_1P/Lab_Caldera.png",
+            "video": null
+        }
+    },
+    {
+        "id": "Lab_Hidrogeno_Verde",
+        "nombre": "Laboratorio de Hidrógeno Verde",
+        "tipo": "Laboratorio",
+        "descripcion": "Laboratorio de Hidrógeno Verde",
+        "x": 109.872,
+        "y": 194.009,
+        "media": {
+            "foto": "imagenes/Ter_1P/Lab_Hidrogeno_Verde.png",
+            "video": null
+        }
+    },
+    {
+        "id": "Lab_Maquinas_Termicas",
+        "nombre": "Laboratorio de Máquinas Térmicas",
+        "tipo": "Laboratorio",
+        "descripcion": "Laboratorio de Máquinas Térmicas",
+        "x": 109.872,
+        "y": 230.467,
+        "media": {
+            "foto": "imagenes/Ter_1P/Lab_Maquinas_Termicas.png",
+            "video": null
+        }
+    },
+    {
+        "id": "Lab_Mecanica_Fluidos_2",
+        "nombre": "Laboratorio de Mecánica de los Fluidos 2",
+        "tipo": "Laboratorio",
+        "descripcion": "Laboratorio de Mecánica de los Fluidos 2",
+        "x": 137.003,
+        "y": 229.521,
+        "media": {
+            "foto": "imagenes/Ter_1P/Lab_Mecanica_Fluidos_2.png",
+            "video": null
+        }
+    },
+    {
+        "id": "Lab_Transferencia_Calor_Termodinamica",
+        "nombre": "Laboratorio de Transferencia de Calor y Termodinámica",
+        "tipo": "Laboratorio",
+        "descripcion": "Laboratorio de Transferencia de Calor y Termodinámica",
+        "x": 109.869,
+        "y": 248.746,
+        "media": {
+            "foto": "imagenes/Ter_1P/Lab_Transferencia_Calor_Termodinamica.png",
+            "video": null
+        }
+    },
+    {
+        "id": "Oficina_LRC",
+        "nombre": "Oficina LRC",
+        "tipo": "Oficina",
+        "descripcion": "Oficina Paradocente LRC",
+        "x": 143.238,
+        "y": 248.749,
+        "media": {
+            "foto": "imagenes/Ter_1P/Oficina_LRC.png",
+            "video": null
+        }
+    },
+    {
+        "id": "Lab_Mecanica_Fluidos_1",
+        "nombre": "Laboratorio Mecánica de los Fluidos 1",
+        "tipo": "Laboratorio",
+        "descripcion": "Laboratorio Mecánica de los Fluidos 1",
+        "x": 109.877,
+        "y": 265.782,
+        "media": {
+            "foto": "imagenes/Ter_1P/Lab_Mecanica_Fluidos_1.png",
+            "video": null
+        }
+    },
+    {
+        "id": "Sala_Micro",
+        "nombre": "Sala Micro",
+        "tipo": "Sala",
+        "descripcion": "Sala Micro",
+        "x": 143.234,
+        "y": 260.623,
+        "media": {
+            "foto": "imagenes/Ter_1P/Sala_Micro.png",
+            "video": null
+        }
+    },
+    {
+        "id": "Comedor",
+        "nombre": "Comedor Funcionarios",
+        "tipo": "Comedor",
+        "descripcion": "Comedor Funcionarios",
+        "x": 143.234,
+        "y": 283.026,
+        "media": {
+            "foto": "imagenes/Ter_1P/Comedor.png",
+            "video": null
+        }
+    },
+    {
+        "id": "Bodega_1",
+        "nombre": "Bodega 1",
+        "tipo": "Bodega",
+        "descripcion": "Bodega 1",
+        "x": 109.877,
+        "y": 301.885,
+        "media": {
+            "foto": "imagenes/Ter_1P/Bodega_1.png",
+            "video": null
+        }
+    },
+    {
+        "id": "Oficina",
+        "nombre": "Oficina",
+        "tipo": "Oficina",
+        "descripcion": "Oficina",
+        "x": 121.236,
+        "y": 301.885,
+        "media": {
+            "foto": "imagenes/Ter_1P/Oficina.png",
+            "video": null
+        }
+    },
+    {
+        "id": "Bodega_ND",
+        "nombre": "Bodega de Aseo",
+        "tipo": "Bodega",
+        "descripcion": "Bodega de Aseo",
+        "x": 143.373,
+        "y": 320.004,
+        "media": {
+            "foto": "imagenes/Ter_1P/Bodega_ND.png",
+            "video": null
+        }
+    },
+    {
+        "id": "Sala_Julio_Guzman",
+        "nombre": "Sala Julio Guzmán Barrera",
+        "tipo": "Sala",
+        "descripcion": "Sala Julio Guzmán Barrera",
+        "x": 154.728,
+        "y": 301.321,
+        "media": {
+            "foto": "imagenes/Ter_1P/Sala_Julio_Guzman.png",
+            "video": null
+        }
+    },
+    {
+        "id": "Bano_Alumnos_Damas",
+        "nombre": "Baño de Alumnos - Damas",
+        "tipo": "Baño",
+        "descripcion": "Baño de Alumnos - Damas",
+        "x": 192.030,
+        "y": 301.321,
+        "media": {
+            "foto": "imagenes/Ter_1P/Bano_Alumnos_Damas.png",
+            "video": null
+        }
+    }
+]

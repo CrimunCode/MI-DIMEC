@@ -1,0 +1,38 @@
+[
+    {
+        "id": "Ofi_Doc_CML",
+        "nombre": "Oficina CML",
+        "tipo": "Oficina",
+        "descripcion": "Oficina Docente CML",
+        "x": 40.775,
+        "y": 315.582,
+        "media": {
+            "foto": "imagenes/Pro_2P/Ofi_Doc_CML.png",
+            "video": null
+        }
+    },
+    {
+        "id": "Ofi_Doc_CGS",
+        "nombre": "Oficina CGS",
+        "tipo": "Oficina",
+        "descripcion": "Oficina Docente CGS",
+        "x": 29.510,
+        "y": 317.813,
+        "media": {
+            "foto": "imagenes/Pro_2P/Ofi_Doc_CGS.png",
+            "video": null
+        }
+    },
+    {
+        "id": "Ofi_Doc_AAA",
+        "nombre": "Oficina AAA",
+        "tipo": "Oficina",
+        "descripcion": "Oficina Docente AAA",
+        "x": 18.245,
+        "y": 312.039,
+        "media": {
+            "foto": "imagenes/Pro_2P/Ofi_Doc_AAA.png",
+            "video": null
+        }
+    }
+]

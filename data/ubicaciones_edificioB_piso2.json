@@ -1,0 +1,38 @@
+[
+    {
+        "id": "Oficina_YAC",
+        "nombre": "Oficina YAC",
+        "tipo": "Oficina",
+        "descripcion": "Oficina Docente YAC",
+        "x": 127.358,
+        "y": 317.817,
+        "media": {
+            "foto": "imagenes/Ter_2P/Oficina_YAC.png",
+            "video": null
+        }
+    },
+    {
+        "id": "Oficina_MGS",
+        "nombre": "Oficina MGS",
+        "tipo": "Oficina",
+        "descripcion": "Oficina Docente MGS",
+        "x": 116.106,
+        "y": 317.817,
+        "media": {
+            "foto": "imagenes/Ter_2P/Oficina_MGS.png",
+            "video": null
+        }
+    },
+    {
+        "id": "Oficina_CCT",
+        "nombre": "Oficina CCT",
+        "tipo": "Oficina",
+        "descripcion": "Oficina Docente CCT",
+        "x": 104.851,
+        "y": 312.040,
+        "media": {
+            "foto": "imagenes/Ter_2P/Oficina_CCT.png",
+            "video": null
+        }
+    }
+]

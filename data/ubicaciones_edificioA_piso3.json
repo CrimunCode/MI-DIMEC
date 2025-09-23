@@ -1,0 +1,74 @@
+[
+    {
+        "id": "Sala_217",
+        "nombre": "Sala 217",
+        "tipo": "Sala",
+        "descripcion": "Sala 217",
+        "x": 18.271,
+        "y": 169.422,
+        "media": {
+            "foto": "imagenes/Pro_3P/Sala_217.png",
+            "video": null
+        }
+    },
+    {
+        "id": "Sala_216",
+        "nombre": "Sala 216",
+        "tipo": "Sala",
+        "descripcion": "Sala 216",
+        "x": 18.271,
+        "y": 204.313,
+        "media": {
+            "foto": "imagenes/Pro_3P/Sala_216.png",
+            "video": null
+        }
+    },
+    {
+        "id": "Sala_215",
+        "nombre": "Sala 215",
+        "tipo": "Sala",
+        "descripcion": "Sala 215",
+        "x": 18.271,
+        "y": 257.327,
+        "media": {
+            "foto": "imagenes/Pro_3P/Sala_215.png",
+            "video": null
+        }
+    },
+    {
+        "id": "Oficina_NMB",
+        "nombre": "Oficina NMB",
+        "tipo": "Oficina",
+        "descripcion": "Oficina Docente NMB",
+        "x": 18.271,
+        "y": 311.925,
+        "media": {
+            "foto": "imagenes/Pro_3P/Oficina_NMB.png",
+            "video": null
+        }
+    },
+    {
+        "id": "Oficina_LSL",
+        "nombre": "Oficina LSL",
+        "tipo": "Oficina",
+        "descripcion": "Oficina Docente LSL",
+        "x": 29.653,
+        "y": 319.888,
+        "media": {
+            "foto": "imagenes/Pro_3P/Oficina_LSL.png",
+            "video": null
+        }
+    },
+     {
+        "id": "Oficina_EV",
+        "nombre": "Oficina EV",
+        "tipo": "Oficina",
+        "descripcion": "Oficina Docente EV",
+        "x": 41.000,
+        "y": 319.881,
+        "media": {
+            "foto": "imagenes/Pro_3P/Oficina_EV.png",
+            "video": null
+        }
+    }
+]

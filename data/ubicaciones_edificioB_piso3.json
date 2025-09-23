@@ -1,0 +1,206 @@
+[
+    {
+        "id": "Bodega_Electricidad",
+        "nombre": "Bodeda de Electricidad",
+        "tipo": "Bodega",
+        "descripcion": "Bodeda de Electricidad",
+        "x": 105.974,
+        "y": 169.572,
+        "media": {
+            "foto": "imagenes/Ter_3P/Bodega_Electricidad.png",
+            "video": null
+        }
+    },
+    {
+        "id": "Lab_Electrotecnia",
+        "nombre": "Laboraotorio de Electrotecnia",
+        "tipo": "Laboratorio",
+        "descripcion": "Laboraotorio de Electrotecnia",
+        "x": 118.403,
+        "y": 169.572,
+        "media": {
+            "foto": "imagenes/Ter_3P/Lab_Electrotecnia.png",
+            "video": null
+        }
+    },
+    {
+        "id": "Oficina_Paradocente",
+        "nombre": "Oficina Paradocente",
+        "tipo": "Oficina",
+        "descripcion": "Oficina Paradocente",
+        "x": 141.136,
+        "y": 169.572,
+        "media": {
+            "foto": "imagenes/Ter_3P/Oficina_Paradocente.png",
+            "video": null
+        }
+    },
+    {
+        "id": "Lab_Control",
+        "nombre": "Laboratorio de Control Automático",
+        "tipo": "Laboratorio",
+        "descripcion": "Laboratorio de Control Automático",
+        "x": 106.074,
+        "y": 197.628,
+        "media": {
+            "foto": "imagenes/Ter_3P/Lab_Control.png",
+            "video": null
+        }
+    },
+    {
+        "id": "Lab_Maquinas_Electricas",
+        "nombre": "Laboratorio de Máquinas Eléctricas",
+        "tipo": "Laboratorio",
+        "descripcion": "Laboratorio de Máquinas Eléctricas",
+        "x": 121.728,
+        "y": 185.585,
+        "media": {
+            "foto": "imagenes/Ter_3P/Lab_Maquinas_Electricas.png",
+            "video": null
+        }
+    },
+    {
+        "id": "Sala_Postgrado_2",
+        "nombre": "Sala Postgrado 2",
+        "tipo": "Sala",
+        "descripcion": "Sala Postgrado 2",
+        "x": 129.440,
+        "y": 222.611,
+        "media": {
+            "foto": "imagenes/Ter_3P/Sala_Postgrado_2.png",
+            "video": null
+        }
+    },
+    {
+        "id": "Sala_Postgrado_1",
+        "nombre": "Sala Postgrado 1",
+        "tipo": "Sala",
+        "descripcion": "Sala Postgrado 1",
+        "x": 129.440,
+        "y": 239.807,
+        "media": {
+            "foto": "imagenes/Ter_3P/Sala_Postgrado_1.png",
+            "video": null
+        }
+    },
+    {
+        "id": "Sala_Electricidad",
+        "nombre": "Sala de Electricidad",
+        "tipo": "Sala",
+        "descripcion": "Sala de Electricidad",
+        "x": 106.074,
+        "y": 222.604,
+        "media": {
+            "foto": "imagenes/Ter_3P/Sala_Electricidad.png",
+            "video": null
+        }
+    },
+    {
+        "id": "Sala_Auto_Solar",
+        "nombre": "Sala del Proyecto Auto Solar",
+        "tipo": "Sala",
+        "descripcion": "Sala del Proyecto Auto Solar",
+        "x": 129.440,
+        "y": 257.632,
+        "media": {
+            "foto": "imagenes/Ter_3P/Sala_Auto_Solar.png",
+            "video": null
+        }
+    },
+    {
+        "id": "Bodega_TIC",
+        "nombre": "Bodega TIC",
+        "tipo": "Bodega",
+        "descripcion": "Bodega TIC",
+        "x": 106.024,
+        "y": 275.169,
+        "media": {
+            "foto": "imagenes/Ter_3P/Bodega_TIC.png",
+            "video": null
+        }
+    },
+    {
+        "id": "Oficina_CEC_ICM",
+        "nombre": "Oficina CEC Ingeniería Civil Mecánica",
+        "tipo": "Oficina",
+        "descripcion": "Oficina CEC Ingeniería Civil Mecánica",
+        "x": 106.024,
+        "y": 287.227,
+        "media": {
+            "foto": "imagenes/Ter_3P/Oficina_CEC_ICM.png",
+            "video": null
+        }
+    },
+    {
+        "id": "Oficina_CEC_IM",
+        "nombre": "Oficina CEC Ingeniería Mecánica",
+        "tipo": "Oficina",
+        "descripcion": "Oficina CEC Ingeniería Mecánica",
+        "x": 106.024,
+        "y": 299.551,
+        "media": {
+            "foto": "imagenes/Ter_3P/Oficina_CEC_IM.png",
+            "video": null
+        }
+    },
+    {
+        "id": "Sala_Estudio",
+        "nombre": "Sala de Estudio",
+        "tipo": "Sala",
+        "descripcion": "Sala de Estudio",
+        "x": 139.929,
+        "y": 281.674,
+        "media": {
+            "foto": "imagenes/Ter_3P/Sala_Estudio.png",
+            "video": null
+        }
+    },
+    {
+        "id": "Oficina_JVL",
+        "nombre": "Oficina Docente",
+        "tipo": "Oficina",
+        "descripcion": "Oficina Docente JVL",
+        "x": 106.036,
+        "y": 320.445,
+        "media": {
+            "foto": "imagenes/Ter_3P/Oficina_JVL.png",
+            "video": null
+        }
+    },
+    {
+        "id": "Oficina_LSB",
+        "nombre": "Oficina Docente",
+        "tipo": "Oficina",
+        "descripcion": "Oficina Docente LSB",
+        "x": 117.307,
+        "y": 323.462,
+        "media": {
+            "foto": "imagenes/Ter_3P/Oficina_LSB.png",
+            "video": null
+        }
+    },
+    {
+        "id": "Bano_Funcionarios",
+        "nombre": "Baño de Funcionarios",
+        "tipo": "Baño",
+        "descripcion": "Baño de Funcionarios",
+        "x": 129.152,
+        "y": 323.462,
+        "media": {
+            "foto": "imagenes/Ter_3P/Bano_Funcionarios.png",
+            "video": null
+        }
+    },
+    {
+        "id": "Lab_MC_NMB",
+        "nombre": "Laboratorio Mecánica Computacional",
+        "tipo": "Laboratorio",
+        "descripcion": "Laboratorio Mecánica Computacional",
+        "x": 106.074,
+        "y": 258.149,
+        "media": {
+            "foto": "imagenes/Ter_3P/Lab_MC_NMB.png",
+            "video": null
+        }
+    }
+]
