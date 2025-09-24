@@ -50,6 +50,8 @@
   <label><input type="checkbox" class="filterType" value="Laboratorio" > Laboratorio</label>
   <label><input type="checkbox" class="filterType" value="Oficina" > Oficina</label>
   <label><input type="checkbox" class="filterType" value="Bodega" > Bodega</label>
+  <button id="resetViewBtn">🔄 Volver al mapa general</button>
+
 
 </div>
 
@@ -252,6 +254,47 @@ window.addEventListener("load",async()=>{
     document.getElementById("svgPlano").setAttribute("data",defaultMap.svg);
     currentMap=defaultMap;
   }
+
+  /* ---------- Resetear vista al mapa general ---------- */
+  document.getElementById("resetViewBtn").addEventListener("click", async ()=>{
+    // Buscar en el índice el plano general
+    const general = mapsIndex.find(m => 
+      (m.edificio && m.edificio.toLowerCase() === "general") || m.piso === 0
+    );
+
+    const defaultMap = general || mapsIndex[0];
+    if(!defaultMap) return;
+
+    // Cambiar selects
+    document.getElementById("edificioSelect").value = defaultMap.edificio || "A";
+    document.getElementById("pisoSelect").value = defaultMap.piso || "1";
+
+    // Cargar SVG del mapa general
+    const obj = document.getElementById("svgPlano");
+    await new Promise(resolve => { obj.setAttribute("data", defaultMap.svg); obj.onload = ()=> resolve(); });
+
+    currentMap = defaultMap;
+
+    // Cargar ubicaciones del mapa general (si existen)
+    try {
+      const r = await fetch(defaultMap.json);
+      const data = await r.json();
+      const svgDoc = obj.contentDocument;
+      const gWrapper = crearZoomLayerSiHaceFalta(svgDoc);
+      placeMarkers(gWrapper, data);
+    } catch (e) {
+      console.warn("No se pudo cargar ubicaciones del mapa general:", e);
+    }
+
+    // Cerrar modal si estaba abierto
+    modal.classList.remove("active");
+
+    // Limpiar búsqueda
+    document.getElementById("searchInput").value = "";
+    aplicarFiltrosYBusqueda();
+  });
+
+
 });
 </script>
 </body>
