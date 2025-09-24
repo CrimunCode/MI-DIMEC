@@ -1,0 +1,14 @@
+{
+  "maps": [
+    {"edificio":"A","piso":1,"svg":"edificios/edificioA_piso1.svg","json":"data/ubicaciones_edificioA_piso1.json"},
+    {"edificio":"A","piso":2,"svg":"edificios/edificioA_piso2.svg","json":"data/ubicaciones_edificioA_piso2.json"},
+    {"edificio":"A","piso":3,"svg":"edificios/edificioA_piso3.svg","json":"data/ubicaciones_edificioA_piso3.json"},
+    {"edificio":"A","piso":4,"svg":"edificios/edificioA_piso4.svg","json":"data/ubicaciones_edificioA_piso4.json"},
+    {"edificio":"B","piso":1,"svg":"edificios/edificioB_piso1.svg","json":"data/ubicaciones_edificioB_piso1.json"},
+    {"edificio":"B","piso":2,"svg":"edificios/edificioB_piso2.svg","json":"data/ubicaciones_edificioB_piso2.json"},
+    {"edificio":"B","piso":3,"svg":"edificios/edificioB_piso3.svg","json":"data/ubicaciones_edificioB_piso3.json"},
+    {"edificio":"B","piso":4,"svg":"edificios/edificioB_piso4.svg","json":"data/ubicaciones_edificioB_piso4.json"},
+    {"edificio":"C","piso":1,"svg":"edificios/edificioC_piso1.svg","json":"data/ubicaciones_edificioC_piso1.json"},
+    {"edificio":"General","piso":0,"svg":"edificios/plano_general.svg","json":"data/ubicaciones_general.json"}
+  ]
+}
