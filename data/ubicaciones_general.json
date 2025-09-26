@@ -1,1 +1,58 @@
-[]
+[
+    {
+        "id": "Sector_Procesos",
+        "nombre": "Sector Procesos",
+        "tipo": "Laboratorio",
+        "descripcion": "Laboratorio de Procesos Mecánicos",
+        "x": 50.802,
+        "y": 82.865
+    },
+    {
+        "id": "Sector_Termofluidos",
+        "nombre": "Sector Termofluidos",
+        "tipo": "Laboratorio",
+        "descripcion": "Laboratorio de Termofluidos",
+        "x": 73.461,
+        "y": 82.865
+    },
+    {
+        "id": "Sector_Fundicion",
+        "nombre": "Sector Fundición",
+        "tipo": "Laboratorio",
+        "descripcion": "Laboratorio de Fundición",
+        "x": 99.864,
+        "y": 73.437
+    },
+    {
+        "id": "Biblioteca",
+        "nombre": "Biblioteca Central",
+        "tipo": "Laboratorio",
+        "descripcion": "Biblioteca Central",
+        "x": 4.383,
+        "y": 82.827
+    },
+    {
+        "id": "OAME",
+        "nombre": "Oficina de Acompañamiento y Monitoreo Estudiantil (OAME)",
+        "tipo": "Oficina",
+        "descripcion": "Oficina de Acompañamiento y Monitoreo Estudiantil (OAME)",
+        "x": 27.631,
+        "y": 82.827
+    },
+    {
+        "id": "Capacitaciones",
+        "nombre": "Oficina de Capacitaciones",
+        "tipo": "Oficina",
+        "descripcion": "Oficina de Capacitaciones",
+        "x": 4.422,
+        "y": 71.580
+    },
+    {
+        "id": "Tunel",
+        "nombre": "Tunel",
+        "tipo": "Oficina",
+        "descripcion": "Tunel",
+        "x": 23.117,
+        "y": 72.126
+    }
+]

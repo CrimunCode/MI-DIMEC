@@ -66,6 +66,30 @@
 
 <script>
 
+function highlightBuilding(buildingId) {
+  const obj = document.getElementById("svgPlano");
+  const svgDoc = obj.contentDocument;
+  if (!svgDoc) return;
+  const el = svgDoc.getElementById(buildingId);
+  if (!el) return;
+
+  if (!el.__origFill) el.__origFill = el.getAttribute("fill") || "transparent";
+  el.setAttribute("fill", "black");
+  el.setAttribute("opacity", "0.2");
+}
+
+function unhighlightBuilding(buildingId) {
+  const obj = document.getElementById("svgPlano");
+  const svgDoc = obj.contentDocument;
+  if (!svgDoc) return;
+  const el = svgDoc.getElementById(buildingId);
+  if (!el) return;
+
+  el.setAttribute("fill", el.__origFill || "transparent");
+  el.setAttribute("opacity", "1");
+}
+
+
 /* ---------- Diccionario de nombres de edificios ---------- */
 const nombresEdificios = {
   "A": "Sector Procesos",
@@ -188,13 +212,19 @@ function showSuggestions(list){
   suggestionsEl.innerHTML="";
   if(!list.length){ suggestionsEl.style.display="none"; return; }
 
-  list.forEach(s=>{
-    const li = document.createElement("li");
-    const edificioNombre = nombresEdificios[s.mapEntry.edificio] || s.mapEntry.edificio;
-    li.textContent = `${s.item.nombre} - ${edificioNombre} - Piso ${s.mapEntry.piso}`;
-    li.onclick = ()=> selectSuggestion(s);
-    suggestionsEl.appendChild(li);
-  });
+  list.forEach(s => {
+  const li = document.createElement("li");
+  const edificioNombre = nombresEdificios[s.mapEntry.edificio] || s.mapEntry.edificio;
+  li.textContent = `${s.item.nombre} - ${edificioNombre} - Piso ${s.mapEntry.piso}`;
+
+  const edificioId = "edificio" + s.mapEntry.edificio; // ej: "edificioA"
+  li.addEventListener("mouseenter", () => highlightBuilding(edificioId));
+  li.addEventListener("mouseleave", () => unhighlightBuilding(edificioId));
+  li.addEventListener("click", () => selectSuggestion(s));
+
+  suggestionsEl.appendChild(li);
+});
+
 
   suggestionsEl.style.display="block";
 }
