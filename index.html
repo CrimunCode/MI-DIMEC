@@ -4,96 +4,115 @@
   <meta charset="UTF-8">
   <title>Mapa Interactivo DIMEC</title>
   <style>
-  body { margin: 0; font-family: sans-serif; }
+    body { margin: 0; font-family: sans-serif; }
 
-  /* === Controles flotantes centrados === */
-  #controls {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: rgba(255,255,255,0.95);
-    backdrop-filter: blur(4px);
-    padding: 15px 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.25);
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    align-items: center;
-    z-index: 100;
-  }
-
-  select, input[type="text"], button {
-    padding: 5px;
-    font-size: 1em;
-  }
-
-  /* === Plano centrado horizontal, alto fijo === */
-  #plano-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100vh;
-  }
-
-  #svgPlano {
-    height: 850px;
-    width: auto;
-    display: block;
-    margin: 0 auto;
-  }
-
-  svg { width: 100%; height: auto; }
-
-  .modal {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    background: white;
-    border: 1px solid #ccc;
-    padding: 15px;
-    max-width: 300px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
-    display: none;
-    z-index: 200;
-  }
-  .modal.active { display: block; }
-
-  @media (max-width: 600px) {
-    .modal {
-      top: auto; bottom: 0; right: 0; left: 0;
-      max-width: none; width: 100%;
-      border-radius: 10px 10px 0 0;
+    /* === Controles arriba fijo === */
+    #controls {
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(4px);
+      padding: 10px 15px;
+      border-radius: 8px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.25);
+      display: flex;
+      flex-direction: row;
+      gap: 15px;
+      align-items: center;
+      z-index: 100;
     }
-  }
 
-  /* === Lista de sugerencias === */
-  #suggestions {
-    position: absolute;
-    top: calc(100% + 6px);
-    left: 0;
-    right: 0;
-    background: white;
-    border: 1px solid #ddd;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    max-height: 240px;
-    overflow-y: auto;
-    display: none;
-    z-index: 150;
-  }
-  #suggestions li {
-    padding: 6px 8px;
-    cursor: pointer;
-  }
-  #suggestions li:hover {
-    background: #f0f0f0;
-  }
-</style>
+    select, input[type="text"], button {
+      padding: 5px;
+      font-size: 1em;
+    }
 
+    #resetViewBtn {
+      display: inline-block !important; /* siempre visible */
+    }
+
+    /* === Plano general + overlay === */
+    #plano-container {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    
+    #svgOverlay {
+      height: 850px;
+      width: auto;
+      display: block;
+      margin: 0 auto;
+    }
+
+    #svgGeneral {
+      background: white;   /* fondo blanco siempre */
+      opacity: 1;          /* opaco por defecto */
+      transition: opacity 0.3s ease;
+      z-index: 1;
+    }
+
+    #svgOverlay {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      pointer-events: auto;
+      z-index: 10;
+    }
+
+    .modal {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: white;
+      border: 1px solid #ccc;
+      padding: 15px;
+      max-width: 300px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+      display: none;
+      z-index: 200;
+    }
+    .modal.active { display: block; }
+
+    @media (max-width: 600px) {
+      .modal {
+        top: auto; bottom: 0; right: 0; left: 0;
+        max-width: none; width: 100%;
+        border-radius: 10px 10px 0 0;
+      }
+    }
+
+    /* === Lista de sugerencias === */
+    #suggestions {
+      position: absolute;
+      top: calc(100% + 6px);
+      left: 0;
+      right: 0;
+      background: white;
+      border: 1px solid #ddd;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      max-height: 240px;
+      overflow-y: auto;
+      display: none;
+      z-index: 150;
+    }
+    #suggestions li {
+      padding: 6px 8px;
+      cursor: pointer;
+    }
+    #suggestions li:hover {
+      background: #f0f0f0;
+    }
+  </style>
 </head>
 <body>
   <div id="controls">
@@ -105,7 +124,10 @@
   </div>
 
   <div id="plano-container">
-    <object id="svgPlano" type="image/svg+xml"></object>
+    <!-- plano de fondo -->
+    <object id="svgGeneral" type="image/svg+xml"></object>
+    <!-- overlay (edificio/piso) -->
+    <object id="svgOverlay" type="image/svg+xml"></object>
   </div>
 
   <div id="infoModal" class="modal">
@@ -116,9 +138,9 @@
   <script>
   /* ---------- Diccionario nombres edificios ---------- */
   const nombresEdificios = {
-    "A": "Sector Procesos",
-    "B": "Sector Termofluidos",
-    "C": "Sector Fundición",
+    "A": "Sector: Procesos",
+    "B": "Sector: Termofluidos",
+    "C": "Sector: Fundición",
     "General": "Plano General"
   };
 
@@ -128,10 +150,10 @@
   function showInfo(data){
     document.getElementById("modalContent").innerHTML = `
       <h3>${data.nombre}</h3>
-      <p><strong>Tipo:</strong> ${data.tipo}</p>
-      <p>${data.descripcion || ""}</p>
+      ${data.media && data.media.video ? `<video controls style="width:100%" autoplay="true" loop=true muted="true"><source src="${data.media.video}" type="video/mp4"></video>` : ""}
+      <p><strong>Ubicación:</strong> ${data.ubicacion}</p>
+      <p>${data.descripcion || ""}
       ${data.media && data.media.foto ? `<img src="${data.media.foto}" alt="${data.nombre}" style="width:100%;">` : ""}
-      ${data.media && data.media.video ? `<video controls style="width:100%;"><source src="${data.media.video}" type="video/mp4"></video>` : ""}
     `;
     modal.classList.add("active");
   }
@@ -170,7 +192,7 @@
     });
   }
 
-  /* ---------- Filtros (mínimos, solo búsqueda) ---------- */
+  /* ---------- Filtros mínimos (solo búsqueda) ---------- */
   function aplicarFiltrosYBusqueda(){
     const search=document.getElementById("searchInput").value.toLowerCase();
     allMarkers.forEach(marker=>{
@@ -181,9 +203,9 @@
   }
   document.getElementById("searchInput").addEventListener("input",aplicarFiltrosYBusqueda);
 
-  /* ---------- Cargar plano ---------- */
-  function cargarPlano(svgFile,jsonFile){
-    const obj=document.getElementById("svgPlano");
+  /* ---------- Cargar plano general ---------- */
+  function cargarPlanoGeneral(svgFile,jsonFile){
+    const obj=document.getElementById("svgGeneral");
     obj.setAttribute("data",svgFile);
     obj.onload=function(){
       const svgDoc=obj.contentDocument;
@@ -204,7 +226,9 @@
         items.forEach(it=>nameIndex.push({nombreLower:(it.nombre||"").toLowerCase(),item:it,mapEntry:entry}));
       }catch(e){} }));
   }
+
   const suggestionsEl=document.getElementById("suggestions"),searchInput=document.getElementById("searchInput");
+
   function showSuggestions(list){
     suggestionsEl.innerHTML="";
     if(!list.length){ suggestionsEl.style.display="none"; return; }
@@ -217,39 +241,74 @@
     });
     suggestionsEl.style.display="block";
   }
-  function clearSuggestions(){ suggestionsEl.style.display="none"; suggestionsEl.innerHTML=""; }
+
+  function clearSuggestions(){
+    suggestionsEl.style.display="none";
+    suggestionsEl.innerHTML="";
+  }
+
   searchInput.addEventListener("input",debounce(()=>{
     const q=searchInput.value.trim().toLowerCase(); if(!q){clearSuggestions();return;}
     const starts=nameIndex.filter(n=>n.nombreLower.startsWith(q)).slice(0,10);
     const contains=nameIndex.filter(n=>n.nombreLower.includes(q)&&!n.nombreLower.startsWith(q)).slice(0,10-starts.length);
     showSuggestions(starts.concat(contains));
   },150));
+
   searchInput.addEventListener("keydown",e=>{
-    if(e.key==="Enter"){const q=searchInput.value.trim().toLowerCase();if(!q)return;
+    if(e.key==="Enter"){
+      const q=searchInput.value.trim().toLowerCase();if(!q)return;
       const pick=nameIndex.find(n=>n.nombreLower===q)||nameIndex.find(n=>n.nombreLower.startsWith(q));
-      if(pick) selectSuggestion(pick); clearSuggestions();}
+      if(pick) selectSuggestion(pick);
+      clearSuggestions();
+      searchInput.blur();
+    }
     else if(e.key==="Escape") clearSuggestions();
   });
 
   /* ---------- Selección de sugerencia ---------- */
   async function selectSuggestion(entry){
     const mapEntry=entry.mapEntry;
-    if(!currentMap||currentMap.svg!==mapEntry.svg){
-      const obj=document.getElementById("svgPlano");
-      await new Promise(resolve=>{obj.setAttribute("data",mapEntry.svg);obj.onload=()=>resolve();});
-      currentMap=mapEntry;
-      const r=await fetch(mapEntry.json);const data=await r.json();
-      const svgDoc=obj.contentDocument; const gWrapper=crearZoomLayerSiHaceFalta(svgDoc);
+
+    const objOverlay=document.getElementById("svgOverlay");
+    await new Promise(resolve=>{
+      objOverlay.setAttribute("data", mapEntry.svg);
+      objOverlay.onload=()=>resolve();
+    });
+    currentMap=mapEntry;
+
+    try {
+      const r=await fetch(mapEntry.json);
+      const data=await r.json();
+      const svgDoc=objOverlay.contentDocument;
+      const svg = svgDoc.querySelector("svg");
+      // 👉 fondo blanco semitransparente detrás del edificio
+      if(svg && !svg.querySelector("#overlayBackground")){
+        const rect = svgDoc.createElementNS("http://www.w3.org/2000/svg","rect");
+        rect.setAttribute("id","overlayBackground");
+        rect.setAttribute("x","0");
+        rect.setAttribute("y","0");
+        rect.setAttribute("width","100%");
+        rect.setAttribute("height","100%");
+        rect.setAttribute("fill","white");
+        rect.setAttribute("opacity","0.1");
+        svg.insertBefore(rect, svg.firstChild);
+      }
+      const gWrapper=crearZoomLayerSiHaceFalta(svgDoc);
       placeMarkers(gWrapper,data);
-    }
+    } catch(e){}
+
     focusOnLocation(entry.item);
     clearSuggestions();
+    searchInput.blur();
+
+    // 👉 Hacer transparente el plano general
+    document.getElementById("svgGeneral").style.opacity = "0.1";
   }
 
   /* ---------- Focus ---------- */
   function focusOnLocation(ubicacion){
-    const obj=document.getElementById("svgPlano"),svgDoc=obj.contentDocument;if(!svgDoc)return;
-    const svg=svgDoc.querySelector("svg");const el=svgDoc.getElementById(ubicacion.id);if(!el)return;
+    const obj=document.getElementById("svgOverlay"),svgDoc=obj.contentDocument;if(!svgDoc)return;
+    const el=svgDoc.getElementById(ubicacion.id);if(!el)return;
     el.setAttribute("fill","black"); el.setAttribute("opacity","0.9");
     showInfo(ubicacion);
   }
@@ -259,16 +318,31 @@
     const general = mapsIndex.find(m=>(m.edificio&&m.edificio.toLowerCase()==="general")||m.piso===0);
     const defaultMap = general || mapsIndex[0];
     if(!defaultMap) return;
-    const obj=document.getElementById("svgPlano");
-    await new Promise(resolve=>{obj.setAttribute("data",defaultMap.svg);obj.onload=()=>resolve();});
+
+    const objGeneral=document.getElementById("svgGeneral");
+    await new Promise(resolve=>{
+      objGeneral.setAttribute("data",defaultMap.svg);
+      objGeneral.onload=()=>resolve();
+    });
     currentMap=defaultMap;
+
     try {
-      const r=await fetch(defaultMap.json);const data=await r.json();
-      const svgDoc=obj.contentDocument; const gWrapper=crearZoomLayerSiHaceFalta(svgDoc);
+      const r=await fetch(defaultMap.json);
+      const data=await r.json();
+      const svgDoc=objGeneral.contentDocument;
+      const gWrapper=crearZoomLayerSiHaceFalta(svgDoc);
       placeMarkers(gWrapper,data);
-    } catch(e) { console.warn("No se pudo cargar ubicaciones del mapa general:",e); }
+    } catch(e){}
+
+    // limpiar overlay
+    document.getElementById("svgOverlay").removeAttribute("data");
+
+    // volver opaco el plano general
+    document.getElementById("svgGeneral").style.opacity = "1";
+
     modal.classList.remove("active");
     document.getElementById("searchInput").value="";
+    clearSuggestions();
   });
 
   /* ---------- Inicio ---------- */
@@ -277,7 +351,7 @@
     const general=mapsIndex.find(m=>(m.edificio&&m.edificio.toLowerCase()==="general")||m.piso===0);
     const defaultMap=general||mapsIndex[0];
     if(defaultMap){
-      document.getElementById("svgPlano").setAttribute("data",defaultMap.svg);
+      document.getElementById("svgGeneral").setAttribute("data",defaultMap.svg);
       currentMap=defaultMap;
     }
   });

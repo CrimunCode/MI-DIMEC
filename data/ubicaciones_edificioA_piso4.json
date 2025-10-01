@@ -1,8 +1,9 @@
 [
     {
         "id": "Sala_Proyecciones",
-        "nombre": "Sala Proyecciones",
-        "tipo": "Sala",
+        "nombre": "Proyecciones",
+        "tipo": "Sala de Clases",
+        "ubicacion": "Sector Procesos, 4º Piso",
         "descripcion": "Sala Proyecciones",
         "x": 17.597,
         "y": 312.553,

@@ -3,6 +3,7 @@
         "id": "Sala_Termofluidos",
         "nombre": "Sala Termofluidos",
         "tipo": "Sala",
+        "ubicacion": "Sector Termofluidos, 4º Piso",
         "descripcion": "Sala Termofluidos",
         "x": 105.337,
         "y": 312.534,

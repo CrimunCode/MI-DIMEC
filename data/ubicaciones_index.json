@@ -9,6 +9,6 @@
     {"edificio":"B","piso":3,"svg":"edificios/edificioB_piso3.svg","json":"data/ubicaciones_edificioB_piso3.json"},
     {"edificio":"B","piso":4,"svg":"edificios/edificioB_piso4.svg","json":"data/ubicaciones_edificioB_piso4.json"},
     {"edificio":"C","piso":1,"svg":"edificios/edificioC_piso1.svg","json":"data/ubicaciones_edificioC_piso1.json"},
-    {"edificio":"General","piso":0,"svg":"edificios/plano_general.svg","json":"data/ubicaciones_general.json"}
+    {"edificio":"General","piso":1,"svg":"edificios/plano_general.svg","json":"data/ubicaciones_general.json"}
   ]
 }

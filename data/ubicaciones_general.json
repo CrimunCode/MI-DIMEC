@@ -3,56 +3,91 @@
         "id": "Sector_Procesos",
         "nombre": "Sector Procesos",
         "tipo": "Laboratorio",
-        "descripcion": "Laboratorio de Procesos Mecánicos",
+        "ubicacion": "Anfión Muñoz 870, 1º Piso",
+        "descripcion": "<strong>Experiencias de Laboratorio que se realizan:</strong><ul><li>Ensayos de Tracción, Torción y Flexión</li><li>Tratamientos Térmicos</li><li>Soldadura TIG/MIG</li></ul>",
         "x": 50.802,
-        "y": 82.865
+        "y": 82.865,
+        "media": {
+            "foto": "imagenes/Pro_1P/Procesos.png",
+            "video": null
+        }
     },
     {
         "id": "Sector_Termofluidos",
         "nombre": "Sector Termofluidos",
         "tipo": "Laboratorio",
-        "descripcion": "Laboratorio de Termofluidos",
+        "ubicacion": "Anfión Muñoz 870, 1º Piso",
+        "descripcion": "<strong>Experiencias de Laboratorio que se realizan:</strong><ul><li>Mecánica de los Fluidos</li><li>Transferencia de Calor</li><li>Lubricación</li><li>Hidráhulica</li></ul>",
         "x": 73.461,
-        "y": 82.865
+        "y": 82.865,
+        "media": {
+            "foto": "imagenes/Ter_1P/Termofluidos.png",
+            "video": null
+        }
     },
     {
         "id": "Sector_Fundicion",
         "nombre": "Sector Fundición",
         "tipo": "Laboratorio",
-        "descripcion": "Laboratorio de Fundición",
+        "ubicacion": "Anfión Muñoz 870, 1º Piso",
+        "descripcion": "",
         "x": 99.864,
-        "y": 73.437
+        "y": 73.437,
+        "media": {
+            "foto": null,
+            "video": null
+        }
     },
     {
         "id": "Biblioteca",
-        "nombre": "Biblioteca Central",
-        "tipo": "Laboratorio",
-        "descripcion": "Biblioteca Central",
+        "nombre": "Biblioteca Central Irma Salas Silva",
+        "tipo": "Biblioteca",
+        "ubicacion": "Anfión Muñoz 875, 1º Piso",
+        "descripcion": "<p><strong>Horario:</strong><p>Lun 08:00 - 19:00 Hrs.</p><p>Mar 08:00 - 19:00 Hrs.</p><p>Mie 08:00 - 19:00 Hrs.</p><p>Jue 08:00 - 19:00 Hrs.</p><p>Vie 08:00 - 19:00 Hrs.</p><p>Sab y Dom Cerrado.</p></p>",
         "x": 4.383,
-        "y": 82.827
+        "y": 82.827,
+        "media": {
+            "foto": "imagenes/Biblio/Biblioteca.jpg",
+            "video": "videos/Biblio/Biblioteca.mp4"
+        }
     },
     {
         "id": "OAME",
         "nombre": "Oficina de Acompañamiento y Monitoreo Estudiantil (OAME)",
         "tipo": "Oficina",
-        "descripcion": "Oficina de Acompañamiento y Monitoreo Estudiantil (OAME)",
+        "ubicacion": "Anfión Muñoz # 850, 3º Piso",
+        "descripcion": "<p><strong>Horario:</strong><p>Lun 08:00 - 18:00 Hrs.</p><p>Mar 08:00 - 18:00 Hrs.</p><p>Mie 08:00 - 18:00 Hrs.</p><p>Jue 08:00 - 18:00 Hrs.</p><p>Vie 08:00 - 17:00 Hrs.</p><p>Sab y Dom Cerrado.</p></p>",
         "x": 27.631,
-        "y": 82.827
+        "y": 82.827,
+        "media": {
+            "foto": "imagenes/OAME/OAME.png",
+            "video": "videos/OAME/OAME.mp4"
+        }
     },
     {
-        "id": "Capacitaciones",
-        "nombre": "Oficina de Capacitaciones",
+        "id": "ALUMNI",
+        "nombre": "ALUMNI - ULS",
         "tipo": "Oficina",
-        "descripcion": "Oficina de Capacitaciones",
+        "ubicacion": "Amunategui # 890, 1º Piso",
+        "descripcion": "<strong>Información de Contacto:</strong><p><ul><li><strong>Correo:</strong> alumni@userena.cl</li><p><li><strong>Teléfonos:</strong> (051) 2 204172</li></ul>",
         "x": 4.422,
-        "y": 71.580
+        "y": 71.580,
+         "media": {
+            "foto": "imagenes/Alumni_ULS/ALUMNI.jpg",
+            "video": "videos/Alumni_ULS/ALUMNI.mp4"
+        }
     },
     {
         "id": "Tunel",
         "nombre": "Tunel",
         "tipo": "Oficina",
-        "descripcion": "Tunel",
+        "ubicacion": "Sector Tunel, Subterraneo",
+        "descripcion": "Tunel subterraneo, que une los campus Ignacio Domeyko e Isabel Bongard de la Universidad de La Serena.<p>",
         "x": 23.117,
-        "y": 72.126
+        "y": 72.126,
+        "media": {
+            "foto": "imagenes/Tunel/Tunel.jpg",
+            "video": "videos/Tunel/Tunel.mp4"
+        }
     }
 ]
