@@ -112,6 +112,35 @@
     #suggestions li:hover {
       background: #f0f0f0;
     }
+
+    /* === Lightbox === */
+    #lightbox {
+      display: none;               /* oculto por defecto */
+      position: fixed;
+      z-index: 9999;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.9); /* fondo oscuro */
+      justify-content: center;
+      align-items: center;
+    }
+
+    #lightbox img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 8px;
+      box-shadow: 0 0 20px rgba(255,255,255,0.3);
+    }
+
+    #lightboxClose {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      color: white;
+      font-size: 2em;
+      cursor: pointer;
+    }
+
   </style>
 </head>
 <body>
@@ -135,6 +164,11 @@
     <div id="modalContent"></div>
   </div>
 
+  <div id="lightbox">
+    <span id="lightboxClose">&times;</span>
+    <img id="lightboxImg" src="" alt="Imagen ampliada">
+  </div>
+
   <script>
   /* ---------- Diccionario nombres edificios ---------- */
   const nombresEdificios = {
@@ -147,13 +181,14 @@
   /* ---------- Modal ---------- */
   const modal = document.getElementById("infoModal");
   document.getElementById("closeModal").addEventListener("click", ()=> modal.classList.remove("active"));
+
   function showInfo(data){
     document.getElementById("modalContent").innerHTML = `
       <h3>${data.nombre}</h3>
       ${data.media && data.media.video ? `<video controls style="width:100%" autoplay="true" loop=true muted="true"><source src="${data.media.video}" type="video/mp4"></video>` : ""}
       <p><strong>Ubicación:</strong> ${data.ubicacion}</p>
       <p>${data.descripcion || ""}
-      ${data.media && data.media.foto ? `<img src="${data.media.foto}" alt="${data.nombre}" style="width:100%;">` : ""}
+      ${data.media && data.media.foto ? `<img src="${data.media.foto}" alt="${data.nombre}" style="width:100%;cursor:pointer;"onclick="openLightbox('${data.media.foto}')">` : ""}
     `;
     modal.classList.add("active");
   }
@@ -355,6 +390,25 @@
       currentMap=defaultMap;
     }
   });
+
+  function openLightbox(src){
+    const lightbox = document.getElementById("lightbox");
+    const img = document.getElementById("lightboxImg");
+    img.src = src;
+    lightbox.style.display = "flex";
+  }
+
+  document.getElementById("lightboxClose").addEventListener("click", ()=>{
+    document.getElementById("lightbox").style.display = "none";
+  });
+
+  // cerrar con clic en el fondo
+  document.getElementById("lightbox").addEventListener("click",(e)=>{
+    if(e.target.id === "lightbox"){
+      document.getElementById("lightbox").style.display = "none";
+    }
+  });
+
   </script>
 </body>
 </html>
