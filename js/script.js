@@ -6,6 +6,16 @@ const nombresEdificios = {
 "General": "Plano General"
 };
 
+const idEdificiosSVG = {
+  "A": "Sector_Procesos",
+  "B": "Sector_Termofluidos",
+  "C": "Sector_Fundicion",
+  "Biblioteca": "Biblioteca",
+  "OAME": "OAME",
+  "ALUMNI": "ALUMNI",
+  "Tunel": "Tunel"
+};
+
 /* ---------- Modal ---------- */
 const modal = document.getElementById("infoModal");
 document.getElementById("closeModal").addEventListener("click", ()=> modal.classList.remove("active"));
@@ -57,14 +67,14 @@ function placeMarkers(svgRoot, ubicaciones){
 
 /* ---------- Filtros mínimos (solo búsqueda) ---------- */
 function aplicarFiltrosYBusqueda(){
-    const search=document.getElementById("searchInput").value.toLowerCase();
-    allMarkers.forEach(marker=>{
-        const nombre=marker.dataset.nombre||"";
-        const matchName=nombre.includes(search);
-        marker.setAttribute("fill", (search && matchName) ? "black":"transparent");
-    });
+    // const search=document.getElementById("searchInput").value.toLowerCase();
+    // allMarkers.forEach(marker=>{
+    //     const nombre=marker.dataset.nombre||"";
+    //     const matchName=nombre.includes(search);
+    //     marker.setAttribute("fill", (search && matchName) ? "black":"transparent");
+    // });
 }
-document.getElementById("searchInput").addEventListener("input",aplicarFiltrosYBusqueda);
+//document.getElementById("searchInput").addEventListener("input",aplicarFiltrosYBusqueda);
 
 /* ---------- Cargar plano general ---------- */
 function cargarPlanoGeneral(svgFile,jsonFile){
@@ -93,17 +103,28 @@ function debounce(fn,wait){let t;return(...a)=>{clearTimeout(t);t=setTimeout(()=
 const suggestionsEl=document.getElementById("suggestions"),searchInput=document.getElementById("searchInput");
 
 function showSuggestions(list){
-    suggestionsEl.innerHTML="";
-    if(!list.length){ suggestionsEl.style.display="none"; return; }
-    list.forEach(s=>{
-        const li = document.createElement("li");
-        const edificioNombre = nombresEdificios[s.mapEntry.edificio] || s.mapEntry.edificio;
-        li.textContent = `${s.item.nombre} - ${edificioNombre} - Piso ${s.mapEntry.piso}`;
-        li.onclick = ()=> selectSuggestion(s);
-        suggestionsEl.appendChild(li);
-    });
-    suggestionsEl.style.display="block";
+  suggestionsEl.innerHTML="";
+  if(!list.length){ suggestionsEl.style.display="none"; return; }
+
+  list.forEach(s=>{
+    const li = document.createElement("li");
+    const edificioNombre = nombresEdificios[s.mapEntry.edificio] || s.mapEntry.edificio;
+    li.textContent = `${s.item.nombre} - ${edificioNombre} - Piso ${s.mapEntry.piso}`;
+
+    // Guardamos info en dataset
+    li.dataset.edificio = s.mapEntry.edificio;
+
+    // Eventos para hover
+    li.addEventListener("mouseenter", ()=> highlightBuilding(s.mapEntry));
+    li.addEventListener("mouseleave", clearHighlight);
+
+    li.onclick = ()=> selectSuggestion(s);
+    suggestionsEl.appendChild(li);
+  });
+
+  suggestionsEl.style.display="block";
 }
+
 
 function clearSuggestions(){
     suggestionsEl.style.display="none";
@@ -236,3 +257,38 @@ document.getElementById("lightbox").addEventListener("click",(e)=>{
         document.getElementById("lightbox").style.display = "none";
     }
 });
+
+function highlightBuilding(mapEntry){
+  const svgDoc = document.getElementById("svgGeneral").contentDocument;
+  if(!svgDoc) return;
+
+  // Quitamos highlight previo
+  clearHighlight();
+
+  // Buscar el id real en el SVG
+  const svgId = idEdificiosSVG[mapEntry.edificio] || mapEntry.edificio;
+  const buildingEl = svgDoc.getElementById(svgId);
+
+  if(buildingEl){
+    buildingEl.dataset.originalFill = buildingEl.getAttribute("fill") || "transparent";
+    buildingEl.dataset.originalOpacity = buildingEl.getAttribute("opacity") || "1";
+    buildingEl.setAttribute("fill","orange");
+    buildingEl.setAttribute("opacity","0.5");
+  }
+}
+
+function clearHighlight(){
+  const svgDoc = document.getElementById("svgGeneral").contentDocument;
+  if(!svgDoc) return;
+
+  // Restaurar todos los edificios definidos en el diccionario
+  Object.values(idEdificiosSVG).forEach(id=>{
+    const el = svgDoc.getElementById(id);
+    if(el && el.dataset.originalFill){
+      el.setAttribute("fill", el.dataset.originalFill);
+      el.setAttribute("opacity", el.dataset.originalOpacity || "1");
+      delete el.dataset.originalFill;
+      delete el.dataset.originalOpacity;
+    }
+  });
+}
