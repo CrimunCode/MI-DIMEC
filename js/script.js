@@ -285,8 +285,8 @@ function highlightBuilding(mapEntry){
   buildingEl.dataset.originalOpacity = buildingEl.getAttribute("opacity") || "";
 
   // aplicar resaltado
-  buildingEl.setAttribute("fill","#f39c12"); // naranja
-  buildingEl.setAttribute("opacity","0.45");
+  buildingEl.setAttribute("fill","#000000ff"); // gris
+  buildingEl.setAttribute("opacity","0.9");
 }
 
 /* ---------- Quitar highlight ---------- */
