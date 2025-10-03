@@ -1,4 +1,6 @@
-/* ---------- Diccionario nombres edificios ---------- */
+/* ----------------- script.js (actualizado) ----------------- */
+
+/* ---------- Diccionario nombres edificios (texto para sugerencias) ---------- */
 const nombresEdificios = {
   "A": "Sector: Procesos",
   "B": "Sector: Termofluidos",
@@ -6,18 +8,40 @@ const nombresEdificios = {
   "General": "Plano General"
 };
 
-/* ---------- Mapeo IDs reales en el SVG general ---------- */
-/* Ajusta estos valores si tus ids en el SVG son distintos */
+/* ---------- Mapeo ids reales en el SVG general (ajusta si es necesario) ---------- */
 const idEdificiosSVG = {
   "A": "Sector_Procesos",
   "B": "Sector_Termofluidos",
   "C": "Sector_Fundicion",
-  // otros ids que uses en tu SVG (ejemplo: Biblioteca, OAME...)
+  // agrega aquí otros ids que uses en el SVG general si aplican
   "Biblioteca": "Biblioteca",
   "OAME": "OAME",
   "ALUMNI": "ALUMNI",
   "Tunel": "Tunel"
 };
+
+/* ---------- Utilidades para asegurar carga de <object> ---------- */
+function ensureObjectLoaded(obj) {
+  return new Promise(resolve => {
+    if (!obj) return resolve();
+    try {
+      if (obj.contentDocument && obj.contentDocument.readyState) return resolve();
+    } catch (e) {}
+    // si no está listo, espera al evento load
+    const onLoad = ()=> { obj.removeEventListener('load', onLoad); resolve(); };
+    obj.addEventListener('load', onLoad, { once: true });
+  });
+}
+
+function loadObjectData(obj, url) {
+  return new Promise(resolve => {
+    if (!obj) return resolve();
+    const onLoad = ()=> { obj.removeEventListener('load', onLoad); resolve(); };
+    obj.addEventListener('load', onLoad, { once: true });
+    // setAttribute AFTER listener to avoid race
+    obj.setAttribute('data', url);
+  });
+}
 
 /* ---------- Modal ---------- */
 const modal = document.getElementById("infoModal");
@@ -26,8 +50,8 @@ document.getElementById("closeModal").addEventListener("click", ()=> modal.class
 function showInfo(data){
   document.getElementById("modalContent").innerHTML = `
     <h3>${data.nombre}</h3>
-    ${data.media && data.media.video ? `<video controls style="width:100%" autoplay="true" loop=true muted="true"><source src="${data.media.video}" type="video/mp4"></video>` : ""}
-    <p><strong>Ubicación:</strong> ${data.ubicacion}</p>
+    ${data.media && data.media.video ? `<video controls style="width:100%" autoplay loop muted><source src="${data.media.video}" type="video/mp4"></video>` : ""}
+    <p><strong>Ubicación:</strong> ${data.ubicacion || ""}</p>
     <p>${data.descripcion || ""}</p>
     ${data.media && data.media.foto ? `<img src="${data.media.foto}" alt="${data.nombre}" style="width:100%;cursor:pointer;" onclick="openLightbox('${data.media.foto}')">` : ""}
   `;
@@ -41,13 +65,9 @@ function openLightbox(src){
   img.src = src;
   lightbox.style.display = "flex";
 }
-document.getElementById("lightboxClose").addEventListener("click", ()=>{
-  document.getElementById("lightbox").style.display = "none";
-});
+document.getElementById("lightboxClose").addEventListener("click", ()=> document.getElementById("lightbox").style.display="none");
 document.getElementById("lightbox").addEventListener("click",(e)=>{
-  if(e.target.id === "lightbox"){
-    document.getElementById("lightbox").style.display = "none";
-  }
+  if(e.target.id === "lightbox"){ document.getElementById("lightbox").style.display="none"; }
 });
 
 /* ---------- ZoomLayer seguro ---------- */
@@ -63,7 +83,7 @@ function crearZoomLayerSiHaceFalta(svgDoc){
   return gWrapper;
 }
 
-/* ---------- Marcadores ---------- */
+/* ---------- Marcadores (ubicaciones) ---------- */
 let allMarkers = [];
 function placeMarkers(svgRoot, ubicaciones){
   allMarkers = [];
@@ -71,12 +91,11 @@ function placeMarkers(svgRoot, ubicaciones){
     const target = svgRoot.ownerDocument.getElementById(ubicacion.id);
     if(!target) return;
     if(!target.__attached){
-      target.setAttribute("fill","transparent");
-      target.setAttribute("stroke","white");
-      // asegurar que se reciban eventos aun si fill transparente
-      try { target.setAttribute("pointer-events","all"); } catch(e){}
+      try { target.setAttribute("fill","transparent"); } catch(e){}
+      try { target.setAttribute("stroke","white"); } catch(e){}
+      try { target.setAttribute("pointer-events","all"); } catch(e){} // importante para hover cuando fill transparent
       target.style.cursor="pointer";
-      target.dataset.nombre=(ubicacion.nombre||"").toLowerCase();
+      target.dataset.nombre = (ubicacion.nombre||"").toLowerCase();
       target.addEventListener("mouseenter", ()=> target.setAttribute("fill","black"));
       target.addEventListener("mouseleave", ()=> target.setAttribute("fill","transparent"));
       target.addEventListener("click", ()=> showInfo(ubicacion));
@@ -86,11 +105,11 @@ function placeMarkers(svgRoot, ubicaciones){
   });
 }
 
-/* ---------- Filtros mínimos (solo búsqueda) ---------- */
-/* Opción 1: no pintar nada mientras se escribe */
+/* ---------- No pintar mientras se escribe (opción 1) ---------- */
 function aplicarFiltrosYBusqueda(){
-  // deliberadamente vacío (el resaltado ocurre solo en hover sobre sugerencias)
+  // deliberadamente vacío: el resaltado ocurre solo en hover sobre sugerencias
 }
+// si existía listener previo, ya se maneja desde index.html al incluir script
 document.getElementById("searchInput").removeEventListener && document.getElementById("searchInput").removeEventListener("input", aplicarFiltrosYBusqueda);
 document.getElementById("searchInput").addEventListener("input", aplicarFiltrosYBusqueda);
 
@@ -101,12 +120,11 @@ function inicializarColoresPlanoGeneral(){
   const svgDoc = obj.contentDocument;
   if(!svgDoc) return;
 
-  // recorrer el diccionario y forzar fill transparent + pointer-events para hover
   Object.values(idEdificiosSVG).forEach(id => {
     if(!id) return;
     const el = svgDoc.getElementById(id);
     if(el){
-      // guardar original (por si hicimos highlight y luego reset)
+      // guarda original si no existe
       if(typeof el.dataset.originalFill === "undefined"){
         el.dataset.originalFill = el.getAttribute("fill") || "";
         el.dataset.originalOpacity = el.getAttribute("opacity") || "";
@@ -114,40 +132,17 @@ function inicializarColoresPlanoGeneral(){
       try {
         el.setAttribute("fill","transparent");
         el.setAttribute("opacity","1");
-        el.setAttribute("pointer-events","all"); // importante para hover aunque sea transparente
+        el.setAttribute("pointer-events","all");
       } catch(e){}
     }
   });
 }
 
-/* ---------- Cargar plano general centralizado ---------- */
-function cargarPlanoGeneral(svgFile, jsonFile){
-  const obj = document.getElementById("svgGeneral");
-  obj.setAttribute("data", svgFile);
-  obj.onload = function(){
-    const svgDoc = obj.contentDocument;
-    if(!svgDoc) return;
-    const gWrapper = crearZoomLayerSiHaceFalta(svgDoc);
-    // cargar ubicaciones y luego inicializar colores
-    if(jsonFile){
-      fetch(jsonFile).then(r=>r.json()).then(data=>{
-        placeMarkers(gWrapper, data);
-        // después de colocar marcadores, forzamos fills transparent para los edificios
-        inicializarColoresPlanoGeneral();
-      }).catch(err=>{
-        // aunque falle el JSON, inicializamos colores
-        inicializarColoresPlanoGeneral();
-      });
-    } else {
-      inicializarColoresPlanoGeneral();
-    }
-  };
-}
-
-/* ---------- Autocomplete global ---------- */
+/* ---------- Autocomplete / index ---------- */
 function debounce(fn,wait){let t;return(...a)=>{clearTimeout(t);t=setTimeout(()=>fn(...a),wait);};}
 const INDEX_FILE = "data/ubicaciones_index.json";
 let mapsIndex = [], nameIndex = [], currentMap = null;
+let cachedGeneralLocations = null;
 
 async function buildIndex(){
   try {
@@ -157,20 +152,23 @@ async function buildIndex(){
     mapsIndex = [];
     console.warn("No se pudo cargar index:", e);
   }
-
   await Promise.all(mapsIndex.map(async entry=>{
-    try{
+    try {
       const r = await fetch(entry.json);
       if(!r.ok) return;
       const items = await r.json();
-      items.forEach(it=>{
-        nameIndex.push({nombreLower:(it.nombre||"").toLowerCase(), item: it, mapEntry: entry});
-      });
-    }catch(e){}
+      items.forEach(it => nameIndex.push({
+        nombreLower: (it.nombre||"").toLowerCase(),
+        item: it,
+        mapEntry: entry
+      }));
+    } catch(e){}
   }));
 }
 
-const suggestionsEl = document.getElementById("suggestions"), searchInput = document.getElementById("searchInput");
+/* ---------- Sugerencias ---------- */
+const suggestionsEl = document.getElementById("suggestions"),
+      searchInput = document.getElementById("searchInput");
 
 function showSuggestions(list){
   suggestionsEl.innerHTML = "";
@@ -181,14 +179,18 @@ function showSuggestions(list){
     const edificioNombre = nombresEdificios[s.mapEntry.edificio] || s.mapEntry.edificio;
     li.textContent = `${s.item.nombre} - ${edificioNombre} - Piso ${s.mapEntry.piso}`;
 
-    // Guardamos info en dataset (útil para debugging)
-    li.dataset.edificio = s.mapEntry.edificio;
+    // guardamos la referencia por si quieres debug
+    li.dataset.edificio = s.mapEntry.edificio || "";
 
-    // Eventos para hover: resaltan edificio en el plano general
-    li.addEventListener("mouseenter", ()=> highlightBuilding(s.mapEntry));
-    li.addEventListener("mouseleave", ()=> clearHighlight());
+    // hover => highlight edificio en plano general
+    li.addEventListener("mouseenter", ()=> {
+      try { highlightBuilding(s.mapEntry); } catch(e){ console.warn("highlightBuilding err", e); }
+    });
+    li.addEventListener("mouseleave", ()=> { try { clearHighlight(); } catch(e){} });
 
+    // click => seleccionar
     li.addEventListener("click", ()=> selectSuggestion(s));
+
     suggestionsEl.appendChild(li);
   });
 
@@ -200,8 +202,10 @@ function clearSuggestions(){
   suggestionsEl.innerHTML = "";
 }
 
+/* ---------- Eventos de búsqueda ---------- */
 searchInput.addEventListener("input", debounce(()=>{
-  const q = searchInput.value.trim().toLowerCase(); if(!q){ clearSuggestions(); return; }
+  const q = searchInput.value.trim().toLowerCase();
+  if(!q){ clearSuggestions(); return; }
   const starts = nameIndex.filter(n=>n.nombreLower.startsWith(q)).slice(0,10);
   const contains = nameIndex.filter(n=>n.nombreLower.includes(q) && !n.nombreLower.startsWith(q)).slice(0,10-starts.length);
   showSuggestions(starts.concat(contains));
@@ -212,61 +216,30 @@ searchInput.addEventListener("keydown", e=>{
     const q = searchInput.value.trim().toLowerCase(); if(!q) return;
     const pick = nameIndex.find(n=>n.nombreLower===q) || nameIndex.find(n=>n.nombreLower.startsWith(q));
     if(pick) selectSuggestion(pick);
-    clearSuggestions();
-    searchInput.blur();
+    clearSuggestions(); searchInput.blur();
   } else if(e.key === "Escape") clearSuggestions();
 });
 
-/* ---------- Selección de sugerencia (overlay) ---------- */
-async function selectSuggestion(entry){
-  const mapEntry = entry.mapEntry;
-
-  const objOverlay = document.getElementById("svgOverlay");
-  await new Promise(resolve=>{
-    objOverlay.setAttribute("data", mapEntry.svg);
-    objOverlay.onload = () => resolve();
-  });
-  currentMap = mapEntry;
-
-  try {
-    const r = await fetch(mapEntry.json);
-    const data = await r.json();
-    const svgDoc = objOverlay.contentDocument;
-    const svg = svgDoc.querySelector("svg");
-    if(svg && !svg.querySelector("#overlayBackground")){
-      const rect = svgDoc.createElementNS("http://www.w3.org/2000/svg","rect");
-      rect.setAttribute("id","overlayBackground");
-      rect.setAttribute("x","0");
-      rect.setAttribute("y","0");
-      rect.setAttribute("width","100%");
-      rect.setAttribute("height","100%");
-      rect.setAttribute("fill","white");
-      rect.setAttribute("opacity","0.1");
-      svg.insertBefore(rect, svg.firstChild);
-    }
-    const gWrapper = crearZoomLayerSiHaceFalta(svgDoc);
-    placeMarkers(gWrapper, data);
-  } catch(e){ console.warn(e); }
-
-  focusOnLocation(entry.item);
-  clearSuggestions();
-  searchInput.blur();
-
-  // hacer transparente el plano general (el valor 0.1 => 90% transparente)
-  document.getElementById("svgGeneral").style.opacity = "0.1";
+/* ---------- Resolve id robusto ---------- */
+function resolveSvgId(mapEntry){
+  if(!mapEntry) return null;
+  const key = String(mapEntry.edificio || "").trim();
+  if(!key) return null;
+  // Prefer mapping
+  if(idEdificiosSVG[key]) return idEdificiosSVG[key];
+  // try direct variations
+  const cand = [
+    key,
+    "edificio" + key,
+    key.toUpperCase(),
+    key.replace(/\s+/g,"_"),
+    key.replace(/\s+/g,"")
+  ];
+  // if none found we will try later to search by substring
+  return cand[0]; // return first as baseline; highlightBuilding will try to find actual element
 }
 
-/* ---------- Focus ---------- */
-function focusOnLocation(ubicacion){
-  const obj = document.getElementById("svgOverlay"), svgDoc = obj.contentDocument;
-  if(!svgDoc) return;
-  const el = svgDoc.getElementById(ubicacion.id);
-  if(!el) return;
-  el.setAttribute("fill","black"); el.setAttribute("opacity","0.9");
-  showInfo(ubicacion);
-}
-
-/* ---------- Highlight edificio en plano general ---------- */
+/* ---------- Highlight / clear ---------- */
 function highlightBuilding(mapEntry){
   const obj = document.getElementById("svgGeneral");
   if(!obj) return;
@@ -275,67 +248,163 @@ function highlightBuilding(mapEntry){
 
   clearHighlight();
 
-  const svgId = idEdificiosSVG[mapEntry.edificio] || mapEntry.edificio;
-  if(!svgId) return;
-  const buildingEl = svgDoc.getElementById(svgId);
-  if(!buildingEl) return;
+  // Try mapped id first, otherwise attempt to find matching element
+  let svgId = idEdificiosSVG[mapEntry.edificio] || String(mapEntry.edificio || "");
+  let el = svgDoc.getElementById(svgId);
 
-  // guardar estado original
-  buildingEl.dataset.originalFill = buildingEl.getAttribute("fill") || "";
-  buildingEl.dataset.originalOpacity = buildingEl.getAttribute("opacity") || "";
+  // fallback: try uppercase or "edificio"+key
+  if(!el){
+    const alt = svgId.toString().toUpperCase();
+    el = svgDoc.getElementById(alt) || svgDoc.getElementById("edificio" + svgId);
+  }
 
-  // aplicar resaltado
-  buildingEl.setAttribute("fill","#000000ff"); // gris
-  buildingEl.setAttribute("opacity","0.9");
+  // fallback: try find element whose id contains the key (case-insensitive)
+  if(!el){
+    const needle = (svgId || "").toString().toLowerCase();
+    if(needle){
+      const all = svgDoc.querySelectorAll('[id]');
+      for(let i=0;i<all.length;i++){
+        const id = all[i].id || "";
+        if(id.toLowerCase().includes(needle)){
+          el = all[i];
+          break;
+        }
+      }
+    }
+  }
+
+  if(!el) return;
+
+  // store original
+  el.dataset.originalFill = el.getAttribute("fill") || "";
+  el.dataset.originalOpacity = el.getAttribute("opacity") || "";
+
+  try {
+    el.setAttribute("fill", "#f39c12"); // naranja
+    el.setAttribute("opacity", "0.45");
+  } catch(e){}
 }
 
-/* ---------- Quitar highlight ---------- */
 function clearHighlight(){
   const obj = document.getElementById("svgGeneral");
   if(!obj) return;
   const svgDoc = obj.contentDocument;
   if(!svgDoc) return;
 
+  // restore for known ids
   Object.values(idEdificiosSVG).forEach(id=>{
     const el = svgDoc.getElementById(id);
     if(el && typeof el.dataset.originalFill !== "undefined"){
-      el.setAttribute("fill", el.dataset.originalFill || "transparent");
-      el.setAttribute("opacity", el.dataset.originalOpacity || "1");
-      delete el.dataset.originalFill;
-      delete el.dataset.originalOpacity;
+      try {
+        el.setAttribute("fill", el.dataset.originalFill || "transparent");
+        el.setAttribute("opacity", el.dataset.originalOpacity || "1");
+        delete el.dataset.originalFill;
+        delete el.dataset.originalOpacity;
+      } catch(e){}
     }
   });
+
+  // also try to restore any other element we may have touched (safety)
+  const touched = svgDoc.querySelectorAll('[data-original-fill]');
+  if(touched && touched.length){
+    touched.forEach(el=>{
+      try {
+        el.setAttribute("fill", el.dataset.originalFill || "transparent");
+        el.setAttribute("opacity", el.dataset.originalOpacity || "1");
+        delete el.dataset.originalFill;
+        delete el.dataset.originalOpacity;
+      } catch(e){}
+    });
+  }
 }
 
-/* ---------- Reset ---------- */
-document.getElementById("resetViewBtn").addEventListener("click", async ()=>{
-  const general = mapsIndex.find(m=>(m.edificio && m.edificio.toLowerCase()==="general") || m.piso===0);
-  const defaultMap = general || mapsIndex[0];
-  if(!defaultMap) return;
+/* ---------- Selección de sugerencia (AHORA con highlight previo) ---------- */
+async function selectSuggestion(entry){
+  const mapEntry = entry.mapEntry;
 
-  // usar la función centralizada para cargar el plano general
-  cargarPlanoGeneral(defaultMap.svg, defaultMap.json);
-  currentMap = defaultMap;
+  // 1) asegurar svgGeneral cargado y resaltar edificio en el general
+  const objGeneral = document.getElementById("svgGeneral");
+  await ensureObjectLoaded(objGeneral); // espera si fuera necesario
+  try { highlightBuilding(mapEntry); } catch(e){ console.warn(e); }
 
-  // limpiar overlay
-  document.getElementById("svgOverlay").removeAttribute("data");
+  // 2) cargar overlay del piso/edificio (objOverlay)
+  const objOverlay = document.getElementById("svgOverlay");
+  await loadObjectData(objOverlay, mapEntry.svg);
+  currentMap = mapEntry;
 
-  // volver opaco el plano general
-  document.getElementById("svgGeneral").style.opacity = "1";
+  // 3) cargar ubicaciones del overlay y colocar marcadores
+  try {
+    const r = await fetch(mapEntry.json);
+    const data = await r.json();
+    const svgDoc = objOverlay.contentDocument;
+    const gWrapper = crearZoomLayerSiHaceFalta(svgDoc);
+    placeMarkers(gWrapper, data);
+  } catch(e){ console.warn("Error cargando json overlay:", e); }
 
-  modal.classList.remove("active");
-  document.getElementById("searchInput").value="";
+  // 4) centrar / destacar la ubicación, limpiar sugerencias y atenuar general
+  focusOnLocation(entry.item);
   clearSuggestions();
+  searchInput.blur();
+  document.getElementById("svgGeneral").style.opacity = "0.1";
+}
+
+/* ---------- Focus en la ubicación (overlay) ---------- */
+function focusOnLocation(ubicacion){
+  const obj = document.getElementById("svgOverlay");
+  const svgDoc = obj.contentDocument;
+  if(!svgDoc) return;
+  const el = svgDoc.getElementById(ubicacion.id);
+  if(!el) return;
+  try {
+    el.setAttribute("fill","black");
+    el.setAttribute("opacity","0.9");
+  } catch(e){}
+  showInfo(ubicacion);
+}
+
+/* ---------- Reset optimizado ---------- */
+document.getElementById("resetViewBtn").addEventListener("click", ()=>{
+  // quitar overlay
+  document.getElementById("svgOverlay").removeAttribute("data");
+  // volver opaco el general
+  document.getElementById("svgGeneral").style.opacity = "1";
+  // inicializar colores (transparent) y reposicionar marcadores cacheados
+  inicializarColoresPlanoGeneral();
+  if(cachedGeneralLocations){
+    const svgDoc = document.getElementById("svgGeneral").contentDocument;
+    const gWrapper = crearZoomLayerSiHaceFalta(svgDoc);
+    placeMarkers(gWrapper, cachedGeneralLocations);
+  }
+  modal.classList.remove("active");
+  document.getElementById("searchInput").value = "";
+  clearSuggestions();
+  clearHighlight();
 });
 
-/* ---------- Inicio ---------- */
+/* ---------- Inicio: cargar index y plano general (una sola vez) ---------- */
 window.addEventListener("load", async ()=>{
   await buildIndex();
   const general = mapsIndex.find(m=>(m.edificio && m.edificio.toLowerCase()==="general") || m.piso===0);
   const defaultMap = general || mapsIndex[0];
-  if(defaultMap){
-    // usar la función centralizada para cargar el plano general
-    cargarPlanoGeneral(defaultMap.svg, defaultMap.json);
-    currentMap = defaultMap;
-  }
+  if(!defaultMap) return;
+
+  // cargar SVG general y luego JSON de ubicaciones (cache)
+  const objGeneral = document.getElementById("svgGeneral");
+  objGeneral.setAttribute("data", defaultMap.svg);
+  objGeneral.onload = async ()=>{
+    try {
+      const r = await fetch(defaultMap.json);
+      const data = await r.json();
+      cachedGeneralLocations = data;
+      const svgDoc = objGeneral.contentDocument;
+      const gWrapper = crearZoomLayerSiHaceFalta(svgDoc);
+      placeMarkers(gWrapper, data);
+      inicializarColoresPlanoGeneral();
+    } catch(e){
+      // aunque falle el JSON, intentamos inicializar colores
+      try { inicializarColoresPlanoGeneral(); } catch(err){}
+      console.warn("No se pudieron cargar ubicaciones generales:", e);
+    }
+  };
 });
+/* ----------------- fin script.js ----------------- */
