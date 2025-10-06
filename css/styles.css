@@ -287,3 +287,21 @@ select, input[type="text"], button {
     cursor: pointer;
   }
 }
+
+/* ---------- TRANSICIONES SUAVES ENTRE PLANOS ---------- */
+
+#svgGeneral,
+#svgOverlay {
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+/* Efecto de zoom sutil cuando se cambia */
+.fade-out {
+  opacity: 0;
+  transform: scale(0.97);
+}
+
+.fade-in {
+  opacity: 1;
+  transform: scale(1);
+}

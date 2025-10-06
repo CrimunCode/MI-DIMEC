@@ -318,6 +318,19 @@ function clearHighlight(){
   }
 }
 
+/* ---------- Funciones para animar transiciones ---------- */
+function fadeOut(el){
+  if(!el) return;
+  el.classList.remove("fade-in");
+  el.classList.add("fade-out");
+}
+
+function fadeIn(el){
+  if(!el) return;
+  el.classList.remove("fade-out");
+  el.classList.add("fade-in");
+}
+
 /* ---------- Selección de sugerencia (AHORA con highlight previo) ---------- */
 async function selectSuggestion(entry){
   const mapEntry = entry.mapEntry;
@@ -345,7 +358,16 @@ async function selectSuggestion(entry){
   focusOnLocation(entry.item);
   clearSuggestions();
   searchInput.blur();
-  document.getElementById("svgGeneral").style.opacity = "0.1";
+
+  const generalObj = document.getElementById("svgGeneral");
+
+  // Efecto de salida del mapa general
+  fadeOut(generalObj);
+  setTimeout(()=> {
+    generalObj.style.opacity = "0.1";
+  fadeIn(document.getElementById("svgOverlay"));
+  }, 100);
+
 }
 
 /* ---------- Focus en la ubicación (overlay) ---------- */
@@ -365,13 +387,19 @@ function focusOnLocation(ubicacion){
 /* ---------- Reset optimizado ---------- */
 document.getElementById("resetViewBtn").addEventListener("click", ()=>{
   // quitar overlay
-  document.getElementById("svgOverlay").removeAttribute("data");
+  const overlay = document.getElementById("svgOverlay");
   // volver opaco el general
-  document.getElementById("svgGeneral").style.opacity = "1";
+  const general = document.getElementById("svgGeneral");
+  fadeOut(overlay);
+  setTimeout(()=>{
+    overlay.removeAttribute("data");
+    general.style.opacity = "1";
+    fadeIn(general);
+  }, 100);
   // inicializar colores (transparent) y reposicionar marcadores cacheados
   inicializarColoresPlanoGeneral();
   if(cachedGeneralLocations){
-    const svgDoc = document.getElementById("svgGeneral").contentDocument;
+    const svgDoc = general.contentDocument;
     const gWrapper = crearZoomLayerSiHaceFalta(svgDoc);
     placeMarkers(gWrapper, cachedGeneralLocations);
   }
