@@ -135,3 +135,155 @@ select, input[type="text"], button {
     font-size: 2em;
     cursor: pointer;
 }
+
+/* ======== Ajustes base existentes ======== */
+
+/* Compatibilidad con Smartphones (Responsive Desing) */
+@media (max-width: 768px) {
+  /* ---------- CONTENEDORES ---------- */
+  body {
+    margin: 0;
+    overflow-x: hidden;
+    font-size: 14px;
+  }
+
+  #controls {
+    position: fixed;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 420px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255,255,255,0.95);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    border-radius: 10px;
+    padding: 10px;
+    z-index: 2000;
+  }
+
+  #controls input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+  }
+
+  #resetViewBtn {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    background: #2d89ef;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+  }
+
+  #resetViewBtn:hover {
+    background: #1e5fb3;
+  }
+
+  /* ---------- PLANO GENERAL ---------- */
+  #plano-container {
+    margin-top: 120px; /* deja espacio para controles */
+    height: calc(100vh - 130px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #svgGeneral,
+  #svgOverlay {
+    width: 95vw !important;
+    height: auto !important;
+    max-height: 70vh;
+  }
+
+  /* ---------- SUGERENCIAS ---------- */
+  #suggestions {
+    position: absolute;
+    top: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    z-index: 3000;
+  }
+
+  #suggestions li {
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+    font-size: 15px;
+  }
+
+  #suggestions li:hover {
+    background: #f1f1f1;
+  }
+
+  /* ---------- MODAL ---------- */
+  #infoModal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.75);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+    z-index: 4000;
+  }
+
+  #modalContent {
+    width: 100%;
+    max-height: 80vh;
+    overflow-y: auto;
+    background: white;
+    border-radius: 10px;
+    padding: 15px;
+  }
+
+  #modalContent img,
+  #modalContent video {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+
+  /* ---------- LIGHTBOX ---------- */
+  #lightbox {
+    background: rgba(0,0,0,0.9);
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 5000;
+  }
+
+  #lightbox img {
+    width: 95vw;
+    height: auto;
+    max-height: 90vh;
+    border-radius: 10px;
+  }
+
+  #lightboxClose {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 32px;
+    color: white;
+    cursor: pointer;
+  }
+}
