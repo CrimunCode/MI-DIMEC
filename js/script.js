@@ -280,8 +280,8 @@ function highlightBuilding(mapEntry){
   el.dataset.originalOpacity = el.getAttribute("opacity") || "";
 
   try {
-    el.setAttribute("fill", "#f39c12"); // naranja
-    el.setAttribute("opacity", "0.45");
+    el.setAttribute("fill", "black"); // gris
+    el.setAttribute("opacity", "0.9");
   } catch(e){}
 }
 
