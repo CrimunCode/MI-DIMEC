@@ -288,6 +288,29 @@ select, input[type="text"], button {
   }
 }
 
+/* ---------- LIGHTBOX CON NAVEGACIÓN ---------- */
+#lightbox .nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.4);
+  color: #fff;
+  border: none;
+  padding: 12px 16px;
+  cursor: pointer;
+  font-size: 24px;
+  border-radius: 50%;
+  user-select: none;
+}
+
+#lightbox .nav-btn:hover {
+  background: rgba(0,0,0,0.8);
+}
+
+#lightbox .nav-btn.prev { left: 20px; }
+#lightbox .nav-btn.next { right: 20px; }
+
+
 /* ---------- TRANSICIONES SUAVES ENTRE PLANOS ---------- */
 
 #svgGeneral,
@@ -304,4 +327,18 @@ select, input[type="text"], button {
 .fade-in {
   opacity: 1;
   transform: scale(1);
+}
+
+.gallery-slide img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.gallery-btn.prev { left: 10px; }
+.gallery-btn.next { right: 10px; }
+
+.gallery-btn:hover {
+  background: rgba(0,0,0,0.8);
 }

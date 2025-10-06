@@ -8,8 +8,8 @@
         "x": 24.252,
         "y": 213.319,
         "media": {
-            "foto": "imagenes/Pro_1P/Lab_CNC_2.png",
-            "video": "videos/Pro_1P/Oficina_MCC.mp4"
+            "fotos": ["imagenes/Pro_1P/Lab_CNC_2.png"],
+            "video": ["videos/Pro_1P/Oficina_MCC.mp4"]
         }
     },
     {
@@ -21,8 +21,8 @@
         "x": 24.527,
         "y": 177.515,
         "media": {
-            "foto": "imagenes/Pro_1P/Lab_Maquinas_Herramientas.png",
-            "video": "videos/Pro_1P/Oficina_MCC.mp4"
+            "fotos": ["imagenes/Pro_1P/Lab_Maquinas_Herramientas.png"],
+            "video": ["videos/Pro_1P/Oficina_MCC.mp4"]
         }
     },
     {
@@ -34,8 +34,8 @@
         "x": 35.786,
         "y": 160.642,
         "media": {
-            "foto": "imagenes/Pro_1P/Lab_Soldadura.png",
-            "video": "videos/Pro_1P/Oficina_MCC.mp4"
+            "fotos": ["imagenes/Pro_1P/Lab_Soldadura.png"],
+            "video": ["videos/Pro_1P/Oficina_MCC.mp4"]
         }
     },
     {
@@ -47,8 +47,8 @@
         "x": 57.711,
         "y": 159.996,
         "media": {
-            "foto": "imagenes/Pro_1P/Lab_Tratamientos_Termicos.png",
-            "video": "videos/Pro_1P/Oficina_MCC.mp4"
+            "fotos": ["imagenes/Pro_1P/Lab_Tratamientos_Termicos.png"],
+            "video": ["videos/Pro_1P/Oficina_MCC.mp4"]
         }
     },
     {
@@ -60,8 +60,8 @@
         "x": 24.234,
         "y": 158.967,
         "media": {
-            "foto": "imagenes/Pro_1P/Bod_Lab_Pro.png",
-            "video": "videos/Pro_1P/Oficina_MCC.mp4"
+            "fotos": ["imagenes/Pro_1P/Bod_Lab_Pro.png"],
+            "video": ["videos/Pro_1P/Oficina_MCC.mp4"]
         }
     },
     {
@@ -73,8 +73,8 @@
         "x": 24.223,
         "y": 265.782,
         "media": {
-            "foto": "imagenes/Pro_1P/Lab_Traccion.png",
-            "video": "videos/Pro_1P/Oficina_MCC.mp4"
+            "fotos": ["imagenes/Pro_1P/Lab_Traccion.png"],
+            "video": ["videos/Pro_1P/Oficina_MCC.mp4"]
         }
     },
     {
@@ -86,8 +86,10 @@
         "x": 57.171,
         "y": 283.026,
         "media": {
-            "foto": "imagenes/Pro_1P/Ofi_Par_MCC.png",
-            "video":"videos/Pro_1P/Oficina_MCC.mp4"
+            "fotos": [
+                "imagenes/Pro_1P/Ofi_Par_MCC.png"
+            ],
+            "video":["videos/Pro_1P/Oficina_MCC.mp4"]
         }
     },
     {
@@ -99,8 +101,8 @@
         "x": 24.226,
         "y": 301.869,
         "media": {
-            "foto": "imagenes/Pro_1P/Sal_Metrologia.png",
-            "video": "videos/Pro_1P/Oficina_MCC.mp4"
+            "fotos": ["imagenes/Pro_1P/Sal_Metrologia.png"],
+            "video": ["videos/Pro_1P/Oficina_MCC.mp4"]
         }
     },
     {
@@ -112,8 +114,8 @@
         "x": 83.165,
         "y": 301.857,
         "media": {
-            "foto": "imagenes/Pro_1P/Lab_Ciencia_Materiales.png",
-            "video": "videos/Pro_1P/Oficina_MCC.mp4"
+            "fotos": ["imagenes/Pro_1P/Lab_Ciencia_Materiales.png"],
+            "video": ["videos/Pro_1P/Oficina_MCC.mp4"]
         }
     },
     {
@@ -125,8 +127,8 @@
         "x": 57.711,
         "y": 320.004,
         "media": {
-            "foto": "imagenes/Pro_1P/Bodega_Aseo.png",
-            "video": "videos/Pro_1P/Oficina_MCC.mp4"
+            "fotos": ["imagenes/Pro_1P/Bodega_Aseo.png"],
+            "video": ["videos/Pro_1P/Oficina_MCC.mp4"]
         }
     },
     {
@@ -138,8 +140,8 @@
         "x": 57.711,
         "y": 320.004,
         "media": {
-            "foto": "imagenes/Pro_1P/Lab_CNC_1.png",
-            "video": "videos/Pro_1P/Oficina_MCC.mp4"
+            "fotos": ["imagenes/Pro_1P/Lab_CNC_1.png"],
+            "video": ["videos/Pro_1P/Oficina_MCC.mp4"]
         }
     },
     {
@@ -151,8 +153,8 @@
         "x": 70.108,
         "y": 309.936,
         "media": {
-            "foto": "imagenes/Pro_1P/Bano_Alumnos_Varones.png",
-            "video": "videos/Pro_1P/Oficina_MCC.mp4"
+            "fotos": ["imagenes/Pro_1P/Bano_Alumnos_Varones.png"],
+            "video": ["videos/Pro_1P/Oficina_MCC.mp4"]
         }
     }
 ]

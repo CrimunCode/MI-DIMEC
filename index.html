@@ -27,10 +27,13 @@
     <div id="modalContent"></div>
   </div>
 
-  <div id="lightbox">
-    <span id="lightboxClose">&times;</span>
-    <img id="lightboxImg" src="" alt="Imagen ampliada">
-  </div>
+<div id="lightbox">
+  <span id="lightboxClose">&times;</span>
+  <button class="nav-btn prev" onclick="navigateLightbox(-1)">&#10094;</button>
+  <img id="lightboxImg">
+  <button class="nav-btn next" onclick="navigateLightbox(1)">&#10095;</button>
+</div>
+
 
   <script src="js/script.js"></script>
 

@@ -47,28 +47,92 @@ function loadObjectData(obj, url) {
 const modal = document.getElementById("infoModal");
 document.getElementById("closeModal").addEventListener("click", ()=> modal.classList.remove("active"));
 
-function showInfo(data){
-  document.getElementById("modalContent").innerHTML = `
+function showInfo(data) {
+  const modalContent = document.getElementById("modalContent");
+  modalContent.innerHTML = `
     <h3>${data.nombre}</h3>
-    ${data.media && data.media.video ? `<video controls style="width:100%" autoplay loop muted><source src="${data.media.video}" type="video/mp4"></video>` : ""}
+    ${data.media && data.media.video ? `<video controls style="width:100%;border-radius:10px;" autoplay loop muted><source src="${data.media.video}" type="video/mp4"></video>` : ""}
     <p><strong>Ubicación:</strong> ${data.ubicacion || ""}</p>
     <p>${data.descripcion || ""}</p>
-    ${data.media && data.media.foto ? `<img src="${data.media.foto}" alt="${data.nombre}" style="width:100%;cursor:pointer;" onclick="openLightbox('${data.media.foto}')">` : ""}
   `;
+
+  // Si tiene varias fotos
+  if (data.media && data.media.fotos && data.media.fotos.length > 0) {
+    const img = document.createElement("img");
+    img.src = data.media.fotos[0];
+    img.alt = data.nombre;
+    img.style.width = "100%";
+    img.style.cursor = "pointer";
+    img.style.borderRadius = "10px";
+
+    // 👇 Añadimos evento dinámico
+    img.addEventListener("click", () => {
+      openLightboxGallery(data.media.fotos);
+    });
+
+    modalContent.appendChild(img);
+  } 
+  // Si tiene solo una foto (formato antiguo)
+  else if (data.media && data.media.foto) {
+    const img = document.createElement("img");
+    img.src = data.media.foto;
+    img.alt = data.nombre;
+    img.style.width = "100%";
+    img.style.cursor = "pointer";
+    img.style.borderRadius = "10px";
+
+    img.addEventListener("click", () => openLightbox(data.media.foto));
+    modalContent.appendChild(img);
+  }
+
   modal.classList.add("active");
 }
 
-/* ---------- Lightbox ---------- */
+
+/* ---------- LIGHTBOX MEJORADO (para galería completa) ---------- */
+let lightboxImages = [];
+let currentLightboxIndex = 0;
+
+// Abre solo una imagen (modo antiguo)
 function openLightbox(src){
-  const lightbox = document.getElementById("lightbox");
+  lightboxImages = [src];
+  currentLightboxIndex = 0;
+  document.getElementById("lightboxImg").src = src;
+  document.getElementById("lightbox").style.display = "flex";
+}
+
+// Abre toda la galería de imágenes
+function openLightboxGallery(fotos) {
+  if (!Array.isArray(fotos) || fotos.length === 0) return;
+  lightboxImages = fotos;
+  currentLightboxIndex = 0;
+
   const img = document.getElementById("lightboxImg");
-  img.src = src;
+  img.src = fotos[0];
+
+  const lightbox = document.getElementById("lightbox");
   lightbox.style.display = "flex";
 }
-document.getElementById("lightboxClose").addEventListener("click", ()=> document.getElementById("lightbox").style.display="none");
-document.getElementById("lightbox").addEventListener("click",(e)=>{
-  if(e.target.id === "lightbox"){ document.getElementById("lightbox").style.display="none"; }
+
+
+function navigateLightbox(direction){
+  if(lightboxImages.length <= 1) return;
+  currentLightboxIndex = (currentLightboxIndex + direction + lightboxImages.length) % lightboxImages.length;
+  document.getElementById("lightboxImg").src = lightboxImages[currentLightboxIndex];
+}
+
+document.getElementById("lightboxClose").addEventListener("click", ()=>{
+  document.getElementById("lightbox").style.display = "none";
+  lightboxImages = [];
 });
+
+document.getElementById("lightbox").addEventListener("click",(e)=>{
+  if(e.target.id === "lightbox"){
+    document.getElementById("lightbox").style.display = "none";
+    lightboxImages = [];
+  }
+});
+
 
 /* ---------- ZoomLayer seguro ---------- */
 function crearZoomLayerSiHaceFalta(svgDoc){
@@ -435,4 +499,19 @@ window.addEventListener("load", async ()=>{
     }
   };
 });
+
+/* ---------- GALERÍA: navegación ---------- */
+let currentGalleryIndex = 0;
+
+function moveGallery(direction){
+  const slide = document.getElementById("gallerySlide");
+  if(!slide) return;
+
+  const total = slide.children.length;
+  currentGalleryIndex = (currentGalleryIndex + direction + total) % total;
+
+  slide.style.transform = `translateX(-${currentGalleryIndex * 100}%)`;
+}
+
+
 /* ----------------- fin script.js ----------------- */
