@@ -29,7 +29,7 @@
         "nombre": "Sector Termofluidos",
         "tipo": "Laboratorio",
         "ubicacion": "Anfión Muñoz 870, 1º Piso",
-        "descripcion": "<strong>Experiencias de Laboratorio que se realizan:</strong><ul><li>Mecánica de los Fluidos</li><li>Transferencia de Calor</li><li>Lubricación</li><li>Hidráhulica</li></ul>",
+        "descripcion": "<strong>Experiencias de Laboratorio que se realizan:</strong><ul><li>Mecánica de los Fluidos</li><li>Transferencia de Calor</li><li>Máquinas Térmicas</li><li>Máquinas Hidráhulicas</li><li>Transporte de Fluidos</li></ul>",
         "x": 73.461,
         "y": 82.865,
         "media": {
