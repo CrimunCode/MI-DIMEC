@@ -8,7 +8,19 @@
         "x": 50.802,
         "y": 82.865,
         "media": {
-            "foto": "imagenes/Pro_1P/Procesos.png",
+            "fotos": [
+                "imagenes/Pro_1P/Procesos.png",
+                "imagenes/Pro_1P/IMG_0115.jpg",
+                "imagenes/Pro_1P/IMG_0113.jpg",
+                "imagenes/Pro_1P/IMG_0110.jpg",
+                "imagenes/Pro_1P/IMG_0108.jpg",
+                "imagenes/Pro_1P/IMG_0107.jpg",
+                "imagenes/Pro_1P/IMG_0106.jpg",
+                "imagenes/Pro_1P/IMG_0105.jpg",
+                "imagenes/Pro_1P/IMG_0101.jpg",
+                "imagenes/Pro_1P/DSCN3153.jpg",
+                "imagenes/Pro_1P/DSCN3152.jpg"
+            ],
             "video": null
         }
     },
@@ -21,7 +33,29 @@
         "x": 73.461,
         "y": 82.865,
         "media": {
-            "foto": "imagenes/Ter_1P/Termofluidos.png",
+            "fotos": [
+                "imagenes/Ter_1P/Termofluidos.png",
+                "imagenes/Ter_1P/DSCN3121.jpg",
+                "imagenes/Ter_1P/DSCN3122.jpg",
+                "imagenes/Ter_1P/DSCN3123.jpg",
+                "imagenes/Ter_1P/DSCN3124.jpg",
+                "imagenes/Ter_1P/DSCN3167.jpg",
+                "imagenes/Ter_1P/DSCN3169.jpg",
+                "imagenes/Ter_1P/DSCN3170.jpg",
+                "imagenes/Ter_1P/DSCN3171.jpg",
+                "imagenes/Ter_1P/DSCN3173.jpg",
+                "imagenes/Ter_1P/DSCN3175.jpg",
+                "imagenes/Ter_1P/IMG_0083.jpg",
+                "imagenes/Ter_1P/IMG_0084.jpg",
+                "imagenes/Ter_1P/IMG_0085.jpg",
+                "imagenes/Ter_1P/IMG_0087.jpg",
+                "imagenes/Ter_1P/IMG_0088.jpg",
+                "imagenes/Ter_1P/IMG_0089.jpg",
+                "imagenes/Ter_1P/IMG_0090.jpg",
+                "imagenes/Ter_1P/IMG_0094.jpg",
+                "imagenes/Ter_1P/IMG_0095.jpg",
+                "imagenes/Ter_1P/IMG_0098.jpg"
+            ],
             "video": null
         }
     },
