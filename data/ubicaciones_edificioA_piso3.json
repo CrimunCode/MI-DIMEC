@@ -2,7 +2,7 @@
     {
         "id": "Sala_217",
         "nombre": "Sala 217",
-        "tipo": "Sala de Clases",
+        "tipo": "Sala",
         "ubicacion": "Sector Procesos, 3º Piso",
         "descripcion": "Sala 217",
         "x": 18.271,
@@ -15,7 +15,7 @@
     {
         "id": "Sala_216",
         "nombre": "Sala 216",
-        "tipo": "Sala de Clases",
+        "tipo": "Sala",
         "ubicacion": "Sector Procesos, 3º Piso",
         "descripcion": "Sala 216",
         "x": 18.271,
@@ -28,7 +28,7 @@
     {
         "id": "Sala_215",
         "nombre": "Sala 215",
-        "tipo": "Sala de Clases",
+        "tipo": "Sala",
         "ubicacion": "Sector Procesos, 3º Piso",
         "descripcion": "Sala 215",
         "x": 18.271,

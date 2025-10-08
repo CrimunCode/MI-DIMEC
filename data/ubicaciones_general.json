@@ -2,7 +2,7 @@
     {
         "id": "Sector_Procesos",
         "nombre": "Sector Procesos",
-        "tipo": "Laboratorio",
+        "tipo": "Sector",
         "ubicacion": "Anfión Muñoz 850, 1º Piso",
         "descripcion": "<strong>Experiencias de Laboratorio que se realizan:</strong><ul><li>Ensayos de Tracción, Torción y Flexión</li><li>Tratamientos Térmicos</li><li>Soldadura TIG/MIG</li></ul>",
         "x": 50.802,
@@ -27,7 +27,7 @@
     {
         "id": "Sector_Termofluidos",
         "nombre": "Sector Termofluidos",
-        "tipo": "Laboratorio",
+        "tipo": "Sector",
         "ubicacion": "Anfión Muñoz 870, 1º Piso",
         "descripcion": "<strong>Experiencias de Laboratorio que se realizan:</strong><ul><li>Mecánica de los Fluidos</li><li>Transferencia de Calor</li><li>Máquinas Térmicas</li><li>Máquinas Hidráhulicas</li><li>Transporte de Fluidos</li></ul>",
         "x": 73.461,
@@ -62,7 +62,7 @@
     {
         "id": "Sector_Fundicion",
         "nombre": "Sector Fundición",
-        "tipo": "Laboratorio",
+        "tipo": "Sector",
         "ubicacion": "Anfión Muñoz 850, 1º Piso",
         "descripcion": "",
         "x": 99.864,
@@ -75,7 +75,7 @@
     {
         "id": "Biblioteca",
         "nombre": "Biblioteca Central Irma Salas Silva",
-        "tipo": "Biblioteca",
+        "tipo": "Sector",
         "ubicacion": "Anfión Muñoz 875, 1º Piso",
         "descripcion": "<p><strong>Horario:</strong><p>Lun 08:00 - 19:00 Hrs.</p><p>Mar 08:00 - 19:00 Hrs.</p><p>Mie 08:00 - 19:00 Hrs.</p><p>Jue 08:00 - 19:00 Hrs.</p><p>Vie 08:00 - 19:00 Hrs.</p><p>Sab y Dom Cerrado.</p></p>",
         "x": 4.383,
@@ -88,7 +88,7 @@
     {
         "id": "OAME",
         "nombre": "Oficina de Acompañamiento y Monitoreo Estudiantil (OAME)",
-        "tipo": "Oficina",
+        "tipo": "Sector",
         "ubicacion": "Anfión Muñoz # 875, 3º Piso",
         "descripcion": "<p><strong>Horario:</strong><p>Lun 08:00 - 18:00 Hrs.</p><p>Mar 08:00 - 18:00 Hrs.</p><p>Mie 08:00 - 18:00 Hrs.</p><p>Jue 08:00 - 18:00 Hrs.</p><p>Vie 08:00 - 17:00 Hrs.</p><p>Sab y Dom Cerrado.</p></p>",
         "x": 27.631,
@@ -101,7 +101,7 @@
     {
         "id": "ALUMNI",
         "nombre": "ALUMNI - ULS",
-        "tipo": "Oficina",
+        "tipo": "Sector",
         "ubicacion": "Amunategui # 890, 1º Piso",
         "descripcion": "<strong>Información de Contacto:</strong><p><ul><li><strong>Correo:</strong> alumni@userena.cl</li><p><li><strong>Teléfonos:</strong> (051) 2 204172</li></ul>",
         "x": 4.422,
@@ -114,7 +114,7 @@
     {
         "id": "Tunel",
         "nombre": "Tunel",
-        "tipo": "Oficina",
+        "tipo": "Sector",
         "ubicacion": "Sector Tunel, Subterraneo",
         "descripcion": "Tunel subterraneo, que une los campus Ignacio Domeyko e Isabel Bongard de la Universidad de La Serena.<p>",
         "x": 23.117,
