@@ -25,6 +25,58 @@
         }
     },
     {
+        "id": "Bano_Alumnos_Varones",
+        "nombre": "Baño de Alumnos Varones",
+        "tipo": "Baño",
+        "ubicacion": "Sector Procesos, 1º Piso",
+        "descripcion": "",
+        "x": 63.203,
+        "y": 122.808,
+        "media": {
+            "foto": "imagenes/Pro_1P/Bano_Alumnos_Varones.png",
+            "video": null
+        }
+    },
+    {
+        "id": "Lab_Ciencia_Materiales",
+        "nombre": "Laboratorio Ciencia de los Materiales",
+        "tipo": "Laboratorio",
+        "ubicacion": "Sector Procesos, 1º Piso",
+        "descripcion": "",
+        "x": 66.658,
+        "y": 120.671,
+        "media": {
+            "foto": "imagenes/Ter_1P/Lab_Ciencia_Materiales.png",
+            "video": null
+        }
+    },
+    {
+        "id": "Sala_Julio_Guzman",
+        "nombre": "Sala Julio Guzmán Barrera",
+        "tipo": "Sala",
+        "ubicacion": "Sector Termofluidos, 1º Piso",
+        "descripcion": "",
+        "x": 85.593,
+        "y": 120.529,
+        "media": {
+            "foto": "imagenes/Ter_1P/Sala_Julio_Guzman.png",
+            "video": null
+        }
+    },
+    {
+        "id": "Bano_Alumnas_Damas",
+        "nombre": "Baño de Alumnas Damas",
+        "tipo": "Baño",
+        "ubicacion": "Sector Termofluidos, 1º Piso",
+        "descripcion": "",
+        "x": 95.345,
+        "y": 120.529,
+        "media": {
+            "foto": "imagenes/Ter_1P/Bano_Alumnas_Damas.png",
+            "video": null
+        }
+    },
+    {
         "id": "Sector_Termofluidos",
         "nombre": "Sector Termofluidos",
         "tipo": "Sector",

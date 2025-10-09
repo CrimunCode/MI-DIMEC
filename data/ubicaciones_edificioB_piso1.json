@@ -195,15 +195,15 @@
         }
     },
     {
-        "id": "Bano_Alumnos_Damas",
-        "nombre": "Baño de Alumnos - Damas",
+        "id": "Bano_Alumnas_Damas",
+        "nombre": "Baño de Alumnas Damas",
         "tipo": "Baño",
         "ubicacion": "Sector Termofluidos, 1º Piso",
         "descripcion": "Baño de Alumnos - Damas",
         "x": 192.030,
         "y": 301.321,
         "media": {
-            "foto": "imagenes/Ter_1P/Bano_Alumnos_Damas.png",
+            "foto": "imagenes/Ter_1P/Bano_Alumnas_Damas.png",
             "video": null
         }
     }
