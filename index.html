@@ -1,41 +1,32 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <title>Mapa Interactivo DIMEC</title>
-  <link rel="stylesheet" href="css/styles.css">
-</head>
-<body>
-
-  <div id="controls">
-    <div style="position:relative; width: 320px;">
-      <input type="text" id="searchInput" placeholder="Buscar por nombre..." autocomplete="off" style="width:100%;">
-      <ul id="suggestions"></ul>
+  <head>
+    <meta charset="UTF-8">
+    <title>Mapa Interactivo DIMEC</title>
+    <link rel="stylesheet" href="css/styles.css">
+  </head>
+  <body>
+    <div id="controls">
+      <div style="position:relative; width: 320px;">
+        <input type="text" id="searchInput" placeholder="Buscar por nombre..." autocomplete="off" style="width:100%;">
+          <ul id="suggestions"></ul>
+      </div>
+      <button id="resetViewBtn">🔄 Volver al mapa general</button>
     </div>
-    <button id="resetViewBtn">🔄 Volver al mapa general</button>
-  </div>
-
-  <div id="plano-container">
-    <!-- plano de fondo -->
-    <object id="svgGeneral" type="image/svg+xml"></object>
-    <!-- overlay (edificio/piso) -->
-    <object id="svgOverlay" type="image/svg+xml"></object>
-  </div>
-
-  <div id="infoModal" class="modal">
-    <button id="closeModal" style="position:absolute;top:5px;right:5px;">&times;</button>
-    <div id="modalContent"></div>
-  </div>
-
-<div id="lightbox">
-  <span id="lightboxClose">&times;</span>
-  <button class="nav-btn prev" onclick="navigateLightbox(-1)">&#10094;</button>
-  <img id="lightboxImg">
-  <button class="nav-btn next" onclick="navigateLightbox(1)">&#10095;</button>
-</div>
-
-
-  <script src="js/script.js"></script>
-
-</body>
+    <div id="plano-container">
+      <object id="svgGeneral" type="image/svg+xml"></object>
+      <object id="svgOverlay" type="image/svg+xml"></object>
+    </div>
+    <div id="infoModal" class="modal">
+      <button id="closeModal" style="position:absolute;top:5px;right:5px;">&times;</button>
+      <div id="modalContent"></div>
+    </div>
+    <div id="lightbox">
+      <span id="lightboxClose">&times;</span>
+      <button class="nav-btn prev" onclick="navigateLightbox(-1)">&#10094;</button>
+      <img id="lightboxImg">
+      <button class="nav-btn next" onclick="navigateLightbox(1)">&#10095;</button>
+    </div>
+    <script src="js/script.js"></script>
+  </body>
 </html>
