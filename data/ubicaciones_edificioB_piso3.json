@@ -22,7 +22,7 @@
         "y": 169.572,
         "media": {
             "foto": "imagenes/Ter_3P/Lab_Electrotecnia.png",
-            "video": null
+            "video": "videos/Ter_3P/Lab_Electrotecnia.mp4"
         }
     },
     {
@@ -48,7 +48,7 @@
         "y": 197.628,
         "media": {
             "foto": "imagenes/Ter_3P/Lab_Control.png",
-            "video": null
+            "video": "videos/Ter_3P/Lab_Control.mp4"
         }
     },
     {
@@ -61,7 +61,7 @@
         "y": 185.585,
         "media": {
             "foto": "imagenes/Ter_3P/Lab_Maquinas_Electricas.png",
-            "video": null
+            "video": "videos/Ter_3P/Lab_Maquinas_Electricas.mp4"
         }
     },
     {
@@ -74,7 +74,7 @@
         "y": 222.611,
         "media": {
             "foto": "imagenes/Ter_3P/Sala_Postgrado_2.png",
-            "video": null
+            "video": "videos/Ter_3P/Sala_Postgrado_2.mp4"
         }
     },
     {
@@ -87,7 +87,7 @@
         "y": 239.807,
         "media": {
             "foto": "imagenes/Ter_3P/Sala_Postgrado_1.png",
-            "video": null
+            "video": "videos/Ter_3P/Sala_Postgrado_1.mp4"
         }
     },
     {
@@ -100,7 +100,7 @@
         "y": 222.604,
         "media": {
             "foto": "imagenes/Ter_3P/Sala_Electricidad.png",
-            "video": null
+            "video": "videos/Ter_3P/Sala_Electricidad.mp4"
         }
     },
     {
