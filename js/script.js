@@ -398,41 +398,67 @@ function fadeIn(el){
 /* ---------- Selección de sugerencia (AHORA con highlight previo) ---------- */
 async function selectSuggestion(entry){
   const mapEntry = entry.mapEntry;
-
-  // 1) asegurar svgGeneral cargado y resaltar edificio en el general
-  const objGeneral = document.getElementById("svgGeneral");
-  await ensureObjectLoaded(objGeneral); // espera si fuera necesario
-  try { highlightBuilding(mapEntry); } catch(e){ console.warn(e); }
-
-  // 2) cargar overlay del piso/edificio (objOverlay)
   const objOverlay = document.getElementById("svgOverlay");
-  await loadObjectData(objOverlay, mapEntry.svg);
+
+  await new Promise(resolve=>{
+    objOverlay.setAttribute("data", mapEntry.svg);
+    objOverlay.onload = ()=> resolve();
+  });
+
   currentMap = mapEntry;
 
-  // 3) cargar ubicaciones del overlay y colocar marcadores
   try {
     const r = await fetch(mapEntry.json);
     const data = await r.json();
     const svgDoc = objOverlay.contentDocument;
+    const svg = svgDoc.querySelector("svg");
+    // Asegurar que el SVG no tenga opacidad global
+    if (svg) {
+      svg.style.opacity = "1";
+      svg.style.visibility = "visible";
+    }
+
+    // Fondo blanco semitransparente detrás del edificio
+    let bg = svgDoc.getElementById("overlayBackground");
+    if (!bg) {
+      bg = svgDoc.createElementNS("http://www.w3.org/2000/svg", "rect");
+      bg.setAttribute("id", "overlayBackground");
+      bg.setAttribute("x", "0");
+      bg.setAttribute("y", "0");
+      bg.setAttribute("width", "100%");
+      bg.setAttribute("height", "100%");
+      bg.setAttribute("fill", "white");
+      bg.setAttribute("opacity", "0.1");
+      svg.insertBefore(bg, svg.firstChild);
+    }
+
+
     const gWrapper = crearZoomLayerSiHaceFalta(svgDoc);
     placeMarkers(gWrapper, data);
-  } catch(e){ console.warn("Error cargando json overlay:", e); }
 
-  // 4) centrar / destacar la ubicación, limpiar sugerencias y atenuar general
+    // Activamos eventos del overlay
+    objOverlay.style.pointerEvents = "auto";
+
+    objOverlay.style.opacity = "1";
+    objOverlay.style.visibility = "visible";
+
+  } catch(e) {
+    console.error("Error cargando overlay:", e);
+  }
+
+  // Resaltamos ubicación seleccionada
   focusOnLocation(entry.item);
+
+  // Limpiamos sugerencias y ocultamos
   clearSuggestions();
   searchInput.blur();
 
-  const generalObj = document.getElementById("svgGeneral");
-
-  // Efecto de salida del mapa general
-  fadeOut(generalObj);
-  setTimeout(()=> {
-    generalObj.style.opacity = "0.1";
-  fadeIn(document.getElementById("svgOverlay"));
-  }, 100);
-
+  // Hacemos semitransparente el plano general
+  const general = document.getElementById("svgGeneral");
+  general.style.opacity = "0.1";
+  general.style.pointerEvents = "none"; // evita doble clic pero no bloquea overlay
 }
+
 
 /* ---------- Focus en la ubicación (overlay) ---------- */
 function focusOnLocation(ubicacion){
@@ -449,29 +475,51 @@ function focusOnLocation(ubicacion){
 }
 
 /* ---------- Reset optimizado ---------- */
-document.getElementById("resetViewBtn").addEventListener("click", ()=>{
-  // quitar overlay
-  const overlay = document.getElementById("svgOverlay");
-  // volver opaco el general
-  const general = document.getElementById("svgGeneral");
-  fadeOut(overlay);
-  setTimeout(()=>{
-    overlay.removeAttribute("data");
-    general.style.opacity = "1";
-    fadeIn(general);
-  }, 100);
-  // inicializar colores (transparent) y reposicionar marcadores cacheados
-  inicializarColoresPlanoGeneral();
-  if(cachedGeneralLocations){
-    const svgDoc = general.contentDocument;
+document.getElementById("resetViewBtn").addEventListener("click", async () => {
+  const objGeneral = document.getElementById("svgGeneral");
+  const objOverlay = document.getElementById("svgOverlay");
+
+  // Buscar el mapa general en el índice
+  const general = mapsIndex.find(
+    m => (m.edificio && m.edificio.toLowerCase() === "general") || m.piso === 0
+  );
+  const defaultMap = general || mapsIndex[0];
+  if (!defaultMap) return;
+
+  // Restaurar datos del mapa general
+  await new Promise(resolve => {
+    objGeneral.setAttribute("data", defaultMap.svg);
+    objGeneral.onload = () => resolve();
+  });
+  currentMap = defaultMap;
+
+  try {
+    const r = await fetch(defaultMap.json);
+    const data = await r.json();
+    const svgDoc = objGeneral.contentDocument;
     const gWrapper = crearZoomLayerSiHaceFalta(svgDoc);
-    placeMarkers(gWrapper, cachedGeneralLocations);
+    placeMarkers(gWrapper, data);
+  } catch (e) {
+    console.error("Error recargando el mapa general:", e);
   }
+
+  // 🔧 Restaurar visibilidad e interactividad del mapa general
+  objGeneral.style.opacity = "1";
+  objGeneral.style.visibility = "visible";
+  objGeneral.style.pointerEvents = "auto";
+
+  // 🔧 Ocultar y desactivar el overlay
+  objOverlay.removeAttribute("data");
+  objOverlay.style.opacity = "0";
+  objOverlay.style.visibility = "hidden";
+  objOverlay.style.pointerEvents = "none";
+
+  // 🔧 Limpiar modal y cuadro de búsqueda
   modal.classList.remove("active");
   document.getElementById("searchInput").value = "";
   clearSuggestions();
-  clearHighlight();
 });
+
 
 /* ---------- Inicio: cargar index y plano general (una sola vez) ---------- */
 window.addEventListener("load", async ()=>{
