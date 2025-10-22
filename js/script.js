@@ -505,6 +505,10 @@ document.getElementById("resetViewBtn").addEventListener("click", async () => {
 
   // 🔧 Restaurar visibilidad e interactividad del mapa general
   objGeneral.style.opacity = "1";
+  setTimeout(() => {
+  objGeneral.style.pointerEvents = "auto";
+  }, 300);
+
   objGeneral.style.visibility = "visible";
   objGeneral.style.pointerEvents = "auto";
 
