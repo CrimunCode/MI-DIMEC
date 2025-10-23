@@ -1,10 +1,10 @@
 [
     {
         "id": "Ofi_Doc_CML",
-        "nombre": "Oficina CML",
+        "nombre": "Oficina",
         "tipo": "Oficina",
         "ubicacion": "Sector Procesos, 2º Piso",
-        "descripcion": "Oficina Docente CML",
+        "descripcion": "",
         "x": 40.775,
         "y": 315.582,
         "media": {
@@ -14,10 +14,10 @@
     },
     {
         "id": "Ofi_Doc_CGS",
-        "nombre": "Oficina CGS",
+        "nombre": "Oficina Carlos Garrido Soto",
         "tipo": "Oficina",
         "ubicacion": "Sector Procesos, 2º Piso",
-        "descripcion": "Oficina Docente CGS",
+        "descripcion": "",
         "x": 29.510,
         "y": 317.813,
         "media": {
@@ -27,10 +27,10 @@
     },
     {
         "id": "Ofi_Doc_AAA",
-        "nombre": "Oficina AAA",
+        "nombre": "Oficina Alexander Alfonso Alvarez",
         "tipo": "Oficina",
         "ubicacion": "Sector Procesos, 2º Piso",
-        "descripcion": "Oficina Docente AAA",
+        "descripcion": "",
         "x": 18.245,
         "y": 312.039,
         "media": {

@@ -4,7 +4,7 @@
         "nombre": "Laboratorio de Lubricación",
         "tipo": "Laboratorio",
         "ubicacion": "Sector Termofluidos, 1º Piso",
-        "descripcion": "Labopratorio de Lubricación",
+        "descripcion": "",
         "x": 109.865,
         "y": 159.979,
         "media": {
@@ -17,7 +17,7 @@
         "nombre": "Bodega 2",
         "tipo": "Bodega",
         "ubicacion": "Sector Termofluidos, 1º Piso",
-        "descripcion": "Bodega 2",
+        "descripcion": "",
         "x": 101.274,
         "y": 166.143,
         "media": {
@@ -30,7 +30,7 @@
         "nombre": "Laboratorio de Calderas",
         "tipo": "Laboratorio",
         "ubicacion": "Sector Termofluidos, 1º Piso",
-        "descripcion": "Laboratorio de Calderas",
+        "descripcion": "",
         "x": 137.303,
         "y": 160.279,
         "media": {
@@ -43,7 +43,7 @@
         "nombre": "Laboratorio de Hidrógeno Verde",
         "tipo": "Laboratorio",
         "ubicacion": "Sector Termofluidos, 1º Piso",
-        "descripcion": "Laboratorio de Hidrógeno Verde",
+        "descripcion": "",
         "x": 109.872,
         "y": 194.009,
         "media": {
@@ -56,7 +56,7 @@
         "nombre": "Laboratorio de Máquinas Térmicas",
         "tipo": "Laboratorio",
         "ubicacion": "Sector Termofluidos, 1º Piso",
-        "descripcion": "Laboratorio de Máquinas Térmicas",
+        "descripcion": "",
         "x": 109.872,
         "y": 230.467,
         "media": {
@@ -82,7 +82,7 @@
         "nombre": "Laboratorio de Transferencia de Calor y Termodinámica",
         "tipo": "Laboratorio",
         "ubicacion": "Sector Termofluidos, 1º Piso",
-        "descripcion": "Laboratorio de Transferencia de Calor y Termodinámica",
+        "descripcion": "",
         "x": 109.869,
         "y": 248.746,
         "media": {
@@ -92,10 +92,10 @@
     },
     {
         "id": "Oficina_LRC",
-        "nombre": "Oficina LRC",
+        "nombre": "Oficina Luis Rodriguez Chandía",
         "tipo": "Oficina",
         "ubicacion": "Sector Termofluidos, 1º Piso",
-        "descripcion": "Oficina Paradocente LRC",
+        "descripcion": "",
         "x": 143.238,
         "y": 248.749,
         "media": {
@@ -108,7 +108,7 @@
         "nombre": "Laboratorio Mecánica de los Fluidos 1",
         "tipo": "Laboratorio",
         "ubicacion": "Sector Termofluidos, 1º Piso",
-        "descripcion": "Laboratorio Mecánica de los Fluidos 1",
+        "descripcion": "",
         "x": 109.877,
         "y": 265.782,
         "media": {
@@ -121,7 +121,7 @@
         "nombre": "Sala Micro",
         "tipo": "Sala",
         "ubicacion": "Sector Termofluidos, 1º Piso",
-        "descripcion": "Sala Micro",
+        "descripcion": "",
         "x": 143.234,
         "y": 260.623,
         "media": {
@@ -134,7 +134,7 @@
         "nombre": "Comedor Funcionarios",
         "tipo": "Comedor",
         "ubicacion": "Sector Termofluidos, 1º Piso",
-        "descripcion": "Comedor Funcionarios",
+        "descripcion": "",
         "x": 143.234,
         "y": 283.026,
         "media": {
@@ -147,7 +147,7 @@
         "nombre": "Bodega 1",
         "tipo": "Bodega",
         "ubicacion": "Sector Termofluidos, 1º Piso",
-        "descripcion": "Bodega 1",
+        "descripcion": "",
         "x": 109.877,
         "y": 301.885,
         "media": {
@@ -173,7 +173,7 @@
         "nombre": "Bodega de Aseo",
         "tipo": "Bodega",
         "ubicacion": "Sector Termofluidos, 1º Piso",
-        "descripcion": "Bodega de Aseo",
+        "descripcion": "",
         "x": 143.373,
         "y": 320.004,
         "media": {
@@ -186,7 +186,7 @@
         "nombre": "Sala Julio Guzmán Barrera",
         "tipo": "Sala",
         "ubicacion": "Sector Termofluidos, 1º Piso",
-        "descripcion": "Sala Julio Guzmán Barrera",
+        "descripcion": "",
         "x": 154.728,
         "y": 301.321,
         "media": {
@@ -196,10 +196,10 @@
     },
     {
         "id": "Bano_Alumnas_Damas",
-        "nombre": "Baño de Alumnas Damas",
+        "nombre": "Baño Sector Termofluidos - Damas",
         "tipo": "Baño",
         "ubicacion": "Sector Termofluidos, 1º Piso",
-        "descripcion": "Baño de Alumnos - Damas",
+        "descripcion": "",
         "x": 192.030,
         "y": 301.321,
         "media": {

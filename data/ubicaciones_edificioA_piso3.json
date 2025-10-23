@@ -4,7 +4,7 @@
         "nombre": "Sala 217",
         "tipo": "Sala",
         "ubicacion": "Sector Procesos, 3º Piso",
-        "descripcion": "Sala 217",
+        "descripcion": "",
         "x": 18.271,
         "y": 169.422,
         "media": {
@@ -17,7 +17,7 @@
         "nombre": "Sala 216",
         "tipo": "Sala",
         "ubicacion": "Sector Procesos, 3º Piso",
-        "descripcion": "Sala 216",
+        "descripcion": "",
         "x": 18.271,
         "y": 204.313,
         "media": {
@@ -30,7 +30,7 @@
         "nombre": "Sala 215",
         "tipo": "Sala",
         "ubicacion": "Sector Procesos, 3º Piso",
-        "descripcion": "Sala 215",
+        "descripcion": "",
         "x": 18.271,
         "y": 257.327,
         "media": {
@@ -40,10 +40,10 @@
     },
     {
         "id": "Oficina_NMB",
-        "nombre": "Oficina NMB",
+        "nombre": "Oficina Nelson Moraga Benavides",
         "tipo": "Oficina",
         "ubicacion": "Sector Procesos, 3º Piso",
-        "descripcion": "Oficina Docente NMB",
+        "descripcion": "",
         "x": 18.271,
         "y": 311.925,
         "media": {
@@ -53,10 +53,10 @@
     },
     {
         "id": "Oficina_LSL",
-        "nombre": "Oficina LSL",
+        "nombre": "Oficina Luis Silva Llanca",
         "tipo": "Oficina",
         "ubicacion": "Sector Procesos, 3º Piso",
-        "descripcion": "Oficina Docente LSL",
+        "descripcion": "",
         "x": 29.653,
         "y": 319.888,
         "media": {
@@ -66,10 +66,10 @@
     },
      {
         "id": "Oficina_EV",
-        "nombre": "Oficina EV",
+        "nombre": "Oficina",
         "tipo": "Oficina",
         "ubicacion": "Sector Procesos, 3º Piso",
-        "descripcion": "Oficina Docente EV",
+        "descripcion": "",
         "x": 41.000,
         "y": 319.881,
         "media": {

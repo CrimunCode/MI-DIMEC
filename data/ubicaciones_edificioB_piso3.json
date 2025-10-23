@@ -1,10 +1,10 @@
 [
     {
         "id": "Bodega_Electricidad",
-        "nombre": "Bodeda de Electricidad",
+        "nombre": "Bodega de Electricidad",
         "tipo": "Bodega",
         "ubicacion": "Sector Termofluidos, 3º Piso",
-        "descripcion": "Bodeda de Electricidad",
+        "descripcion": "",
         "x": 105.974,
         "y": 169.572,
         "media": {
@@ -14,10 +14,10 @@
     },
     {
         "id": "Lab_Electrotecnia",
-        "nombre": "Laboraotorio de Electrotecnia",
+        "nombre": "Laboratorio de Electrotecnia",
         "tipo": "Laboratorio",
         "ubicacion": "Sector Termofluidos, 3º Piso",
-        "descripcion": "Laboraotorio de Electrotecnia",
+        "descripcion": "",
         "x": 118.403,
         "y": 169.572,
         "media": {
@@ -27,10 +27,10 @@
     },
     {
         "id": "Oficina_Paradocente",
-        "nombre": "Oficina Paradocente",
+        "nombre": "Oficina Cristian Muñoz Neira y Gustavo Ruiz Saumón",
         "tipo": "Oficina",
         "ubicacion": "Sector Termofluidos, 3º Piso",
-        "descripcion": "Oficina Paradocente",
+        "descripcion": "",
         "x": 141.136,
         "y": 169.572,
         "media": {
@@ -43,7 +43,7 @@
         "nombre": "Laboratorio de Control Automático",
         "tipo": "Laboratorio",
         "ubicacion": "Sector Termofluidos, 3º Piso",
-        "descripcion": "Laboratorio de Control Automático",
+        "descripcion": "",
         "x": 106.074,
         "y": 197.628,
         "media": {
@@ -56,7 +56,7 @@
         "nombre": "Laboratorio de Máquinas Eléctricas",
         "tipo": "Laboratorio",
         "ubicacion": "Sector Termofluidos, 3º Piso",
-        "descripcion": "Laboratorio de Máquinas Eléctricas",
+        "descripcion": "",
         "x": 121.728,
         "y": 185.585,
         "media": {
@@ -69,7 +69,7 @@
         "nombre": "Sala Postgrado 2",
         "tipo": "Sala",
         "ubicacion": "Sector Termofluidos, 3º Piso",
-        "descripcion": "Sala Postgrado 2",
+        "descripcion": "",
         "x": 129.440,
         "y": 222.611,
         "media": {
@@ -82,7 +82,7 @@
         "nombre": "Sala Postgrado 1",
         "tipo": "Sala",
         "ubicacion": "Sector Termofluidos, 3º Piso",
-        "descripcion": "Sala Postgrado 1",
+        "descripcion": "",
         "x": 129.440,
         "y": 239.807,
         "media": {
@@ -95,7 +95,7 @@
         "nombre": "Sala de Electricidad",
         "tipo": "Sala",
         "ubicacion": "Sector Termofluidos, 3º Piso",
-        "descripcion": "Sala de Electricidad",
+        "descripcion": "",
         "x": 106.074,
         "y": 222.604,
         "media": {
@@ -104,11 +104,11 @@
         }
     },
     {
-        "id": "Sala_Auto_Solar",
-        "nombre": "Sala del Proyecto Auto Solar",
-        "tipo": "Sala",
+        "id": "Laboratorio_Simulaciones",
+        "nombre": "Laboratorio de Simulaciones",
+        "tipo": "Laboratorio",
         "ubicacion": "Sector Termofluidos, 3º Piso",
-        "descripcion": "Sala del Proyecto Auto Solar",
+        "descripcion": "",
         "x": 129.440,
         "y": 257.632,
         "media": {
@@ -117,11 +117,11 @@
         }
     },
     {
-        "id": "Bodega_TIC",
-        "nombre": "Bodega TIC",
+        "id": "Bodega_Estanque",
+        "nombre": "Bodega Estanque",
         "tipo": "Bodega",
         "ubicacion": "Sector Termofluidos, 3º Piso",
-        "descripcion": "Bodega TIC",
+        "descripcion": "",
         "x": 106.024,
         "y": 275.169,
         "media": {
@@ -134,7 +134,7 @@
         "nombre": "Oficina CEC Ingeniería Civil Mecánica",
         "tipo": "Oficina",
         "ubicacion": "Sector Termofluidos, 3º Piso",
-        "descripcion": "Oficina CEC Ingeniería Civil Mecánica",
+        "descripcion": "",
         "x": 106.024,
         "y": 287.227,
         "media": {
@@ -147,7 +147,7 @@
         "nombre": "Oficina CEC Ingeniería Mecánica",
         "tipo": "Oficina",
         "ubicacion": "Sector Termofluidos, 3º Piso",
-        "descripcion": "Oficina CEC Ingeniería Mecánica",
+        "descripcion": "",
         "x": 106.024,
         "y": 299.551,
         "media": {
@@ -170,10 +170,10 @@
     },
     {
         "id": "Oficina_JVL",
-        "nombre": "Oficina Docente",
+        "nombre": "Oficina Jorge Vera Lemus",
         "tipo": "Oficina",
         "ubicacion": "Sector Termofluidos, 3º Piso",
-        "descripcion": "Oficina Docente JVL",
+        "descripcion": "",
         "x": 106.036,
         "y": 320.445,
         "media": {
@@ -183,10 +183,10 @@
     },
     {
         "id": "Oficina_LSB",
-        "nombre": "Oficina Docente",
+        "nombre": "Oficina José Sagüas Bravo",
         "tipo": "Oficina",
         "ubicacion": "Sector Termofluidos, 3º Piso",
-        "descripcion": "Oficina Docente LSB",
+        "descripcion": "",
         "x": 117.307,
         "y": 323.462,
         "media": {
@@ -199,7 +199,7 @@
         "nombre": "Baño de Funcionarios",
         "tipo": "Baño",
         "ubicacion": "Sector Termofluidos, 3º Piso",
-        "descripcion": "Baño de Funcionarios",
+        "descripcion": "",
         "x": 129.152,
         "y": 323.462,
         "media": {
@@ -212,7 +212,7 @@
         "nombre": "Laboratorio Mecánica Computacional",
         "tipo": "Laboratorio",
         "ubicacion": "Sector Termofluidos, 3º Piso",
-        "descripcion": "Laboratorio Mecánica Computacional",
+        "descripcion": "",
         "x": 106.074,
         "y": 258.149,
         "media": {

@@ -4,7 +4,7 @@
         "nombre": "Sala Interactiva",
         "tipo": "Sala",
         "ubicacion": "Sector Fundición, 1º Piso",
-        "descripcion": "Sector Fundición 1P",
+        "descripcion": "",
         "x": 2209.530,
         "y": 142.055,
         "media": {
@@ -17,7 +17,7 @@
         "nombre": "Sala Ex-Fundición",
         "tipo": "Sala",
         "ubicacion": "Sector Fundición, 1º Piso",
-        "descripcion": "Sector Fundición 1P",
+        "descripcion": "",
         "x": 248.829,
         "y": 169.095,
         "media": {
@@ -26,11 +26,11 @@
         }
     },
     {
-        "id": "Oficina_IK",
-        "nombre": "Oficina Intikallpa",
+        "id": "Oficina_Auto_Solar",
+        "nombre": "Oficina Auto Solar",
         "tipo": "Oficina",
         "ubicacion": "Sector Fundición, 1º Piso",
-        "descripcion": "Sector Fundición 1P",
+        "descripcion": "",
         "x": 209.165,
         "y": 141.916,
         "media": {
@@ -43,7 +43,7 @@
         "nombre": "Fundición",
         "tipo": "Laboratorio",
         "ubicacion": "Sector Fundición, 1º Piso",
-        "descripcion": "Sector Fundición 1P",
+        "descripcion": "",
         "x": 209.966,
         "y": 166.632,
         "media": {
@@ -56,7 +56,7 @@
         "nombre": "Laboratorio Mecatrónica",
         "tipo": "Laboratorio",
         "ubicacion": "Sector Fundición, 1º Piso",
-        "descripcion": "Sector Fundición 1P",
+        "descripcion": "",
         "x": 248.828,
         "y": 177.925,
         "media": {
@@ -69,7 +69,7 @@
         "nombre": "Oficina Estudiantes de Doctorado",
         "tipo": "Oficina",
         "ubicacion": "Sector Fundición, 1º Piso",
-        "descripcion": "Sector Fundición 1P",
+        "descripcion": "",
         "x": 248.828,
         "y": 195.342,
         "media": {
@@ -82,7 +82,7 @@
         "nombre": "Laboratorio Mecánica Computacional 2",
         "tipo": "Laboratorio",
         "ubicacion": "Sector Fundición, 1º Piso",
-        "descripcion": "Sector Fundición 1P",
+        "descripcion": "",
         "x": 248.828,
         "y": 211.857,
         "media": {
@@ -95,7 +95,7 @@
         "nombre": "Laboratorio Mecánica Computacional 1",
         "tipo": "Laboratorio",
         "ubicacion": "Sector Fundición, 1º Piso",
-        "descripcion": "Sector Fundición 1P",
+        "descripcion": "",
         "x": 209.659,
         "y": 211.857,
         "media": {
@@ -108,7 +108,7 @@
         "nombre": "Sala Limpia de Materiales Compuestos",
         "tipo": "Laboratorio",
         "ubicacion": "Sector Fundición, 1º Piso",
-        "descripcion": "Sector Fundición 1P",
+        "descripcion": "",
         "x": 230.419,
         "y": 211.857,
         "media": {
@@ -134,7 +134,7 @@
         "nombre": "Bodega Auto Solar 2",
         "tipo": "Bodega",
         "ubicacion": "Sector Fundición, 1º Piso",
-        "descripcion": "Sector Fundición 1P",
+        "descripcion": "",
         "x": 248.828,
         "y": 249.006,
         "media": {
@@ -144,10 +144,10 @@
     },
     {
         "id": "Bano_Alumnos_Varones_Fundicion",
-        "nombre": "Baño Alumnos Varones",
+        "nombre": "Baño Sector Fundición - Varones",
         "tipo": "Baño",
         "ubicacion": "Sector Fundición, 1º Piso",
-        "descripcion": "Sector Fundición 1P",
+        "descripcion": "",
         "x": 224.973,
         "y": 264.656,
         "media": {
@@ -172,8 +172,8 @@
         "id": "Sala_Reuniones",
         "nombre": "Sala de Reuniones DIMEC",
         "tipo": "Sala",
-        "ubicacion": "Sector Fundición, 1º Piso",
-        "descripcion": "Sector Fundición 1P",
+        "ubicacion": "Sector Hall Secretaría DIMEC, 1º Piso",
+        "descripcion": "",
         "x": 225.644,
         "y": 284.636,
         "media": {
@@ -186,7 +186,7 @@
         "nombre": "Cafetaría DIMEC",
         "tipo": "Bodega",
         "ubicacion": "Sector Fundición, 1º Piso",
-        "descripcion": "Sector Fundición 1P",
+        "descripcion": "",
         "x": 225.632,
         "y": 301.744,
         "media": {
@@ -196,10 +196,10 @@
     },
     {
         "id": "Oficna_FS",
-        "nombre": "Oficina Académico FS",
+        "nombre": "Oficina Fabián Seguel González",
         "tipo": "Oficina",
         "ubicacion": "Sector Fundición, 1º Piso",
-        "descripcion": "Sector Fundición 1P",
+        "descripcion": "",
         "x": 225.632,
         "y": 308.371,
         "media": {
@@ -209,10 +209,10 @@
     },
     {
         "id": "Oficina_GB",
-        "nombre": "Oficina Secretaría Postrados",
+        "nombre": "Oficina Gabriela Briceño Guzmán",
         "tipo": "Oficina",
-        "ubicacion": "Sector Fundición, 1º Piso",
-        "descripcion": "Sector Fundición 1P",
+        "ubicacion": "Sector Hall Secretaría DIMEC, 1º Piso",
+        "descripcion": "",
         "x": 252.596,
         "y": 308.508,
         "media": {
@@ -222,10 +222,10 @@
     },
     {
         "id": "Oficina_WV",
-        "nombre": "Oficina Académico WV",
+        "nombre": "Oficina Wilmer Velilla Díaz",
         "tipo": "Oficina",
-        "ubicacion": "Sector Fundición, 1º Piso",
-        "descripcion": "Sector Fundición 1P",
+        "ubicacion": "Sector Hall Secretaría DIMEC, 1º Piso",
+        "descripcion": "",
         "x": 252.596,
         "y": 301.511,
         "media": {
@@ -235,10 +235,10 @@
     },
     {
         "id": "Oficina_NN_1",
-        "nombre": "Oficina Académico NN_1",
+        "nombre": "Oficina",
         "tipo": "Oficina",
-        "ubicacion": "Sector Fundición, 1º Piso",
-        "descripcion": "Sector Fundición 1P",
+        "ubicacion": "Sector Hall Secretaría DIMEC, 1º Piso",
+        "descripcion": "",
         "x": 252.596,
         "y": 294.159,
         "media": {
@@ -248,10 +248,10 @@
     },
     {
         "id": "Oficina_NN_2",
-        "nombre": "Oficina Académico NN_2",
+        "nombre": "Oficina",
         "tipo": "Oficina",
-        "ubicacion": "Sector Fundición, 1º Piso",
-        "descripcion": "Sector Fundición 1P",
+        "ubicacion": "Sector Hall Secretaría DIMEC, 1º Piso",
+        "descripcion": "",
         "x": 252.596,
         "y": 284.603,
         "media": {
@@ -261,10 +261,10 @@
     },
     {
         "id": "Bano_Funcionarios_3",
-        "nombre": "Baño Funcionarios",
+        "nombre": "Baño Sector Hall Secretaría DIMEC - Funcionarios/as",
         "tipo": "Baño",
-        "ubicacion": "Sector Fundición, 1º Piso",
-        "descripcion": "Sector Fundición 1P",
+        "ubicacion": "Sector Hall Secretaría DIMEC, 1º Piso",
+        "descripcion": "",
         "x": 247.790,
         "y": 285.165,
         "media": {
@@ -273,11 +273,11 @@
         }
     },
     {
-        "id": "Bano_Funcionarias",
-        "nombre": "Baño Funcionarias",
+        "id": "Bano_Secretaria_DIMEC",
+        "nombre": "Baño Secretaría DIMEC - Funcionarias",
         "tipo": "Baño",
-        "ubicacion": "Sector Fundición, 1º Piso",
-        "descripcion": "Sector Fundición 1P",
+        "ubicacion": "Sector Hall Secretaría DIMEC, 1º Piso",
+        "descripcion": "",
         "x": 251.467,
         "y": 316.255,
         "media": {
@@ -289,8 +289,8 @@
         "id": "Bodega_DIMEC_2",
         "nombre": "Bodega DIMEC 2",
         "tipo": "Bodega",
-        "ubicacion": "Sector Fundición, 1º Piso",
-        "descripcion": "Sector Fundición 1P",
+        "ubicacion": "Sector Hall Secretaría DIMEC, 1º Piso",
+        "descripcion": "",
         "x": 224.998,
         "y": 316.738,
         "media": {
@@ -302,8 +302,8 @@
         "id": "Bodega_DIMEC_1",
         "nombre": "Bodega DIMEC 1",
         "tipo": "Bodega",
-        "ubicacion": "Sector Fundición, 1º Piso",
-        "descripcion": "Sector Fundición 1P",
+        "ubicacion": "Sector Hall Secretaría DIMEC, 1º Piso",
+        "descripcion": "",
         "x": 225.508,
         "y": 348.518,
         "media": {
@@ -315,8 +315,8 @@
         "id": "Bodega_Electrica",
         "nombre": "Bodega Tableros Electricos",
         "tipo": "Bodega",
-        "ubicacion": "Sector Fundición, 1º Piso",
-        "descripcion": "Sector Fundición 1P",
+        "ubicacion": "Sector Hall Secretaría DIMEC, 1º Piso",
+        "descripcion": "",
         "x": 225.507,
         "y": 334.397,
         "media": {
@@ -326,10 +326,10 @@
     },
     {
         "id": "Bodega_Aseo_Fotocopia",
-        "nombre": "Bodega de Aseo Fotocopia",
+        "nombre": "Bodega de Aseo",
         "tipo": "Bodega",
-        "ubicacion": "Sector Fundición, 1º Piso",
-        "descripcion": "Sector Fundición 1P",
+        "ubicacion": "Sector Fotocopiadora, 1º Piso",
+        "descripcion": "",
         "x": 221.601,
         "y": 334.506,
         "media": {
@@ -339,10 +339,10 @@
     },
     {
         "id": "Bano_Funcionarios",
-        "nombre": "Bano Funcionarios",
+        "nombre": "Bano Sector Fotocopiadora - Funcionarios/as",
         "tipo": "Baño",
-        "ubicacion": "Sector Fundición, 1º Piso",
-        "descripcion": "Sector Fundición 1P",
+        "ubicacion": "Sector Fotocopiadora, 1º Piso",
+        "descripcion": "",
         "x": 209.684,
         "y": 334.397,
         "media": {
@@ -354,8 +354,8 @@
         "id": "Bodega_Fotocopiadora",
         "nombre": "Fotocopiadora",
         "tipo": "Bodega",
-        "ubicacion": "Sector Fundición, 1º Piso",
-        "descripcion": "Sector Fundición 1P",
+        "ubicacion": "Sector Fotocopiadora, 1º Piso",
+        "descripcion": "",
         "x": 209.684,
         "y": 334.397,
         "media": {
@@ -365,10 +365,10 @@
     },
     {
         "id": "Oficina_Secretaria_DIMEC",
-        "nombre": "Oficina Secretaria DIMEC",
+        "nombre": "Oficina María Toledo Concha",
         "tipo": "Oficina",
-        "ubicacion": "Sector Fundición, 1º Piso",
-        "descripcion": "Sector Fundición 1P",
+        "ubicacion": "Sector Hall Secretaría DIMEC, 1º Piso",
+        "descripcion": "",
         "x": 251.472,
         "y": 334.912,
         "media": {
@@ -377,15 +377,15 @@
         }
     },
     {
-        "id": "Oficina_Direcion_DIMEC",
-        "nombre": "Oficina Direción DIMEC",
+        "id": "Oficina_Direccion_DIMEC",
+        "nombre": "Oficina Dirección DIMEC",
         "tipo": "Oficina",
-        "ubicacion": "Sector Fundición, 1º Piso",
-        "descripcion": "Sector Fundición 1P",
+        "ubicacion": "Sector Hall Secretaría DIMEC, 1º Piso",
+        "descripcion": "",
         "x": 251.475,
         "y": 345.486,
         "media": {
-            "foto": "imagenes/Fun_1P/Oficina_Direcion_DIMEC.png",
+            "foto": "imagenes/Fun_1P/Oficina_Direccion_DIMEC.png",
             "video": null
         }
     }

@@ -4,7 +4,7 @@
         "nombre": "Laboratorio CNC 2",
         "tipo": "Laboratorio",
         "ubicacion":"Sector Procesos, 1º Piso",
-        "descripcion": "Sector Procesos Mecánicos 1º piso",
+        "descripcion": "",
         "x": 24.252,
         "y": 213.319,
         "media": {
@@ -17,7 +17,7 @@
         "nombre": "Laboratorio de Máquinas Herramientas",
         "tipo": "Laboratorio",
         "ubicacion":"Sector Procesos, 1º Piso",
-        "descripcion": "Sector Procesos Mecánicos 1º piso",
+        "descripcion": "",
         "x": 24.527,
         "y": 177.515,
         "media": {
@@ -30,7 +30,7 @@
         "nombre": "Laboratorio de Soldadura",
         "tipo": "Laboratorio",
         "ubicacion":"Sector Procesos, 1º Piso",
-        "descripcion": "Sector Procesos Mecánicos 1º piso",
+        "descripcion": "",
         "x": 35.786,
         "y": 160.642,
         "media": {
@@ -43,7 +43,7 @@
         "nombre": "Laboratorio de Tratamientos Térmicos",
         "tipo": "Laboratorio",
         "ubicacion":"Sector Procesos, 1º Piso",
-        "descripcion": "Sector Procesos Mecánicos 1º piso",
+        "descripcion": "",
         "x": 57.711,
         "y": 159.996,
         "media": {
@@ -56,7 +56,7 @@
         "nombre": "Bodega Laboratorio de Procesos",
         "tipo": "Bodega",
         "ubicacion":"Sector Procesos, 1º Piso",
-        "descripcion": "Sector Procesos Mecánicos 1º piso",
+        "descripcion": "",
         "x": 24.234,
         "y": 158.967,
         "media": {
@@ -69,7 +69,7 @@
         "nombre": "Laboratorio de Tracción",
         "tipo": "Laboratorio",
         "ubicacion":"Sector Procesos, 1º Piso",
-        "descripcion": "Sector Procesos Mecánicos 1º piso",
+        "descripcion": "",
         "x": 24.223,
         "y": 265.782,
         "media": {
@@ -79,10 +79,10 @@
     },
     {
         "id": "Ofi_Par_MCC",
-        "nombre": "Oficina Paradocente MCC",
+        "nombre": "Oficina Yerko Cevasco y Manuel Cuello Cortés",
         "tipo": "Oficina",
         "ubicacion":"Sector Procesos, 1º Piso",
-        "descripcion": "Sector Procesos Mecánicos 1º piso",
+        "descripcion": "",
         "x": 57.171,
         "y": 283.026,
         "media": {
@@ -97,7 +97,7 @@
         "nombre": "Sala Metrología",
         "tipo": "Sala",
         "ubicacion":"Sector Procesos, 1º Piso",
-        "descripcion": "Sector Procesos Mecánicos 1º piso",
+        "descripcion": "",
         "x": 24.226,
         "y": 301.869,
         "media": {
@@ -110,7 +110,7 @@
         "nombre": "Laboratorio Ciencia de los Materiales",
         "tipo": "Laboratorio",
         "ubicacion":"Sector Procesos, 1º Piso",
-        "descripcion": "Sector Procesos Mecánicos 1º piso",
+        "descripcion": "",
         "x": 83.165,
         "y": 301.857,
         "media": {
@@ -123,7 +123,7 @@
         "nombre": "Bodega de Aseo",
         "tipo": "Bodega",
         "ubicacion":"Sector Procesos, 1º Piso",
-        "descripcion": "Sector Procesos Mecánicos 1º piso",
+        "descripcion": "",
         "x": 57.711,
         "y": 320.004,
         "media": {
@@ -136,7 +136,7 @@
         "nombre": "Laboratorio CNC 1",
         "tipo": "Laboratorio",
         "ubicacion":"Sector Procesos, 1º Piso",
-        "descripcion": "Sector Procesos Mecánicos 1º piso",
+        "descripcion": "",
         "x": 57.711,
         "y": 320.004,
         "media": {
@@ -146,10 +146,10 @@
     },
     {
         "id": "Bano_Alumnos_Varones",
-        "nombre": "Baño Alumnos - Varones",
+        "nombre": "Baño Sector Procesos - Varones",
         "tipo": "Baño",
         "ubicacion":"Sector Procesos, 1º Piso",
-        "descripcion": "Sector Procesos Mecánicos 1º piso",
+        "descripcion": "",
         "x": 70.108,
         "y": 309.936,
         "media": {

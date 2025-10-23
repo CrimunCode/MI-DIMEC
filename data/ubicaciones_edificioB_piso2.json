@@ -1,10 +1,10 @@
 [
     {
         "id": "Oficina_YAC",
-        "nombre": "Oficina YAC",
+        "nombre": "Oficina Yerko Aaguilera Contreras",
         "tipo": "Oficina",
         "ubicacion": "Sector Termofluidos, 2º Piso",
-        "descripcion": "Oficina Docente YAC",
+        "descripcion": "",
         "x": 127.358,
         "y": 317.817,
         "media": {
@@ -14,10 +14,10 @@
     },
     {
         "id": "Oficina_MGS",
-        "nombre": "Oficina MGS",
+        "nombre": "Oficina Mauricio Godoy Seura",
         "tipo": "Oficina",
         "ubicacion": "Sector Termofluidos, 2º Piso",
-        "descripcion": "Oficina Docente MGS",
+        "descripcion": "",
         "x": 116.106,
         "y": 317.817,
         "media": {
@@ -27,10 +27,10 @@
     },
     {
         "id": "Oficina_CCT",
-        "nombre": "Oficina CCT",
+        "nombre": "Oficina Cristian Chávez Toro",
         "tipo": "Oficina",
         "ubicacion": "Sector Termofluidos, 2º Piso",
-        "descripcion": "Oficina Docente CCT",
+        "descripcion": "",
         "x": 104.851,
         "y": 312.040,
         "media": {
