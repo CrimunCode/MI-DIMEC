@@ -5,6 +5,7 @@ const nombresEdificios = {
   "A": "Sector: Procesos",
   "B": "Sector: Termofluidos",
   "C": "Sector: Fundición",
+  "D": "Sector: Hall Secretaría DIMEC",
   "General": "Plano General"
 };
 
@@ -13,6 +14,7 @@ const idEdificiosSVG = {
   "A": "Sector_Procesos",
   "B": "Sector_Termofluidos",
   "C": "Sector_Fundicion",
+  "D": "Sector_Hall_Secretaria_DIMEC",
   // agrega aquí otros ids que uses en el SVG general si aplican
   "Biblioteca": "Biblioteca",
   "OAME": "OAME",

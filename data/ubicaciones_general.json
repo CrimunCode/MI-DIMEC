@@ -195,10 +195,10 @@
         "tipo": "Sala",
         "ubicacion": "Anfión Muñoz N° 850, 1º piso, sector Hall Secretaría DIMEC",
         "descripcion": "",
-        "x": 109.942,
-        "y": 124.741,
+        "x": 104.356,
+        "y": 116.114,
         "media": {
-            "foto": "imagenes/Fun_1P/Sala_Reuniones.png",
+            "foto": "imagenes/Hall_1P/Sala_Reuniones_DIMEC.png",
             "video": null
         }
     },
@@ -207,24 +207,237 @@
         "nombre": "Dirección General de Asuntos Estudiantiles (DGAE)",
         "tipo": "Oficina",
         "ubicacion": "Anfión Muñoz N° 850, 2º piso, sector Hall Secretaría DIMEC",
-        "descripcion": "<strong>Información de Contacto:</strong><p><ul><li><strong>Correo:</strong> dgae@userena.cl</li><p><li><strong>Teléfono:</strong> (051) 2 204297</li></ul>",
-        "x": 107.939,
-        "y": 137.153,
+        "descripcion": "<strong>Información de Contacto:</strong><p><ul><li><strong>Correo: </strong><a href='mailto:dgae@userena.cl'>dgae@userena.cl</a></li><p><li><strong>Teléfono:</strong> +56 51 2 204297</li></ul>",
+        "x": 111.182,
+        "y": 126.993,
         "media": {
-            "foto": "imagenes/Fun_1P/DGAE.png",
+            "foto": "imagenes/Hall_1P/DGAE.png",
+            "video": null
+        }
+    },
+        {
+        "id": "TUNA",
+        "nombre": "Salón de Baile / Sala de Ensayo (DGAE)",
+        "tipo": "Sala",
+        "ubicacion": "Anfión Muñoz N° 850, subterraneo, sector Hall Secretaría DIMEC",
+        "descripcion": "<strong>Información de Contacto:</strong><p><ul><strong>Correos: </strong><p><li><a href='mailto:tunasanbartolome@userena.cl'>tunasanbartolome@userena.cl</a></li><p><li><a href='mailto:tuna.distrito.uls@gmail.com'>tuna.distrito.uls@gmail.com</a></li><p><li><a href='mailto:extracurriculares@userena.cl'>extracurriculares@userena.cl</a></li><p><li><a href='mailto:cofuls@userena.cl'>cofuls@userena.cl</a></li></ul>",
+        "x": 111.182,
+        "y": 128.071, 
+        "media": {
+            "fotos": [
+                "imagenes/Hall_1P/TUNA_Sn_Bartolome.jpg",
+                "imagenes/Hall_1P/TUNA_Distrito.jpg",
+                "imagenes/Hall_1P/TUNA_Azahares.jpg",
+                "imagenes/Hall_1P/COFULS.jpg"
+            ],
             "video": null
         }
     },
     {
-        "id": "Drireccion_DIMEC",
-        "nombre": "Dirección DIMEC",
+        "id": "Oficina_Secretaria_DIMEC",
+        "nombre": "Oficina María Toledo Concha",
+        "tipo": "Oficina",
+        "ubicacion": "Anfión Muñoz N° 850, 1º piso, sector Hall Secretaría DIMEC",
+        "descripcion": "<strong>Información de Contacto:</strong><p><ul><li><strong>Correo: </strong><a href='mailto:maria.toledo@userena.cl'>maria.toledo@userena.cl</a></li><p><li><strong>Teléfono:</strong> +56 51 2204260</li></ul>",
+        "x": 111.189,
+        "y": 129.416,
+        "media": {
+            "foto": "imagenes/Hall_1P/Oficina_Secretaria_DIMEC.png",
+            "video": null
+        }
+    },
+    {
+        "id": "Oficina_Direccion_DIMEC",
+        "nombre": "Oficina Dirección DIMEC",
         "tipo": "Oficina",
         "ubicacion": "Anfión Muñoz N° 850, 1º piso, sector Hall Secretaría DIMEC",
         "descripcion": "",
-        "x": 113.425,
-        "y": 137.153,
+        "x": 111.190,
+        "y": 132.214,
         "media": {
-            "foto": "imagenes/Fun_1P/Direccion_DIMEC.png",
+            "foto": "imagenes/Hall_1P/Oficina_Direccion_DIMEC.png",
+            "video": null
+        }
+    },
+    {
+        "id": "Bodega_DIMEC_1",
+        "nombre": "Bodega 1 Dirección DIMEC",
+        "tipo": "Bodega",
+        "ubicacion": "Anfión Muñoz N° 850, 1º piso, sector Hall Secretaría DIMEC",
+        "descripcion": "",
+        "x": 104.320,
+        "y": 133.016,
+        "media": {
+            "foto": "imagenes/Hall_1P/Bodega_DIMEC_1.png",
+            "video": null
+        }
+    },
+    {
+        "id": "Bodega_Electrica",
+        "nombre": "Bodega Tableros Eléctricos DIMEC",
+        "tipo": "Bodega",
+        "ubicacion": "Anfión Muñoz N° 850, 1º piso, sector Hall Secretaría DIMEC",
+        "descripcion": "",
+        "x": 104.320,
+        "y": 129.280,
+        "media": {
+            "foto": "imagenes/Hall_1P/Bodega_Electrica.png",
+            "video": null
+        }
+    },
+    {
+        "id": "Bodega_Aseo_Fotocopia",
+        "nombre": "Bodega de Aseo Fotocopiadora",
+        "tipo": "Bodega",
+        "ubicacion": "Anfión Muñoz N° 850, 1º piso, sector Hall Secretaría DIMEC",
+        "descripcion": "",
+        "x": 103.259,
+        "y": 129.280,
+        "media": {
+            "foto": "imagenes/Hall_1P/Bodega_Aseo_Fotocopia.png",
+            "video": null
+        }
+    },
+    {
+        "id": "Bano_Fotocopia",
+        "nombre": "Baño de Funcionarios/as",
+        "tipo": "Baño",
+        "ubicacion": "Anfión Muñoz N° 850, 1º piso, sector Hall Secretaría DIMEC",
+        "descripcion": "",
+        "x": 100.133,
+        "y": 129.280,
+        "media": {
+            "foto": "imagenes/Hall_1P/Bano_Fotocopia.png",
+            "video": null
+        }
+    },
+    {
+        "id": "Bodega_Fotocopiadora",
+        "nombre": "Bodega de Fotocopiadora",
+        "tipo": "Bodega",
+        "ubicacion": "Anfión Muñoz N° 850, 1º piso, sector Hall Secretaría DIMEC",
+        "descripcion": "",
+        "x": 100.133,
+        "y": 129.280,
+        "media": {
+            "foto": "imagenes/Hall_1P/Bodega_Fotocopiadora.png",
+            "video": null
+        }
+    },
+    {
+        "id": "Bano_Hall",
+        "nombre": "Baño de Funcionarios/as",
+        "tipo": "Baño",
+        "ubicacion": "Anfión Muñoz N° 850, 1º piso, sector Hall Secretaría DIMEC",
+        "descripcion": "",
+        "x": 111.188,
+        "y": 124.480,
+        "media": {
+            "foto": "imagenes/Hall_1P/Bano_Hall.png",
+            "video": null
+        }
+    },
+    {
+        "id": "Bodega_DIMEC_2",
+        "nombre": "Bodega 2 Dirección DIMEC",
+        "tipo": "Bodega",
+        "ubicacion": "Anfión Muñoz N° 850, 1º piso, sector Hall Secretaría DIMEC",
+        "descripcion": "",
+        "x": 104.185,
+        "y": 124.608,
+        "media": {
+            "foto": "imagenes/Hall_1P/Bodega_DIMEC_2.png",
+            "video": null
+        }
+    },
+    {
+        "id": "Oficina_GB",
+        "nombre": "Oficina Gabriela Briceño Guzmán",
+        "tipo": "Oficina",
+        "ubicacion": "Anfión Muñoz N° 850, 1º piso, sector Hall Secretaría DIMEC",
+        "descripcion": "<strong>Información de Contacto:</strong><p><ul><li><strong>Correo: </strong><a href='mailto:gabriela.bricenog@userena.cl'>gabriela.bricenog@userena.cl</a></li><p></ul>",
+        "x": 111.487,
+        "y": 122.430,
+        "media": {
+            "foto": "imagenes/Hall_1P/Oficina_GB.png",
+            "video": null
+        }
+    },
+    {
+        "id": "Oficina_WV",
+        "nombre": "Oficina Wilmer Velilla Díaz",
+        "tipo": "Oficina",
+        "ubicacion": "Anfión Muñoz N° 850, 1º piso, sector Hall Secretaría DIMEC",
+        "descripcion": "<strong>Información de Contacto:</strong><p><ul><li><strong>Correo: </strong><a href='mailto:wilmer.velilla@userena.cl'>wilmer.velilla@userena.cl</a></li><p></ul>",
+        "x": 111.487,
+        "y": 120.579,
+        "media": {
+            "foto": "imagenes/Hall_1P/Oficina_WV.png",
+            "video": null
+        }
+    },
+    {
+        "id": "Oficina_FS",
+        "nombre": "Oficina Fabián Seguel González",
+        "tipo": "Oficina",
+        "ubicacion": "Anfión Muñoz N° 850, 1º piso, sector Hall Secretaría DIMEC",
+        "descripcion": "<strong>Información de Contacto:</strong><p><ul><li><strong>Correo: </strong><a href='mailto:fabian.seguelg@userena.cl '>fabian.seguelg@userena.cl </a></li><p></ul>",
+        "x": 104.352,
+        "y": 122.394,
+        "media": {
+            "foto": "imagenes/Hall_1P/Oficina_FS.png",
+            "video": null
+        }
+    },
+    {
+        "id": "Oficina_NN_1",
+        "nombre": "Oficina",
+        "tipo": "Oficina",
+        "ubicacion": "Anfión Muñoz N° 850, 1º piso, sector Hall Secretaría DIMEC",
+        "descripcion": "<strong>Información de Contacto:</strong><p><ul><li><strong>Correo: </strong><a href='mailto: '> </a></li><p></ul>",
+        "x": 111.487,
+        "y": 118.634,
+        "media": {
+            "foto": "imagenes/Hall_1P/Oficina_NN_1.png",
+            "video": null
+        }
+    },
+    {
+        "id": "Oficina_NN_2",
+        "nombre": "Oficina",
+        "tipo": "Oficina",
+        "ubicacion": "Anfión Muñoz N° 850, 1º piso, sector Hall Secretaría DIMEC",
+        "descripcion": "<strong>Información de Contacto:</strong><p><ul><li><strong>Correo: </strong><a href='mailto: '> </a></li><p></ul>",
+        "x": 111.487,
+        "y": 116.106,
+        "media": {
+            "foto": "imagenes/Hall_1P/Oficina_NN_2.png",
+            "video": null
+        }
+    },
+    {
+        "id": "Bodega_Cafeteria",
+        "nombre": "Cafetería del DIMEC",
+        "tipo": "Bodega",
+        "ubicacion": "Anfión Muñoz N° 850, 1º piso, sector Hall Secretaría DIMEC",
+        "descripcion": "",
+        "x": 104.352,
+        "y": 120.641,
+        "media": {
+            "foto": "imagenes/Hall_1P/Oficina_FS.png",
+            "video": null
+        }
+    },
+    {
+        "id": "Bano_Mistraliano",
+        "nombre": "Baño Funcionarios/as del DIMEC",
+        "tipo": "Baño",
+        "ubicacion": "Anfión Muñoz N° 850, 1º piso, sector Hall Secretaría DIMEC",
+        "descripcion": "",
+        "x": 110.215,
+        "y": 116.254,
+        "media": {
+            "foto": "imagenes/Hall_1P/Bano_Mistraliano.png",
             "video": null
         }
     }
