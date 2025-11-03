@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
-   <!-- width="179.34631"
+
+<!-- width="179.34631"
    height="635.28925" -->
 
 <svg
@@ -10,7 +11,7 @@
    version="1.1"
    id="svg1"
    inkscape:version="1.3.2 (091e20e, 2023-11-25, custom)"
-   sodipodi:docname="Plano DIMEC 3P.svg"
+   sodipodi:docname="edificioB_piso3.svg"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -26,12 +27,12 @@
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
-     inkscape:zoom="4.837789"
-     inkscape:cx="506.42969"
-     inkscape:cy="1214.2944"
+     inkscape:zoom="9.675578"
+     inkscape:cx="24.236278"
+     inkscape:cy="446.53663"
      inkscape:window-width="1920"
      inkscape:window-height="1017"
-     inkscape:window-x="-8"
+     inkscape:window-x="1912"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
      inkscape:current-layer="layer4"
@@ -14111,8 +14112,8 @@
       <path
          style="display:inline;fill-opacity:0.66;stroke:#7e7e7e;stroke-width:0.95;stroke-linecap:round;stroke-dasharray:none;stroke-opacity:1"
          d="m 129.91514,282.14928 v -24.04231 h 21.74871 v 24.04231 z"
-         id="Sala_Auto_Solar"
-         inkscape:label="Sala Auto Solar"
+         id="Laboratorio_Simulaciones"
+         inkscape:label="Laboratorio_Simulaciones"
          sodipodi:nodetypes="ccccc"
          inkscape:export-filename="..\..\xampp\htdocs\mapa_interactivo\imagenes\Ter_3P\Sala_Auto_Solar.png"
          inkscape:export-xdpi="609.78998"
@@ -14158,8 +14159,8 @@
       <path
          style="display:inline;fill-opacity:0.66;stroke:#7e7e7e;stroke-width:0.95;stroke-linecap:round;stroke-dasharray:none;stroke-opacity:1"
          d="m 106.49906,287.70243 v -12.05865 h 12.1396 v 12.05865 z"
-         id="Bodega_TIC"
-         inkscape:label="Bodega TIC"
+         id="Bodega_Estanque"
+         inkscape:label="Bodega_Estanque"
          sodipodi:nodetypes="ccccc"
          inkscape:export-filename="Bodega_TIC.png"
          inkscape:export-xdpi="1190.89"

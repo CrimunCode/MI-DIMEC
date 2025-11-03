@@ -1,6 +1,6 @@
 /* ----------------- script.js (actualizado) ----------------- */
 
-/* ---------- Diccionario nombres edificios (texto para sugerencias) ---------- */
+/* ---------- Diccionario nombres edificios (texto paa sugerencias) ---------- */
 const nombresEdificios = {
   "A": "Sector: Procesos",
   "B": "Sector: Termofluidos",

@@ -64,7 +64,7 @@
         }
     },
     {
-        "id": "Bano_Alumnas_Damas",
+        "id": "Bano_Termofluidos",
         "nombre": "Baño Sector Termofluidos - Damas",
         "tipo": "Baño",
         "ubicacion": "Anfión Muñoz 870, 1º piso, sector Termofluidos",
@@ -438,6 +438,19 @@
         "y": 116.254,
         "media": {
             "foto": "imagenes/Hall_1P/Bano_Mistraliano.png",
+            "video": null
+        }
+    },
+    {
+        "id": "Coopeuch",
+        "nombre": "Oficina Coopeuch",
+        "tipo": "Oficina",
+        "ubicacion": "Anfión Muñoz N° 875, 1º piso",
+        "descripcion": "<strong>Horarios de atención:</strong><p><ul><li>Lunes a Jueves: 09:00 Hrs a 14:00 Hrs y 15:15 Hrs a 17:00 Hrs</li><li>Viernes: 09:00 Hrs a 14:00 Hrs y 15:15 Hrs a 16:00 Hrs.</li></ul>",
+        "x": 48.228,
+        "y": 119.322,
+        "media": {
+            "foto": "imagenes/Coopeuch/Coopeuch.jpg",
             "video": null
         }
     }
