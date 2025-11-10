@@ -1,130 +1,5 @@
 [
     {
-        "id": "Sector_Procesos",
-        "nombre": "Sector Procesos",
-        "tipo": "Sector",
-        "ubicacion": "Anfión Muñoz 870, 1º Piso",
-        "descripcion": "<strong>Experiencias de Laboratorio que se realizan:</strong><ul><li>Ensayos de Tracción, Torción y Flexión</li><li>Tratamientos Térmicos</li><li>Soldadura TIG/MIG</li></ul>",
-        "x": 50.802,
-        "y": 82.865,
-        "media": {
-            "fotos": [
-                "imagenes/Pro_1P/Procesos.png",
-                "imagenes/Pro_1P/IMG_0115.jpg",
-                "imagenes/Pro_1P/IMG_0113.jpg",
-                "imagenes/Pro_1P/IMG_0110.jpg",
-                "imagenes/Pro_1P/IMG_0108.jpg",
-                "imagenes/Pro_1P/IMG_0107.jpg",
-                "imagenes/Pro_1P/IMG_0106.jpg",
-                "imagenes/Pro_1P/IMG_0105.jpg",
-                "imagenes/Pro_1P/IMG_0101.jpg",
-                "imagenes/Pro_1P/DSCN3153.jpg",
-                "imagenes/Pro_1P/DSCN3152.jpg"
-            ],
-            "video": null
-        }
-    },
-    {
-        "id": "Bano_Alumnos_Varones",
-        "nombre": "Baño Sector Procesos - Varones",
-        "tipo": "Baño",
-        "ubicacion": "Anfión Muñoz 870, 1º piso, sector Procesos",
-        "descripcion": "",
-        "x": 63.203,
-        "y": 122.808,
-        "media": {
-            "foto": "imagenes/Pro_1P/Bano_Alumnos_Varones.png",
-            "video": null
-        }
-    },
-    {
-        "id": "Lab_Ciencia_Materiales",
-        "nombre": "Laboratorio Ciencia de los Materiales",
-        "tipo": "Laboratorio",
-        "ubicacion": "Anfión Muñoz 870, 1º piso, sector Procesos",
-        "descripcion": "",
-        "x": 66.658,
-        "y": 120.671,
-        "media": {
-            "foto": "imagenes/Pro_1P/Lab_Ciencia_Materiales.png",
-            "video": null
-        }
-    },
-    {
-        "id": "Sala_Julio_Guzman",
-        "nombre": "Sala Julio Guzmán Barrera",
-        "tipo": "Sala",
-        "ubicacion": "Anfión Muñoz 870, 1º piso, sector Termofluidos",
-        "descripcion": "",
-        "x": 85.593,
-        "y": 120.529,
-        "media": {
-            "foto": "imagenes/Ter_1P/Sala_Julio_Guzman.png",
-            "video": null
-        }
-    },
-    {
-        "id": "Bano_Termofluidos",
-        "nombre": "Baño Sector Termofluidos - Damas",
-        "tipo": "Baño",
-        "ubicacion": "Anfión Muñoz 870, 1º piso, sector Termofluidos",
-        "descripcion": "",
-        "x": 95.345,
-        "y": 120.529,
-        "media": {
-            "foto": "imagenes/Ter_1P/Bano_Alumnas_Damas.png",
-            "video": null
-        }
-    },
-    {
-        "id": "Sector_Termofluidos",
-        "nombre": "Sector Termofluidos",
-        "tipo": "Sector",
-        "ubicacion": "Anfión Muñoz 870, 1º Piso",
-        "descripcion": "<strong>Experiencias de Laboratorio que se realizan:</strong><ul><li>Mecánica de los Fluidos</li><li>Transferencia de Calor</li><li>Máquinas Térmicas</li><li>Máquinas Hidráhulicas</li><li>Transporte de Fluidos</li></ul>",
-        "x": 73.461,
-        "y": 82.865,
-        "media": {
-            "fotos": [
-                "imagenes/Ter_1P/Termofluidos.png",
-                "imagenes/Ter_1P/DSCN3121.jpg",
-                "imagenes/Ter_1P/DSCN3122.jpg",
-                "imagenes/Ter_1P/DSCN3123.jpg",
-                "imagenes/Ter_1P/DSCN3124.jpg",
-                "imagenes/Ter_1P/DSCN3167.jpg",
-                "imagenes/Ter_1P/DSCN3169.jpg",
-                "imagenes/Ter_1P/DSCN3170.jpg",
-                "imagenes/Ter_1P/DSCN3171.jpg",
-                "imagenes/Ter_1P/DSCN3173.jpg",
-                "imagenes/Ter_1P/DSCN3175.jpg",
-                "imagenes/Ter_1P/IMG_0083.jpg",
-                "imagenes/Ter_1P/IMG_0084.jpg",
-                "imagenes/Ter_1P/IMG_0085.jpg",
-                "imagenes/Ter_1P/IMG_0087.jpg",
-                "imagenes/Ter_1P/IMG_0088.jpg",
-                "imagenes/Ter_1P/IMG_0089.jpg",
-                "imagenes/Ter_1P/IMG_0090.jpg",
-                "imagenes/Ter_1P/IMG_0094.jpg",
-                "imagenes/Ter_1P/IMG_0095.jpg",
-                "imagenes/Ter_1P/IMG_0098.jpg"
-            ],
-            "video": null
-        }
-    },
-    {
-        "id": "Sector_Fundicion",
-        "nombre": "Sector Fundición",
-        "tipo": "Sector",
-        "ubicacion": "Anfión Muñoz 850, 1º Piso",
-        "descripcion": "",
-        "x": 99.864,
-        "y": 73.437,
-        "media": {
-            "foto": null,
-            "video": null
-        }
-    },
-    {
         "id": "Biblioteca",
         "nombre": "Biblioteca Central Irma Salas Silva",
         "tipo": "Sector",
@@ -177,15 +52,381 @@
         }
     },
     {
-        "id": "Bano_Fundicion",
-        "nombre": "Baño Sector Fundición - Varones",
-        "tipo": "Baño",
-        "ubicacion": "Anfión Muñoz N° 850, 1º piso, sector Fundición",
-        "descripcion": "",
-        "x": 104.178,
-        "y": 110.835,
+        "id": "Coopeuch",
+        "nombre": "Oficina Coopeuch",
+        "tipo": "Oficina",
+        "ubicacion": "Anfión Muñoz N° 875, 1º piso",
+        "descripcion": "<strong>Horarios de atención:</strong><p><ul><li>Lunes a Jueves: 09:00 Hrs a 14:00 Hrs y 15:15 Hrs a 17:00 Hrs</li><li>Viernes: 09:00 Hrs a 14:00 Hrs y 15:15 Hrs a 16:00 Hrs.</li></ul>",
+        "x": 48.228,
+        "y": 119.322,
         "media": {
-            "foto": "imagenes/Fun_1P/Bano_Alumnos_Varones_Fundicion.png",
+            "foto": "imagenes/Coopeuch/Coopeuch.jpg",
+            "video": null
+        }
+    },
+    {
+        "id": "Lab_CNC_2",
+        "nombre": "Laboratorio CNC 2",
+        "tipo": "Laboratorio",
+        "ubicacion":"Anfión Muñoz 870, 1º piso, sector Procesos",
+        "descripcion": "",
+        "x": 51.150,
+        "y": 97.324,
+        "media": {
+            "fotos": ["imagenes/Pro_1P/Lab_CNC_2.png"],
+            "video": null
+        }
+    },
+    {
+        "id": "Lab_Maquinas_Herramientas",
+        "nombre": "Laboratorio de Máquinas Herramientas",
+        "tipo": "Laboratorio",
+        "ubicacion":"Anfión Muñoz 870, 1º piso, sector Procesos",
+        "descripcion": "",
+        "x": 51.143,
+        "y": 87.772,
+        "media": {
+            "fotos": ["imagenes/Pro_1P/Lab_Maquinas_Herramientas.png"],
+            "video": null
+        }
+    },
+    {
+        "id": "Lab_Soldadura",
+        "nombre": "Laboratorio de Soldadura",
+        "tipo": "Laboratorio",
+        "ubicacion":"Anfión Muñoz 870, 1º piso, sector Procesos",
+        "descripcion": "",
+        "x": 54.176,
+        "y": 83.241,
+        "media": {
+            "fotos": ["imagenes/Pro_1P/Lab_Soldadura.png"],
+            "video": null
+        }
+    },
+    {
+        "id": "Lab_Tratamientos_Termicos",
+        "nombre": "Laboratorio de Tratamientos Térmicos",
+        "tipo": "Laboratorio",
+        "ubicacion":"Anfión Muñoz 870, 1º piso, sector Procesos",
+        "descripcion": "",
+        "x": 59.923,
+        "y": 83.137,
+        "media": {
+            "fotos": ["imagenes/Pro_1P/Lab_Tratamientos_Termicos.png"],
+            "video": null
+        }
+    },
+    {
+        "id": "Bod_Lab_Pro",
+        "nombre": "Bodega Laboratorio de Procesos",
+        "tipo": "Bodega",
+        "ubicacion":"Anfión Muñoz 870, 1º piso, sector Procesos",
+        "descripcion": "",
+        "x": 51.066,
+        "y": 82.864,
+        "media": {
+            "fotos": ["imagenes/Pro_1P/Bod_Lab_Pro.png"],
+            "video": null
+        }
+    },
+    {
+        "id": "Lab_Traccion",
+        "nombre": "Laboratorio de Tracción",
+        "tipo": "Laboratorio",
+        "ubicacion":"Anfión Muñoz 870, 1º piso, sector Procesos",
+        "descripcion": "",
+        "x": 51.063,
+        "y": 90.655,
+        "media": {
+            "fotos": ["imagenes/Pro_1P/Lab_Traccion.png"],
+            "video": null
+        }
+    },
+    {
+        "id": "Ofi_Par_MCC",
+        "nombre": "Oficina Yerko Cevasco y Manuel Cuello Cortés",
+        "tipo": "Oficina",
+        "ubicacion":"Anfión Muñoz 870, 1º piso, sector Procesos",
+        "descripcion": "",
+        "x": 59.780,
+        "y": 115.688,
+        "media": {
+            "fotos": [
+                "imagenes/Pro_1P/Ofi_Par_MCC.png"
+            ],
+            "video":null
+        }
+    },
+    {
+        "id": "Sala_Metrologia",
+        "nombre": "Sala Metrología",
+        "tipo": "Sala",
+        "ubicacion":"Anfión Muñoz 870, 1º piso, sector Procesos",
+        "descripcion": "",
+        "x": 51.064,
+        "y": 120.674,
+        "media": {
+            "fotos": ["imagenes/Pro_1P/Sala_Metrologia.png"],
+            "video": null
+        }
+    },
+    {
+        "id": "Lab_Ciencia_Materiales",
+        "nombre": "Laboratorio Ciencia de los Materiales",
+        "tipo": "Laboratorio",
+        "ubicacion":"Anfión Muñoz 870, 1º piso, sector Procesos",
+        "descripcion": "",
+        "x": 66.658,
+        "y": 120.671,
+        "media": {
+            "fotos": ["imagenes/Pro_1P/Lab_Ciencia_Materiales.png"],
+            "video": null
+        }
+    },
+    {
+        "id": "Bodega_Aseo",
+        "nombre": "Bodega de Aseo",
+        "tipo": "Bodega",
+        "ubicacion":"Anfión Muñoz 870, 1º piso, sector Procesos",
+        "descripcion": "",
+        "x": 59.923,
+        "y": 125.472,
+        "media": {
+            "fotos": ["imagenes/Pro_1P/Bodega_Aseo.png"],
+            "video": null
+        }
+    },
+    {
+        "id": "Lab_CNC_1",
+        "nombre": "Laboratorio CNC 1",
+        "tipo": "Laboratorio",
+        "ubicacion":"Anfión Muñoz 870, 1º piso, sector Procesos",
+        "descripcion": "",
+        "x": 51.063,
+        "y": 111.126,
+        "media": {
+            "fotos": ["imagenes/Pro_1P/Lab_CNC_1.png"],
+            "video": null
+        }
+    },
+    {
+        "id": "Bano_Alumnos_Varones",
+        "nombre": "Baño Sector Procesos - Varones",
+        "tipo": "Baño",
+        "ubicacion":"Anfión Muñoz 870, 1º piso, sector Procesos",
+        "descripcion": "",
+        "x": 63.203,
+        "y": 122.808,
+        "media": {
+            "fotos": ["imagenes/Pro_1P/Bano_Alumnos_Varones.png"],
+            "video": null
+        }
+    },
+    {
+        "id": "Lab_Lubricacion",
+        "nombre": "Laboratorio de Lubricación",
+        "tipo": "Laboratorio",
+        "ubicacion": "Anfión Muñoz 870, 1º piso, sector Termofluidos",
+        "descripcion": "",
+        "x": 73.722,
+        "y": 83.132,
+        "media": {
+            "foto": "imagenes/Ter_1P/Lab_Lubricacion.png",
+            "video": null
+        }
+    },
+    {
+        "id": "Bodega_2",
+        "nombre": "Bodega 2",
+        "tipo": "Bodega",
+        "ubicacion": "Anfión Muñoz 870, 1º piso, sector Termofluidos",
+        "descripcion": "",
+        "x": 71.449,
+        "y": 84.763,
+        "media": {
+            "foto": "imagenes/Ter_1P/Bodega_2.png",
+            "video": null
+        }
+    },
+    {
+        "id": "Lab_Caldera",
+        "nombre": "Laboratorio de Calderas",
+        "tipo": "Laboratorio",
+        "ubicacion": "Anfión Muñoz 870, 1º piso, sector Termofluidos",
+        "descripcion": "",
+        "x": 80.982,
+        "y": 83.211,
+        "media": {
+            "foto": "imagenes/Ter_1P/Lab_Caldera.png",
+            "video": null
+        }
+    },
+    {
+        "id": "Lab_Hidrogeno_Verde",
+        "nombre": "Laboratorio de Hidrógeno Verde",
+        "tipo": "Laboratorio",
+        "ubicacion": "Anfión Muñoz 870, 1º piso, sector Termofluidos",
+        "descripcion": "",
+        "x": 73.724,
+        "y": 92.136,
+        "media": {
+            "foto": "imagenes/Ter_1P/Lab_Hidrogeno_Verde.png",
+            "video": null
+        }
+    },
+    {
+        "id": "Lab_Maquinas_Termicas",
+        "nombre": "Laboratorio de Máquinas Térmicas",
+        "tipo": "Laboratorio",
+        "ubicacion": "Anfión Muñoz 870, 1º piso, sector Termofluidos",
+        "descripcion": "",
+        "x": 73.724,
+        "y": 101.782,
+        "media": {
+            "foto": "imagenes/Ter_1P/Lab_Maquinas_Termicas.png",
+            "video": null
+        }
+    },
+    {
+        "id": "Lab_Mecanica_Fluidos_2",
+        "nombre": "Laboratorio de Mecánica de los Fluidos 2",
+        "tipo": "Laboratorio",
+        "ubicacion": "Anfión Muñoz 870, 1º piso, sector Termofluidos",
+        "descripcion": "Laboratorio de Mecánica de los Fluidos 2",
+        "x": 80.903,
+        "y": 101.532,
+        "media": {
+            "foto": "imagenes/Ter_1P/Lab_Mecanica_Fluidos_2.png",
+            "video": null
+        }
+    },
+    {
+        "id": "Lab_Transferencia_Calor_Termodinamica",
+        "nombre": "Laboratorio de Transferencia de Calor y Termodinámica",
+        "tipo": "Laboratorio",
+        "ubicacion": "Anfión Muñoz 870, 1º piso, sector Termofluidos",
+        "descripcion": "",
+        "x": 73.724,
+        "y": 106.618,
+        "media": {
+            "foto": "imagenes/Ter_1P/Lab_Transferencia_Calor_Termodinamica.png",
+            "video": null
+        }
+    },
+    {
+        "id": "Oficina_LRC",
+        "nombre": "Oficina Luis Rodriguez Chandía",
+        "tipo": "Oficina",
+        "ubicacion": "Anfión Muñoz 870, 1º piso, sector Termofluidos",
+        "descripcion": "",
+        "x": 82.552,
+        "y": 106.619,
+        "media": {
+            "foto": "imagenes/Ter_1P/Oficina_LRC.png",
+            "video": null
+        }
+    },
+    {
+        "id": "Lab_Mecanica_Fluidos_1",
+        "nombre": "Laboratorio Mecánica de los Fluidos 1",
+        "tipo": "Laboratorio",
+        "ubicacion": "Anfión Muñoz 870, 1º piso, sector Termofluidos",
+        "descripcion": "",
+        "x": 73.726,
+        "y": 111.126,
+        "media": {
+            "foto": "imagenes/Ter_1P/Lab_Mecanica_Fluidos_1.png",
+            "video": null
+        }
+    },
+    {
+        "id": "Sala_Micro",
+        "nombre": "Sala Micro",
+        "tipo": "Sala",
+        "ubicacion": "Anfión Muñoz 870, 1º piso, sector Termofluidos",
+        "descripcion": "",
+        "x": 82.551,
+        "y": 109.761,
+        "media": {
+            "foto": "imagenes/Ter_1P/Sala_Micro.png",
+            "video": null
+        }
+    },
+    {
+        "id": "Comedor",
+        "nombre": "Comedor Funcionarios",
+        "tipo": "Comedor",
+        "ubicacion": "Anfión Muñoz 870, 1º piso, sector Termofluidos",
+        "descripcion": "",
+        "x": 82.551,
+        "y": 115.688,
+        "media": {
+            "foto": "imagenes/Ter_1P/Comedor.png",
+            "video": null
+        }
+    },
+    {
+        "id": "Bodega_1",
+        "nombre": "Bodega 1",
+        "tipo": "Bodega",
+        "ubicacion": "Anfión Muñoz 870, 1º piso, sector Termofluidos",
+        "descripcion": "",
+        "x": 73.726,
+        "y": 120.678,
+        "media": {
+            "foto": "imagenes/Ter_1P/Bodega_1.png",
+            "video": null
+        }
+    },
+    {
+        "id": "Oficina_NN",
+        "nombre": "Oficina",
+        "tipo": "Oficina",
+        "ubicacion": "Anfión Muñoz 870, 1º piso, sector Termofluidos",
+        "descripcion": "Oficina",
+        "x": 76.731,
+        "y": 120.678,
+        "media": {
+            "foto": "imagenes/Ter_1P/Oficina_NN.png",
+            "video": null
+        }
+    },
+    {
+        "id": "Bodega_ND",
+        "nombre": "Bodega de Aseo",
+        "tipo": "Bodega",
+        "ubicacion": "Anfión Muñoz 870, 1º piso, sector Termofluidos",
+        "descripcion": "",
+        "x": 82.588,
+        "y": 125.472,
+        "media": {
+            "foto": "imagenes/Ter_1P/Bodega_ND.png",
+            "video": "null"
+        }
+    },
+    {
+        "id": "Sala_Julio_Guzman",
+        "nombre": "Sala Julio Guzmán Barrera",
+        "tipo": "Sala",
+        "ubicacion": "Anfión Muñoz 870, 1º piso, sector Termofluidos",
+        "descripcion": "",
+        "x": 85.593,
+        "y": 120.529,
+        "media": {
+            "foto": "imagenes/Ter_1P/Sala_Julio_Guzman.png",
+            "video": null
+        }
+    },
+    {
+        "id": "Bano_Termofluidos",
+        "nombre": "Baño Sector Termofluidos - Damas",
+        "tipo": "Baño",
+        "ubicacion": "Anfión Muñoz 870, 1º piso, sector Termofluidos",
+        "descripcion": "",
+        "x": 95.345,
+        "y": 120.529,
+        "media": {
+            "foto": "imagenes/Ter_1P/Bano_Alumnas_Damas.png",
             "video": null
         }
     },
@@ -208,21 +449,21 @@
         "tipo": "Oficina",
         "ubicacion": "Anfión Muñoz N° 850, 2º piso, sector Hall Secretaría DIMEC",
         "descripcion": "<strong>Información de Contacto:</strong><p><ul><li><strong>Correo: </strong><a href='mailto:dgae@userena.cl'>dgae@userena.cl</a></li><p><li><strong>Teléfono:</strong> +56 51 2 204297</li></ul>",
-        "x": 111.182,
-        "y": 126.993,
+        "x": 111.214,
+        "y": 126.984,
         "media": {
             "foto": "imagenes/Hall_1P/DGAE.png",
             "video": null
         }
     },
-        {
+    {
         "id": "TUNA",
         "nombre": "Salón de Baile / Sala de Ensayo (DGAE)",
         "tipo": "Sala",
         "ubicacion": "Anfión Muñoz N° 850, subterraneo, sector Hall Secretaría DIMEC",
         "descripcion": "<strong>Información de Contacto:</strong><p><ul><strong>Correos: </strong><p><li><a href='mailto:tunasanbartolome@userena.cl'>tunasanbartolome@userena.cl</a></li><p><li><a href='mailto:tuna.distrito.uls@gmail.com'>tuna.distrito.uls@gmail.com</a></li><p><li><a href='mailto:extracurriculares@userena.cl'>extracurriculares@userena.cl</a></li><p><li><a href='mailto:cofuls@userena.cl'>cofuls@userena.cl</a></li></ul>",
-        "x": 111.182,
-        "y": 128.071, 
+        "x": 111.220,
+        "y": 128.239, 
         "media": {
             "fotos": [
                 "imagenes/Hall_1P/TUNA_Sn_Bartolome.jpg",
@@ -344,7 +585,7 @@
         "ubicacion": "Anfión Muñoz N° 850, 1º piso, sector Hall Secretaría DIMEC",
         "descripcion": "",
         "x": 104.185,
-        "y": 124.608,
+        "y": 124.587,
         "media": {
             "foto": "imagenes/Hall_1P/Bodega_DIMEC_2.png",
             "video": null
@@ -442,15 +683,171 @@
         }
     },
     {
-        "id": "Coopeuch",
-        "nombre": "Oficina Coopeuch",
-        "tipo": "Oficina",
-        "ubicacion": "Anfión Muñoz N° 875, 1º piso",
-        "descripcion": "<strong>Horarios de atención:</strong><p><ul><li>Lunes a Jueves: 09:00 Hrs a 14:00 Hrs y 15:15 Hrs a 17:00 Hrs</li><li>Viernes: 09:00 Hrs a 14:00 Hrs y 15:15 Hrs a 16:00 Hrs.</li></ul>",
-        "x": 48.228,
-        "y": 119.322,
+        "id": "Bano_Fundicion",
+        "nombre": "Baño Sector Fundición - Varones",
+        "tipo": "Baño",
+        "ubicacion": "Anfión Muñoz N° 850, 1º piso, sector Fundición",
+        "descripcion": "",
+        "x": 104.178,
+        "y": 110.835,
         "media": {
-            "foto": "imagenes/Coopeuch/Coopeuch.jpg",
+            "foto": "imagenes/Fun_1P/Bano_Alumnos_Varones_Fundicion.png",
+            "video": null
+        }
+    },
+    {
+        "id": "Lab_Mecatronica",
+        "nombre": "Laboratorio Mecatrónica",
+        "tipo": "Laboratorio",
+        "ubicacion": "Sector Fundición, 1º Piso",
+        "descripcion": "",
+        "x": 248.828,
+        "y": 177.925,
+        "media": {
+            "foto": "imagenes/Fun_1P/Lab_Mecatronica.png",
+            "video": null
+        }
+    },
+    {
+        "id": "Oficina_Estudiantes_Doctorado",
+        "nombre": "Oficina Estudiantes de Doctorado",
+        "tipo": "Oficina",
+        "ubicacion": "Sector Fundición, 1º Piso",
+        "descripcion": "",
+        "x": 248.828,
+        "y": 195.342,
+        "media": {
+            "foto": "imagenes/Fun_1P/Oficina_Estudiantes_Doctorado.png",
+            "video": null
+        }
+    },
+    {
+        "id": "Lab_MC_2",
+        "nombre": "Laboratorio Mecánica Computacional 2",
+        "tipo": "Laboratorio",
+        "ubicacion": "Sector Fundición, 1º Piso",
+        "descripcion": "",
+        "x": 248.828,
+        "y": 211.857,
+        "media": {
+            "foto": "imagenes/Fun_1P/Lab_MC_2.png",
+            "video": null
+        }
+    },
+    {
+        "id": "Lab_MC_1",
+        "nombre": "Laboratorio Mecánica Computacional 1",
+        "tipo": "Laboratorio",
+        "ubicacion": "Sector Fundición, 1º Piso",
+        "descripcion": "",
+        "x": 209.659,
+        "y": 211.857,
+        "media": {
+            "foto": "imagenes/Fun_1P/Lab_MC_1.png",
+            "video": null
+        }
+    },
+    {
+        "id": "Sala_Limpia",
+        "nombre": "Sala Limpia de Materiales Compuestos",
+        "tipo": "Laboratorio",
+        "ubicacion": "Sector Fundición, 1º Piso",
+        "descripcion": "",
+        "x": 230.419,
+        "y": 211.857,
+        "media": {
+            "foto": "imagenes/Fun_1P/Sala_Limpia.png",
+            "video": null
+        }
+    },
+    {
+        "id": "Bodega_IK_1",
+        "nombre": "Bodega Auto Solar 1",
+        "tipo": "Bodega",
+        "ubicacion": "Sector Fundición, 1º Piso",
+        "descripcion": "Sector Fundición 1P",
+        "x": 248.828,
+        "y": 257.384,
+        "media": {
+            "foto": "imagenes/Fun_1P/Bodega_IK_1.png",
+            "video": null
+        }
+    },
+    {
+        "id": "Bodega_IK_2",
+        "nombre": "Bodega Auto Solar 2",
+        "tipo": "Bodega",
+        "ubicacion": "Sector Fundición, 1º Piso",
+        "descripcion": "",
+        "x": 248.828,
+        "y": 249.006,
+        "media": {
+            "foto": "imagenes/Fun_1P/Bodega_IK_2.png",
+            "video": null
+        }
+    },
+    {
+        "id": "Bano_Alumnos_",
+        "nombre": "Baño Alumnos",
+        "tipo": "Baño",
+        "ubicacion": "Sector Fundición, 1º Piso",
+        "descripcion": "Sector Fundición 1P",
+        "x": 225.004,
+        "y": 272.503,
+        "media": {
+            "foto": "imagenes/Fun_1P/Bano_Alumnos_.png",
+            "video": null
+        }
+    },
+    {
+        "id": "Sala_Interactiva",
+        "nombre": "Sala Interactiva",
+        "tipo": "Sala",
+        "ubicacion": "Sector Fundición, 1º Piso",
+        "descripcion": "",
+        "x": 2209.530,
+        "y": 142.055,
+        "media": {
+            "foto": "imagenes/Fun_1P/Sala_Interactiva.png",
+            "video": null
+        }
+    },
+    {
+        "id": "Sala_Ex_Fundicion",
+        "nombre": "Sala Ex-Fundición",
+        "tipo": "Sala",
+        "ubicacion": "Sector Fundición, 1º Piso",
+        "descripcion": "",
+        "x": 248.829,
+        "y": 169.095,
+        "media": {
+            "foto": "imagenes/Fun_1P/Sala_Ex_Fundicion.png",
+            "video": null
+        }
+    },
+    {
+        "id": "Oficina_IK",
+        "nombre": "Oficina Auto Solar",
+        "tipo": "Oficina",
+        "ubicacion": "Sector Fundición, 1º Piso",
+        "descripcion": "",
+        "x": 209.165,
+        "y": 141.916,
+        "media": {
+            "foto": "imagenes/Fun_1P/Oficina_IK.png",
+            "video": null
+        }
+    },
+    {
+        "id": "Lab_Fundicion",
+        "nombre": "Sector Fundición",
+        "tipo": "Sector",
+        "ubicacion": "Anfión Muñoz N° 850, 1º piso, sector Fundición",
+        "descripcion": "",
+        "x": 100.129,
+        "y": 84.813,
+        "media": {
+            "foto": "imagenes/Fun_1P/Lab_Fundicion.png",
             "video": null
         }
     }
