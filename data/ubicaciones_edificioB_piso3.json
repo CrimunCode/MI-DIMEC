@@ -8,7 +8,7 @@
         "x": 105.974,
         "y": 169.572,
         "media": {
-            "foto": "imagenes/Ter_3P/Bodega_Electricidad.png",
+            "foto": "imagenes/Ter_3P/Bodega_Electricidad.webp",
             "video": null
         }
     },
@@ -21,7 +21,7 @@
         "x": 118.403,
         "y": 169.572,
         "media": {
-            "foto": "imagenes/Ter_3P/Lab_Electrotecnia.png",
+            "foto": "imagenes/Ter_3P/Lab_Electrotecnia.webp",
             "video": "videos/Ter_3P/Lab_Electrotecnia.mp4"
         }
     },
@@ -34,7 +34,7 @@
         "x": 141.136,
         "y": 169.572,
         "media": {
-            "foto": "imagenes/Ter_3P/Oficina_Paradocente.png",
+            "foto": "imagenes/Ter_3P/Oficina_Paradocente.webp",
             "video": null
         }
     },
@@ -47,7 +47,7 @@
         "x": 106.074,
         "y": 197.628,
         "media": {
-            "foto": "imagenes/Ter_3P/Lab_Control.png",
+            "foto": "imagenes/Ter_3P/Lab_Control.webp",
             "video": "videos/Ter_3P/Lab_Control.mp4"
         }
     },
@@ -60,7 +60,7 @@
         "x": 121.728,
         "y": 185.585,
         "media": {
-            "foto": "imagenes/Ter_3P/Lab_Maquinas_Electricas.png",
+            "foto": "imagenes/Ter_3P/Lab_Maquinas_Electricas.webp",
             "video": "videos/Ter_3P/Lab_Maquinas_Electricas.mp4"
         }
     },
@@ -73,7 +73,7 @@
         "x": 129.440,
         "y": 222.611,
         "media": {
-            "foto": "imagenes/Ter_3P/Sala_Postgrado_2.png",
+            "foto": "imagenes/Ter_3P/Sala_Postgrado_2.webp",
             "video": "videos/Ter_3P/Sala_Postgrado_2.mp4"
         }
     },
@@ -86,7 +86,7 @@
         "x": 129.440,
         "y": 239.807,
         "media": {
-            "foto": "imagenes/Ter_3P/Sala_Postgrado_1.png",
+            "foto": "imagenes/Ter_3P/Sala_Postgrado_1.webp",
             "video": "videos/Ter_3P/Sala_Postgrado_1.mp4"
         }
     },
@@ -99,7 +99,7 @@
         "x": 106.074,
         "y": 222.604,
         "media": {
-            "foto": "imagenes/Ter_3P/Sala_Electricidad.png",
+            "foto": "imagenes/Ter_3P/Sala_Electricidad.webp",
             "video": "videos/Ter_3P/Sala_Electricidad.mp4"
         }
     },
@@ -112,7 +112,7 @@
         "x": 129.440,
         "y": 257.632,
         "media": {
-            "foto": "imagenes/Ter_3P/Sala_Auto_Solar.png",
+            "foto": "imagenes/Ter_3P/Sala_Auto_Solar.webp",
             "video": null
         }
     },
@@ -125,7 +125,7 @@
         "x": 106.024,
         "y": 275.169,
         "media": {
-            "foto": "imagenes/Ter_3P/Bodega_TIC.png",
+            "foto": "imagenes/Ter_3P/Bodega_TIC.webp",
             "video": null
         }
     },
@@ -138,7 +138,7 @@
         "x": 106.024,
         "y": 287.227,
         "media": {
-            "foto": "imagenes/Ter_3P/Oficina_CEC_ICM.png",
+            "foto": "imagenes/Ter_3P/Oficina_CEC_ICM.webp",
             "video": null
         }
     },
@@ -151,7 +151,7 @@
         "x": 106.024,
         "y": 299.551,
         "media": {
-            "foto": "imagenes/Ter_3P/Oficina_CEC_IM.png",
+            "foto": "imagenes/Ter_3P/Oficina_CEC_IM.webp",
             "video": null
         }
     },
@@ -164,7 +164,7 @@
         "x": 139.929,
         "y": 281.674,
         "media": {
-            "foto": "imagenes/Ter_3P/Sala_Estudio.png",
+            "foto": "imagenes/Ter_3P/Sala_Estudio.webp",
             "video": null
         }
     },
@@ -177,7 +177,7 @@
         "x": 106.036,
         "y": 320.445,
         "media": {
-            "foto": "imagenes/Ter_3P/Oficina_JVL.png",
+            "foto": "imagenes/Ter_3P/Oficina_JVL.webp",
             "video": null
         }
     },
@@ -190,7 +190,7 @@
         "x": 117.307,
         "y": 323.462,
         "media": {
-            "foto": "imagenes/Ter_3P/Oficina_LSB.png",
+            "foto": "imagenes/Ter_3P/Oficina_LSB.webp",
             "video": null
         }
     },
@@ -203,7 +203,7 @@
         "x": 129.152,
         "y": 323.462,
         "media": {
-            "foto": "imagenes/Ter_3P/Bano_Funcionarios.png",
+            "foto": "imagenes/Ter_3P/Bano_Funcionarios.webp",
             "video": null
         }
     },
@@ -216,7 +216,7 @@
         "x": 106.074,
         "y": 258.149,
         "media": {
-            "foto": "imagenes/Ter_3P/Lab_MC_NMB.png",
+            "foto": "imagenes/Ter_3P/Lab_MC_NMB.webp",
             "video": null
         }
     }

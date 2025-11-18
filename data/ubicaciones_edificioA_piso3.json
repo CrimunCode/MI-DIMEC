@@ -8,7 +8,7 @@
         "x": 18.271,
         "y": 169.422,
         "media": {
-            "foto": "imagenes/Pro_3P/Sala_217.png",
+            "foto": "imagenes/Pro_3P/Sala_217.webp",
             "video": null
         }
     },
@@ -21,7 +21,7 @@
         "x": 18.271,
         "y": 204.313,
         "media": {
-            "foto": "imagenes/Pro_3P/Sala_216.png",
+            "foto": "imagenes/Pro_3P/Sala_216.webp",
             "video": "videos/Pro_3P/Sala_216.mp4"
         }
     },
@@ -34,7 +34,7 @@
         "x": 18.271,
         "y": 257.327,
         "media": {
-            "foto": "imagenes/Pro_3P/Sala_215.png",
+            "foto": "imagenes/Pro_3P/Sala_215.webp",
             "video": "videos/Pro_3P/Sala_215.mp4"
         }
     },
@@ -47,7 +47,7 @@
         "x": 18.271,
         "y": 311.925,
         "media": {
-            "foto": "imagenes/Pro_3P/Oficina_NMB.png",
+            "foto": "imagenes/Pro_3P/Oficina_NMB.webp",
             "video": null
         }
     },
@@ -60,7 +60,7 @@
         "x": 29.653,
         "y": 319.888,
         "media": {
-            "foto": "imagenes/Pro_3P/Oficina_LSL.png",
+            "foto": "imagenes/Pro_3P/Oficina_LSL.webp",
             "video": null
         }
     },
@@ -73,7 +73,7 @@
         "x": 41.000,
         "y": 319.881,
         "media": {
-            "foto": "imagenes/Pro_3P/Oficina_EV.png",
+            "foto": "imagenes/Pro_3P/Oficina_EV.webp",
             "video": null
         }
     }

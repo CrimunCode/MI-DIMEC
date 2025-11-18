@@ -8,7 +8,7 @@
         "x": 4.383,
         "y": 82.827,
         "media": {
-            "foto": "imagenes/Biblio/Biblioteca.jpg",
+            "foto": "imagenes/Biblio/Biblioteca.webp",
             "video": "videos/Biblio/Biblioteca.mp4"
         }
     },
@@ -21,7 +21,7 @@
         "x": 27.631,
         "y": 82.827,
         "media": {
-            "foto": "imagenes/OAME/OAME.png",
+            "foto": "imagenes/OAME/OAME.webp",
             "video": "videos/OAME/OAME.mp4"
         }
     },
@@ -34,7 +34,7 @@
         "x": 4.422,
         "y": 71.580,
          "media": {
-            "foto": "imagenes/Alumni_ULS/ALUMNI.jpg",
+            "foto": "imagenes/Alumni_ULS/ALUMNI.webp",
             "video": "videos/Alumni_ULS/ALUMNI.mp4"
         }
     },
@@ -47,7 +47,7 @@
         "x": 23.117,
         "y": 72.126,
         "media": {
-            "foto": "imagenes/Tunel/Tunel.jpg",
+            "foto": "imagenes/Tunel/Tunel.webp",
             "video": "videos/Tunel/Tunel.mp4"
         }
     },
@@ -60,7 +60,7 @@
         "x": 48.228,
         "y": 119.322,
         "media": {
-            "foto": "imagenes/Coopeuch/Coopeuch.jpg",
+            "foto": "imagenes/Coopeuch/Coopeuch.webp",
             "video": null
         }
     },
@@ -99,7 +99,7 @@
         "x": 54.176,
         "y": 83.241,
         "media": {
-            "fotos": ["imagenes/Pro_1P/Lab_Soldadura.png"],
+            "fotos": ["imagenes/Pro_1P/Lab_Soldadura.webp"],
             "video": "videos/Pro_1P/Lab_Soldadura.mp4"
         }
     },
@@ -112,7 +112,7 @@
         "x": 59.923,
         "y": 83.137,
         "media": {
-            "fotos": ["imagenes/Pro_1P/Lab_Tratamientos_Termicos.png"],
+            "fotos": ["imagenes/Pro_1P/Lab_Tratamientos_Termicos.webp"],
             "video": null
         }
     },
@@ -125,7 +125,7 @@
         "x": 51.066,
         "y": 82.864,
         "media": {
-            "fotos": ["imagenes/Pro_1P/Bod_Lab_Pro.png"],
+            "fotos": ["imagenes/Pro_1P/Bod_Lab_Pro.webp"],
             "video": null
         }
     },
@@ -138,7 +138,7 @@
         "x": 51.063,
         "y": 90.655,
         "media": {
-            "fotos": ["imagenes/Pro_1P/Lab_Traccion.png"],
+            "fotos": null,
             "video": null
         }
     },
@@ -151,7 +151,7 @@
         "x": 59.780,
         "y": 115.688,
         "media": {
-            "fotos": ["imagenes/Pro_1P/Ofi_Par_MCC.png"],
+            "fotos": ["imagenes/Pro_1P/Ofi_Par_MCC.webp"],
             "video": null
         }
     },
@@ -164,7 +164,7 @@
         "x": 51.064,
         "y": 120.674,
         "media": {
-            "fotos": ["imagenes/Pro_1P/Sala_Metrologia.png"],
+            "fotos": ["imagenes/Pro_1P/Sala_Metrologia.webp"],
             "video": "videos/Pro_1P/Sala_Metrologia.mp4"
         }
     },
@@ -177,7 +177,7 @@
         "x": 66.658,
         "y": 120.671,
         "media": {
-            "fotos": ["imagenes/Pro_1P/Lab_Ciencia_Materiales.png"],
+            "fotos": ["imagenes/Pro_1P/Lab_Ciencia_Materiales.webp"],
             "video": null
         }
     },
@@ -190,7 +190,7 @@
         "x": 59.923,
         "y": 125.472,
         "media": {
-            "fotos": ["imagenes/Pro_1P/Bodega_Aseo.png"],
+            "fotos": ["imagenes/Pro_1P/Bodega_Aseo.webp"],
             "video": null
         }
     },
@@ -216,7 +216,7 @@
         "x": 63.203,
         "y": 122.808,
         "media": {
-            "fotos": ["imagenes/Pro_1P/Bano_Alumnos_Varones.png"],
+            "fotos": ["imagenes/Pro_1P/Bano_Alumnos_Varones.webp"],
             "video": null
         }
     },
@@ -229,7 +229,7 @@
         "x": 73.722,
         "y": 83.132,
         "media": {
-            "foto": "imagenes/Ter_1P/Lab_Lubricacion.png",
+            "foto": "imagenes/Ter_1P/Lab_Lubricacion.webp",
             "video": null
         }
     },
@@ -242,7 +242,7 @@
         "x": 71.449,
         "y": 84.763,
         "media": {
-            "foto": "imagenes/Ter_1P/Bodega_2.png",
+            "foto": "imagenes/Ter_1P/Bodega_2.webp",
             "video": null
         }
     },
@@ -255,7 +255,7 @@
         "x": 80.982,
         "y": 83.211,
         "media": {
-            "foto": "imagenes/Ter_1P/Lab_Caldera.png",
+            "foto": "imagenes/Ter_1P/Lab_Caldera.webp",
             "video": "videos/Ter_1P/Lab_Caldera.mp4"
         }
     },
@@ -268,7 +268,7 @@
         "x": 73.724,
         "y": 92.136,
         "media": {
-            "foto": "imagenes/Ter_1P/Lab_Hidrogeno_Verde.png",
+            "foto": "imagenes/Ter_1P/Lab_Hidrogeno_Verde.webp",
             "video": null
         }
     },
@@ -281,7 +281,7 @@
         "x": 73.724,
         "y": 101.782,
         "media": {
-            "foto": "imagenes/Ter_1P/Lab_Maquinas_Termicas.png",
+            "foto": "imagenes/Ter_1P/Lab_Maquinas_Termicas.webp",
             "video": "videos/Ter_1P/Lab_Maquinas_Termicas.mp4"
         }
     },
@@ -294,7 +294,7 @@
         "x": 80.903,
         "y": 101.532,
         "media": {
-            "foto": "imagenes/Ter_1P/Lab_Mecanica_Fluidos_2.png",
+            "foto": "imagenes/Ter_1P/Lab_Mecanica_Fluidos_2.webp",
             "video": "videos/Ter_1P/Lab_Mecanica_Fluidos_2.mp4"
         }
     },
@@ -307,7 +307,7 @@
         "x": 73.724,
         "y": 106.618,
         "media": {
-            "foto": "imagenes/Ter_1P/Lab_Transferencia_Calor_Termodinamica.png",
+            "foto": "imagenes/Ter_1P/Lab_Transferencia_Calor_Termodinamica.webp",
             "video": "videos/Ter_1P/Lab_Transferencia_Calor_Termodinamica.mp4"
         }
     },
@@ -320,7 +320,7 @@
         "x": 82.552,
         "y": 106.619,
         "media": {
-            "foto": "imagenes/Ter_1P/Oficina_LRC.png",
+            "foto": "imagenes/Ter_1P/Oficina_LRC.webp",
             "video": null
         }
     },
@@ -333,7 +333,7 @@
         "x": 73.726,
         "y": 111.126,
         "media": {
-            "foto": "imagenes/Ter_1P/Lab_Mecanica_Fluidos_1.png",
+            "foto": "imagenes/Ter_1P/Lab_Mecanica_Fluidos_1.webp",
             "video": "videos/Ter_1P/Lab_Mecanica_Fluidos_1.mp4"
         }
     },
@@ -346,7 +346,7 @@
         "x": 82.551,
         "y": 109.761,
         "media": {
-            "foto": "imagenes/Ter_1P/Sala_Micro.png",
+            "foto": "imagenes/Ter_1P/Sala_Micro.webp",
             "video": "videos/Ter_1P/Sala_Micro.mp4"
         }
     },
@@ -359,7 +359,7 @@
         "x": 82.551,
         "y": 115.688,
         "media": {
-            "foto": "imagenes/Ter_1P/Comedor.png",
+            "foto": "imagenes/Ter_1P/Comedor.webp",
             "video": null
         }
     },
@@ -372,7 +372,7 @@
         "x": 73.726,
         "y": 120.678,
         "media": {
-            "foto": "imagenes/Ter_1P/Bodega_1.png",
+            "foto": "imagenes/Ter_1P/Bodega_1.webp",
             "video": null
         }
     },
@@ -385,7 +385,7 @@
         "x": 76.731,
         "y": 120.678,
         "media": {
-            "foto": "imagenes/Ter_1P/Oficina_NN.png",
+            "foto": "imagenes/Ter_1P/Oficina_NN.webp",
             "video": null
         }
     },
@@ -398,7 +398,7 @@
         "x": 82.588,
         "y": 125.472,
         "media": {
-            "foto": "imagenes/Ter_1P/Bodega_ND.png",
+            "foto": "imagenes/Ter_1P/Bodega_ND.webp",
             "video": "null"
         }
     },
@@ -411,7 +411,7 @@
         "x": 85.593,
         "y": 120.529,
         "media": {
-            "foto": "imagenes/Ter_1P/Sala_Julio_Guzman.png",
+            "foto": "imagenes/Ter_1P/Sala_Julio_Guzman.webp",
             "video": null
         }
     },
@@ -424,7 +424,7 @@
         "x": 95.345,
         "y": 120.529,
         "media": {
-            "foto": "imagenes/Ter_1P/Bano_Alumnas_Damas.png",
+            "foto": "imagenes/Ter_1P/Bano_Alumnas_Damas.webp",
             "video": null
         }
     },
@@ -437,7 +437,7 @@
         "x": 104.356,
         "y": 116.114,
         "media": {
-            "foto": "imagenes/Hall_1P/Sala_Reuniones_DIMEC.png",
+            "foto": "imagenes/Hall_1P/Sala_Reuniones_DIMEC.webp",
             "video": null
         }
     },
@@ -450,7 +450,7 @@
         "x": 111.214,
         "y": 126.984,
         "media": {
-            "foto": "imagenes/Hall_1P/DGAE.png",
+            "foto": "imagenes/Hall_1P/DGAE.webp",
             "video": null
         }
     },
@@ -464,10 +464,10 @@
         "y": 128.239, 
         "media": {
             "fotos": [
-                "imagenes/Hall_1P/TUNA_Sn_Bartolome.jpg",
-                "imagenes/Hall_1P/TUNA_Distrito.jpg",
-                "imagenes/Hall_1P/TUNA_Azahares.jpg",
-                "imagenes/Hall_1P/COFULS.jpg"
+                "imagenes/Hall_1P/TUNA_Sn_Bartolome.webp",
+                "imagenes/Hall_1P/TUNA_Distrito.webp",
+                "imagenes/Hall_1P/TUNA_Azahares.webp",
+                "imagenes/Hall_1P/COFULS.webp"
             ],
             "video": null
         }
@@ -481,7 +481,7 @@
         "x": 111.189,
         "y": 129.416,
         "media": {
-            "foto": "imagenes/Hall_1P/Oficina_Secretaria_DIMEC.png",
+            "foto": "imagenes/Hall_1P/Oficina_Secretaria_DIMEC.webp",
             "video": null
         }
     },
@@ -494,7 +494,7 @@
         "x": 111.190,
         "y": 132.214,
         "media": {
-            "foto": "imagenes/Hall_1P/Oficina_Direccion_DIMEC.png",
+            "foto": "imagenes/Hall_1P/Oficina_Direccion_DIMEC.webp",
             "video": null
         }
     },
@@ -507,7 +507,7 @@
         "x": 104.320,
         "y": 133.016,
         "media": {
-            "foto": "imagenes/Hall_1P/Bodega_DIMEC_1.png",
+            "foto": "imagenes/Hall_1P/Bodega_DIMEC_1.webp",
             "video": null
         }
     },
@@ -520,7 +520,7 @@
         "x": 104.320,
         "y": 129.280,
         "media": {
-            "foto": "imagenes/Hall_1P/Bodega_Electrica.png",
+            "foto": "imagenes/Hall_1P/Bodega_Electrica.webp",
             "video": null
         }
     },
@@ -533,7 +533,7 @@
         "x": 103.259,
         "y": 129.280,
         "media": {
-            "foto": "imagenes/Hall_1P/Bodega_Aseo_Fotocopia.png",
+            "foto": "imagenes/Hall_1P/Bodega_Aseo_Fotocopia.webp",
             "video": null
         }
     },
@@ -546,7 +546,7 @@
         "x": 100.133,
         "y": 129.280,
         "media": {
-            "foto": "imagenes/Hall_1P/Bano_Fotocopia.png",
+            "foto": "imagenes/Hall_1P/Bano_Fotocopia.webp",
             "video": null
         }
     },
@@ -559,7 +559,7 @@
         "x": 100.133,
         "y": 129.280,
         "media": {
-            "foto": "imagenes/Hall_1P/Bodega_Fotocopiadora.png",
+            "foto": "imagenes/Hall_1P/Bodega_Fotocopiadora.webp",
             "video": null
         }
     },
@@ -572,7 +572,7 @@
         "x": 111.188,
         "y": 124.480,
         "media": {
-            "foto": "imagenes/Hall_1P/Bano_Hall.png",
+            "foto": "imagenes/Hall_1P/Bano_Hall.webp",
             "video": null
         }
     },
@@ -585,7 +585,7 @@
         "x": 104.185,
         "y": 124.587,
         "media": {
-            "foto": "imagenes/Hall_1P/Bodega_DIMEC_2.png",
+            "foto": "imagenes/Hall_1P/Bodega_DIMEC_2.webp",
             "video": null
         }
     },
@@ -598,7 +598,7 @@
         "x": 111.487,
         "y": 122.430,
         "media": {
-            "foto": "imagenes/Hall_1P/Oficina_GB.png",
+            "foto": "imagenes/Hall_1P/Oficina_GB.webp",
             "video": null
         }
     },
@@ -611,7 +611,7 @@
         "x": 111.487,
         "y": 120.579,
         "media": {
-            "foto": "imagenes/Hall_1P/Oficina_WV.png",
+            "foto": "imagenes/Hall_1P/Oficina_WV.webp",
             "video": null
         }
     },
@@ -624,7 +624,7 @@
         "x": 104.352,
         "y": 122.394,
         "media": {
-            "foto": "imagenes/Hall_1P/Oficina_FS.png",
+            "foto": "imagenes/Hall_1P/Oficina_FS.webp",
             "video": null
         }
     },
@@ -637,7 +637,7 @@
         "x": 111.487,
         "y": 118.634,
         "media": {
-            "foto": "imagenes/Hall_1P/Oficina_NN_1.png",
+            "foto": "imagenes/Hall_1P/Oficina_NN_1.webp",
             "video": null
         }
     },
@@ -650,7 +650,7 @@
         "x": 111.487,
         "y": 116.106,
         "media": {
-            "foto": "imagenes/Hall_1P/Oficina_NN_2.png",
+            "foto": "imagenes/Hall_1P/Oficina_NN_2.webp",
             "video": null
         }
     },
@@ -663,7 +663,7 @@
         "x": 104.352,
         "y": 120.641,
         "media": {
-            "foto": "imagenes/Hall_1P/Oficina_FS.png",
+            "foto": "imagenes/Hall_1P/Oficina_FS.webp",
             "video": null
         }
     },
@@ -676,7 +676,7 @@
         "x": 110.215,
         "y": 116.254,
         "media": {
-            "foto": "imagenes/Hall_1P/Bano_Mistraliano.png",
+            "foto": "imagenes/Hall_1P/Bano_Mistraliano.webp",
             "video": null
         }
     },
@@ -689,7 +689,7 @@
         "x": 104.178,
         "y": 110.835,
         "media": {
-            "foto": "imagenes/Fun_1P/Bano_Alumnos_Varones_Fundicion.png",
+            "foto": "imagenes/Fun_1P/Bano_Alumnos_Varones_Fundicion.webp",
             "video": null
         }
     },
@@ -702,7 +702,7 @@
         "x": 248.828,
         "y": 177.925,
         "media": {
-            "foto": "imagenes/Fun_1P/Lab_Mecatronica.png",
+            "foto": "imagenes/Fun_1P/Lab_Mecatronica.webp",
             "video": null
         }
     },
@@ -715,7 +715,7 @@
         "x": 248.828,
         "y": 195.342,
         "media": {
-            "foto": "imagenes/Fun_1P/Oficina_Estudiantes_Doctorado.png",
+            "foto": "imagenes/Fun_1P/Oficina_Estudiantes_Doctorado.webp",
             "video": null
         }
     },
@@ -754,7 +754,7 @@
         "x": 230.419,
         "y": 211.857,
         "media": {
-            "foto": "imagenes/Fun_1P/Sala_Limpia.png",
+            "foto": "imagenes/Fun_1P/Sala_Limpia.webp",
             "video": null
         }
     },
@@ -767,7 +767,7 @@
         "x": 248.828,
         "y": 257.384,
         "media": {
-            "foto": "imagenes/Fun_1P/Bodega_IK_1.png",
+            "foto": "imagenes/Fun_1P/Bodega_IK_1.webp",
             "video": null
         }
     },
@@ -780,7 +780,7 @@
         "x": 248.828,
         "y": 249.006,
         "media": {
-            "foto": "imagenes/Fun_1P/Bodega_IK_2.png",
+            "foto": "imagenes/Fun_1P/Bodega_IK_2.webp",
             "video": null
         }
     },
@@ -793,7 +793,7 @@
         "x": 225.004,
         "y": 272.503,
         "media": {
-            "foto": "imagenes/Fun_1P/Bano_Alumnos_.png",
+            "foto": "imagenes/Fun_1P/Bano_Alumnos_.webp",
             "video": null
         }
     },
@@ -806,7 +806,7 @@
         "x": 2209.530,
         "y": 142.055,
         "media": {
-            "foto": "imagenes/Fun_1P/Sala_Interactiva.png",
+            "foto": "imagenes/Fun_1P/Sala_Interactiva.webp",
             "video": null
         }
     },
@@ -819,7 +819,7 @@
         "x": 248.829,
         "y": 169.095,
         "media": {
-            "foto": "imagenes/Fun_1P/Sala_Ex_Fundicion.png",
+            "foto": "imagenes/Fun_1P/Sala_Ex_Fundicion.webp",
             "video": null
         }
     },
@@ -832,7 +832,7 @@
         "x": 209.165,
         "y": 141.916,
         "media": {
-            "foto": "imagenes/Fun_1P/Oficina_IK.png",
+            "foto": "imagenes/Fun_1P/Oficina_IK.webp",
             "video": null
         }
     },
@@ -845,7 +845,7 @@
         "x": 100.129,
         "y": 84.813,
         "media": {
-            "foto": "imagenes/Fun_1P/Lab_Fundicion.png",
+            "foto": "imagenes/Fun_1P/Lab_Fundicion.webp",
             "video": "videos/Fun_1P/Lab_Fundicion.mp4"
         }
     }
