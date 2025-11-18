@@ -73,8 +73,8 @@
         "x": 51.150,
         "y": 97.324,
         "media": {
-            "fotos": ["imagenes/Pro_1P/Lab_CNC_2.png"],
-            "video": null
+            "fotos": null,
+            "video": "videos/Pro_1P/Lab_CNC_2.mp4"
         }
     },
     {
@@ -86,8 +86,8 @@
         "x": 51.143,
         "y": 87.772,
         "media": {
-            "fotos": ["imagenes/Pro_1P/Lab_Maquinas_Herramientas.png"],
-            "video": null
+            "fotos": null,
+            "video": "videos/Pro_1P/Lab_Maquinas_Herramientas.mp4"
         }
     },
     {
@@ -100,7 +100,7 @@
         "y": 83.241,
         "media": {
             "fotos": ["imagenes/Pro_1P/Lab_Soldadura.png"],
-            "video": null
+            "video": "videos/Pro_1P/Lab_Soldadura.mp4"
         }
     },
     {
@@ -151,10 +151,8 @@
         "x": 59.780,
         "y": 115.688,
         "media": {
-            "fotos": [
-                "imagenes/Pro_1P/Ofi_Par_MCC.png"
-            ],
-            "video":null
+            "fotos": ["imagenes/Pro_1P/Ofi_Par_MCC.png"],
+            "video": null
         }
     },
     {
@@ -167,7 +165,7 @@
         "y": 120.674,
         "media": {
             "fotos": ["imagenes/Pro_1P/Sala_Metrologia.png"],
-            "video": null
+            "video": "videos/Pro_1P/Sala_Metrologia.mp4"
         }
     },
     {
@@ -205,8 +203,8 @@
         "x": 51.063,
         "y": 111.126,
         "media": {
-            "fotos": ["imagenes/Pro_1P/Lab_CNC_1.png"],
-            "video": null
+            "fotos": null,
+            "video": "videos/Pro_1P/Lab_CNC_1.mp4"
         }
     },
     {
@@ -258,7 +256,7 @@
         "y": 83.211,
         "media": {
             "foto": "imagenes/Ter_1P/Lab_Caldera.png",
-            "video": null
+            "video": "videos/Ter_1P/Lab_Caldera.mp4"
         }
     },
     {
@@ -284,7 +282,7 @@
         "y": 101.782,
         "media": {
             "foto": "imagenes/Ter_1P/Lab_Maquinas_Termicas.png",
-            "video": null
+            "video": "videos/Ter_1P/Lab_Maquinas_Termicas.mp4"
         }
     },
     {
@@ -297,7 +295,7 @@
         "y": 101.532,
         "media": {
             "foto": "imagenes/Ter_1P/Lab_Mecanica_Fluidos_2.png",
-            "video": null
+            "video": "videos/Ter_1P/Lab_Mecanica_Fluidos_2.mp4"
         }
     },
     {
@@ -310,7 +308,7 @@
         "y": 106.618,
         "media": {
             "foto": "imagenes/Ter_1P/Lab_Transferencia_Calor_Termodinamica.png",
-            "video": null
+            "video": "videos/Ter_1P/Lab_Transferencia_Calor_Termodinamica.mp4"
         }
     },
     {
@@ -336,7 +334,7 @@
         "y": 111.126,
         "media": {
             "foto": "imagenes/Ter_1P/Lab_Mecanica_Fluidos_1.png",
-            "video": null
+            "video": "videos/Ter_1P/Lab_Mecanica_Fluidos_1.mp4"
         }
     },
     {
@@ -349,7 +347,7 @@
         "y": 109.761,
         "media": {
             "foto": "imagenes/Ter_1P/Sala_Micro.png",
-            "video": null
+            "video": "videos/Ter_1P/Sala_Micro.mp4"
         }
     },
     {
@@ -730,8 +728,8 @@
         "x": 248.828,
         "y": 211.857,
         "media": {
-            "foto": "imagenes/Fun_1P/Lab_MC_2.png",
-            "video": null
+            "foto": null,
+            "video": "videos/Fun_1P/Lab_MC_2.mp4"
         }
     },
     {
@@ -743,8 +741,8 @@
         "x": 209.659,
         "y": 211.857,
         "media": {
-            "foto": "imagenes/Fun_1P/Lab_MC_1.png",
-            "video": null
+            "foto": null,
+            "video": "videos/Fun_1P/Lab_MC_1.mp4"
         }
     },
     {
@@ -848,7 +846,7 @@
         "y": 84.813,
         "media": {
             "foto": "imagenes/Fun_1P/Lab_Fundicion.png",
-            "video": null
+            "video": "videos/Fun_1P/Lab_Fundicion.mp4"
         }
     }
 ]
