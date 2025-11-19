@@ -438,7 +438,7 @@
         "y": 116.114,
         "media": {
             "foto": "imagenes/Hall_1P/Sala_Reuniones_DIMEC.webp",
-            "video": null
+            "video": "videos/Hall_1P/Sala_Reuniones_DIMEC.mp4"
         }
     },
     {
@@ -482,7 +482,7 @@
         "y": 129.416,
         "media": {
             "foto": "imagenes/Hall_1P/Oficina_Secretaria_DIMEC.webp",
-            "video": null
+            "video": "videos/Hall_1P/Oficina_Secretaria_DIMEC.mp4"
         }
     },
     {
@@ -755,7 +755,7 @@
         "y": 211.857,
         "media": {
             "foto": "imagenes/Fun_1P/Sala_Limpia.webp",
-            "video": null
+            "video": "videos/Fun_1P/Sala_Limpia.mp4"
         }
     },
     {
@@ -820,7 +820,7 @@
         "y": 169.095,
         "media": {
             "foto": "imagenes/Fun_1P/Sala_Ex_Fundicion.webp",
-            "video": null
+            "video": "videos/Fun_1P/Sala_Ex_Fundicion.mp4"
         }
     },
     {
@@ -833,7 +833,7 @@
         "y": 141.916,
         "media": {
             "foto": "imagenes/Fun_1P/Oficina_IK.webp",
-            "video": null
+            "video": "videos/Fun_1P/Oficina_IK.mp4"
         }
     },
     {
