@@ -162,7 +162,7 @@ function placeMarkers(svgRoot, ubicaciones){
       try { target.setAttribute("pointer-events","all"); } catch(e){} // importante para hover cuando fill transparent
       target.style.cursor="pointer";
       target.dataset.nombre = (ubicacion.nombre||"").toLowerCase();
-      target.addEventListener("mouseenter", ()=> target.setAttribute("fill","black"));
+      target.addEventListener("mouseenter", ()=> target.setAttribute("fill","#CF142B")); //black
       target.addEventListener("mouseleave", ()=> target.setAttribute("fill","transparent"));
       target.addEventListener("click", ()=> showInfo(ubicacion));
       target.__attached = true;
@@ -346,8 +346,8 @@ function highlightBuilding(mapEntry){
   el.dataset.originalOpacity = el.getAttribute("opacity") || "";
 
   try {
-    el.setAttribute("fill", "black"); // gris
-    el.setAttribute("opacity", "0.9");
+    el.setAttribute("fill", "#CF142B"); // black
+    el.setAttribute("opacity", "0.5");
   } catch(e){}
 }
 
@@ -470,8 +470,8 @@ function focusOnLocation(ubicacion){
   const el = svgDoc.getElementById(ubicacion.id);
   if(!el) return;
   try {
-    el.setAttribute("fill","black");
-    el.setAttribute("opacity","0.9");
+    el.setAttribute("fill","#CF142B"); //black
+    el.setAttribute("opacity","0.5");
   } catch(e){}
   showInfo(ubicacion);
 }
