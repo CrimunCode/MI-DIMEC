@@ -1,5 +1,11 @@
 /* ----------------- script.js (actualizado) ----------------- */
 
+const alias = {
+    "secretaria": "oficina secretaria dimec",
+    "dimec": "departamento de ingeniería mecánica"
+};
+
+
 /* ---------- Diccionario nombres edificios (texto paa sugerencias) ---------- */
 const nombresEdificios = {
   "A": "Sector: Procesos",
@@ -223,11 +229,19 @@ async function buildIndex(){
       const r = await fetch(entry.json);
       if(!r.ok) return;
       const items = await r.json();
-      items.forEach(it => nameIndex.push({
-        nombreLower: (it.nombre||"").toLowerCase(),
-        item: it,
-        mapEntry: entry
-      }));
+      items.forEach(it => {
+        const keywords = [
+            it.nombre || "",
+            it.id || "",
+            it.ubicacion || ""
+        ].join(" ").toLowerCase();
+
+      nameIndex.push({
+          nombreLower: keywords,   // antes solo era el nombre
+          item: it,
+          mapEntry: entry
+      });
+      });
     } catch(e){}
   }));
 }
@@ -271,6 +285,7 @@ function clearSuggestions(){
 /* ---------- Eventos de búsqueda ---------- */
 searchInput.addEventListener("input", debounce(()=>{
   const q = searchInput.value.trim().toLowerCase();
+  const query = alias[q] || q;
   if(!q){ clearSuggestions(); return; }
   const starts = nameIndex.filter(n=>n.nombreLower.startsWith(q)).slice(0,10);
   const contains = nameIndex.filter(n=>n.nombreLower.includes(q) && !n.nombreLower.startsWith(q)).slice(0,10-starts.length);
@@ -279,7 +294,9 @@ searchInput.addEventListener("input", debounce(()=>{
 
 searchInput.addEventListener("keydown", e=>{
   if(e.key === "Enter"){
-    const q = searchInput.value.trim().toLowerCase(); if(!q) return;
+    let q = searchInput.value.trim().toLowerCase();
+    if (alias[q]) q = alias[q];
+    if(!q) return;
     const pick = nameIndex.find(n=>n.nombreLower===q) || nameIndex.find(n=>n.nombreLower.startsWith(q));
     if(pick) selectSuggestion(pick);
     clearSuggestions(); searchInput.blur();
