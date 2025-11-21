@@ -3,6 +3,7 @@
         "id": "Sala_Termofluidos",
         "nombre": "Sala Termofluidos",
         "tipo": "Sala",
+        "sector":"B",
         "ubicacion": "Anfión Muñoz 870, 4º piso, sector Termofluidos",
         "descripcion": "",
         "x": 105.337,

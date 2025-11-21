@@ -11,8 +11,12 @@ const nombresEdificios = {
   "A": "Sector: Procesos",
   "B": "Sector: Termofluidos",
   "C": "Sector: Fundición",
-  "D": "Sector: Hall Secretaría DIMEC",
-  "General": "Plano General"
+  "D": "Sector: Hall DIMEC",
+  "General": "Plano General",
+  "Biblioteca": "Biblioteca Central Irma Salas Silva",
+  "OAME": "Oficina de Acompañamiento y Monitoreo Estudiantil",
+  "ALUMNI": "ALUMNI",
+  "Tunel": "Tunel"
 };
 
 /* ---------- Mapeo ids reales en el SVG general (ajusta si es necesario) ---------- */
@@ -20,7 +24,7 @@ const idEdificiosSVG = {
   "A": "Sector_Procesos",
   "B": "Sector_Termofluidos",
   "C": "Sector_Fundicion",
-  "D": "Sector_Hall_Secretaria_DIMEC",
+  "D": "Sector_Hall_DIMEC",
   // agrega aquí otros ids que uses en el SVG general si aplican
   "Biblioteca": "Biblioteca",
   "OAME": "OAME",
@@ -256,7 +260,7 @@ function showSuggestions(list){
 
   list.forEach(s=>{
     const li = document.createElement("li");
-    const edificioNombre = nombresEdificios[s.mapEntry.edificio] || s.mapEntry.edificio;
+    const edificioNombre = nombresEdificios[s.item.sector] || s.item.sector;
     li.textContent = `${s.item.nombre} - ${edificioNombre} - Piso ${s.mapEntry.piso}`;
 
     // guardamos la referencia por si quieres debug
@@ -264,7 +268,7 @@ function showSuggestions(list){
 
     // hover => highlight edificio en plano general
     li.addEventListener("mouseenter", ()=> {
-      try { highlightBuilding(s.mapEntry); } catch(e){ console.warn("highlightBuilding err", e); }
+      try { highlightBuilding({ edificio: s.item.sector }); } catch(e){ console.warn("highlightBuilding err", e); }
     });
     li.addEventListener("mouseleave", ()=> { try { clearHighlight(); } catch(e){} });
 
@@ -323,83 +327,145 @@ function resolveSvgId(mapEntry){
 }
 
 /* ---------- Highlight / clear ---------- */
+
+/* ---------- Highlight robusto (reemplazar) ---------- */
 function highlightBuilding(mapEntry){
-  const obj = document.getElementById("svgGeneral");
-  if(!obj) return;
-  const svgDoc = obj.contentDocument;
-  if(!svgDoc) return;
+  try {
+    const obj = document.getElementById("svgGeneral");
+    if(!obj) { console.warn("svgGeneral not found"); return; }
+    const svgDoc = obj.contentDocument;
+    if(!svgDoc) { console.warn("svgGeneral.contentDocument not ready"); return; }
 
-  clearHighlight();
+    clearHighlight(); // restore previous
 
-  // Try mapped id first, otherwise attempt to find matching element
-  let svgId = idEdificiosSVG[mapEntry.edificio] || String(mapEntry.edificio || "");
-  let el = svgDoc.getElementById(svgId);
+    // resolver id candidato
+    let key = (idEdificiosSVG[mapEntry.edificio] || mapEntry.edificio || "").toString().trim();
+    if(!key) { console.warn("No key for mapEntry", mapEntry); return; }
 
-  // fallback: try uppercase or "edificio"+key
-  if(!el){
-    const alt = svgId.toString().toUpperCase();
-    el = svgDoc.getElementById(alt) || svgDoc.getElementById("edificio" + svgId);
-  }
-
-  // fallback: try find element whose id contains the key (case-insensitive)
-  if(!el){
-    const needle = (svgId || "").toString().toLowerCase();
-    if(needle){
+    // intentar getElementById directo (varias variantes)
+    let el = svgDoc.getElementById(key) || svgDoc.getElementById(key.toLowerCase()) || svgDoc.getElementById(key.toUpperCase());
+    // fallback: buscar por substring (case-insensitive)
+    if(!el){
+      const needle = key.toLowerCase();
       const all = svgDoc.querySelectorAll('[id]');
       for(let i=0;i<all.length;i++){
-        const id = all[i].id || "";
-        if(id.toLowerCase().includes(needle)){
+        const id = (all[i].id||"").toString().toLowerCase();
+        if(id && id.includes(needle)){
           el = all[i];
           break;
         }
       }
     }
+
+    if(!el){
+      console.warn("No SVG element found for key:", key);
+      return;
+    }
+
+    // Función que aplica el highlight a un elemento (y guarda originales)
+    function applyHighlight(node){
+      if(!node || node.nodeType !== 1) return; // ELEMENT_NODE
+      try {
+        // Guarda originales como atributos data-... (seguro y fácil de restaurar)
+        if(node.hasAttribute("fill") || node.tagName.toLowerCase()==="path" || node.tagName.toLowerCase()==="rect" || node.tagName.toLowerCase()==="polygon"){
+          node.setAttribute("data-original-fill", node.getAttribute("fill") || "");
+          node.setAttribute("data-original-opacity", node.getAttribute("opacity") || (node.style && node.style.opacity) || "");
+          node.setAttribute("fill", "#CF142B");
+          node.setAttribute("opacity", "0.5");
+        } else {
+          // aún si no tiene fill explícito, forzamos visibilidad en caso de máscaras/opacity
+          node.setAttribute("data-original-opacity", node.getAttribute("opacity") || (node.style && node.style.opacity) || "");
+          node.setAttribute("opacity", "0.5");
+        }
+        // Asegurar visibilidad y eventos
+        node.setAttribute("display", node.getAttribute("display") || "inline");
+        node.style && (node.style.pointerEvents = "all");
+      } catch(e){ /* no bloquear */ }
+    }
+
+    // Aplicar highlight al elemento principal y a todos sus hijos
+    applyHighlight(el);
+    const children = el.querySelectorAll("*");
+    for(let i=0;i<children.length;i++){
+      applyHighlight(children[i]);
+    }
+
+    // También intentar hacer visible cualquier ancestro que esté oculto por display/opacity
+    let parent = el.parentNode;
+    while(parent && parent !== svgDoc){
+      try {
+        if(parent.setAttribute) {
+          parent.setAttribute("display", parent.getAttribute("display") || "inline");
+          parent.setAttribute("opacity", parent.getAttribute("opacity") || "1");
+        }
+      } catch(e){}
+      parent = parent.parentNode;
+    }
+
+  } catch(err) {
+    console.error("highlightBuilding error:", err);
   }
-
-  if(!el) return;
-
-  // store original
-  el.dataset.originalFill = el.getAttribute("fill") || "";
-  el.dataset.originalOpacity = el.getAttribute("opacity") || "";
-
-  try {
-    el.setAttribute("fill", "#CF142B"); // black
-    el.setAttribute("opacity", "0.5");
-  } catch(e){}
 }
 
+/* ---------- clearHighlight robusto (reemplazar) ---------- */
 function clearHighlight(){
-  const obj = document.getElementById("svgGeneral");
-  if(!obj) return;
-  const svgDoc = obj.contentDocument;
-  if(!svgDoc) return;
+  try {
+    const obj = document.getElementById("svgGeneral");
+    if(!obj) return;
+    const svgDoc = obj.contentDocument;
+    if(!svgDoc) return;
 
-  // restore for known ids
-  Object.values(idEdificiosSVG).forEach(id=>{
-    const el = svgDoc.getElementById(id);
-    if(el && typeof el.dataset.originalFill !== "undefined"){
-      try {
-        el.setAttribute("fill", el.dataset.originalFill || "transparent");
-        el.setAttribute("opacity", el.dataset.originalOpacity || "1");
-        delete el.dataset.originalFill;
-        delete el.dataset.originalOpacity;
-      } catch(e){}
+    // Restaurar todos los elementos que tengan data-original-fill u original-opacity
+    const touched = svgDoc.querySelectorAll('[data-original-fill], [data-original-opacity]');
+    if(touched && touched.length){
+      touched.forEach(el=>{
+        try {
+          if(el.hasAttribute("data-original-fill")){
+            const of = el.getAttribute("data-original-fill");
+            if(of === "") el.removeAttribute("fill");
+            else el.setAttribute("fill", of);
+            el.removeAttribute("data-original-fill");
+          }
+          if(el.hasAttribute("data-original-opacity")){
+            const oo = el.getAttribute("data-original-opacity");
+            if(oo === "") el.removeAttribute("opacity");
+            else el.setAttribute("opacity", oo);
+            el.removeAttribute("data-original-opacity");
+          }
+          // limpiamos display si lo forzamos
+          if(el.hasAttribute("display")) {
+            // solo borrar si fue agregado por highlight (no perfecto, pero seguro para la mayoría)
+            // si el elemento originalmente no tenía data-original-display, no lo tocamos
+            // (si quisieras, podríamos guardar data-original-display también)
+          }
+          if(el.style) el.style.pointerEvents = "";
+        } catch(e){}
+      });
     }
-  });
 
-  // also try to restore any other element we may have touched (safety)
-  const touched = svgDoc.querySelectorAll('[data-original-fill]');
-  if(touched && touched.length){
-    touched.forEach(el=>{
+    // También restaurar IDs conocidos del mapping (por seguridad)
+    const ids = Object.values(idEdificiosSVG || {});
+    ids.forEach(id=>{
       try {
-        el.setAttribute("fill", el.dataset.originalFill || "transparent");
-        el.setAttribute("opacity", el.dataset.originalOpacity || "1");
-        delete el.dataset.originalFill;
-        delete el.dataset.originalOpacity;
+        const el = svgDoc.getElementById(id);
+        if(el && el.hasAttribute("data-original-fill")){
+          const of = el.getAttribute("data-original-fill");
+          if(of === "") el.removeAttribute("fill"); else el.setAttribute("fill", of);
+          el.removeAttribute("data-original-fill");
+        }
+        if(el && el.hasAttribute("data-original-opacity")){
+          const oo = el.getAttribute("data-original-opacity");
+          if(oo === "") el.removeAttribute("opacity"); else el.setAttribute("opacity", oo);
+          el.removeAttribute("data-original-opacity");
+        }
       } catch(e){}
     });
+
+  } catch(err) {
+    console.error("clearHighlight error:", err);
   }
 }
+
 
 /* ---------- Funciones para animar transiciones ---------- */
 function fadeOut(el){
@@ -464,6 +530,9 @@ async function selectSuggestion(entry){
   } catch(e) {
     console.error("Error cargando overlay:", e);
   }
+
+  // Resaltamos el sector en el plano general
+  highlightBuilding({ edificio: entry.item.sector });
 
   // Resaltamos ubicación seleccionada
   focusOnLocation(entry.item);

@@ -3,6 +3,7 @@
         "id": "Sala_Proyecciones",
         "nombre": "Sala Proyecciones",
         "tipo": "Sala",
+        "sector":"A",
         "ubicacion": "Sector Procesos, 4º Piso",
         "descripcion": "",
         "x": 17.597,
