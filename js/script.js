@@ -172,7 +172,7 @@ function placeMarkers(svgRoot, ubicaciones){
       try { target.setAttribute("pointer-events","all"); } catch(e){} // importante para hover cuando fill transparent
       target.style.cursor="pointer";
       target.dataset.nombre = (ubicacion.nombre||"").toLowerCase();
-      target.addEventListener("mouseenter", ()=> target.setAttribute("fill","#CF142B")); //black
+      target.addEventListener("mouseenter", ()=> target.setAttribute("fill","#003082")); //al pasar el muose sobre las ubicaciones del mapa
       target.addEventListener("mouseleave", ()=> target.setAttribute("fill","transparent"));
       target.addEventListener("click", ()=> showInfo(ubicacion));
       target.__attached = true;
@@ -370,8 +370,8 @@ function highlightBuilding(mapEntry){
         if(node.hasAttribute("fill") || node.tagName.toLowerCase()==="path" || node.tagName.toLowerCase()==="rect" || node.tagName.toLowerCase()==="polygon"){
           node.setAttribute("data-original-fill", node.getAttribute("fill") || "");
           node.setAttribute("data-original-opacity", node.getAttribute("opacity") || (node.style && node.style.opacity) || "");
-          node.setAttribute("fill", "#CF142B");
-          node.setAttribute("opacity", "0.5");
+          node.setAttribute("fill", "#000000ff"); //Para resaltar las flechas negras
+          node.setAttribute("opacity", "1");
         } else {
           // aún si no tiene fill explícito, forzamos visibilidad en caso de máscaras/opacity
           node.setAttribute("data-original-opacity", node.getAttribute("opacity") || (node.style && node.style.opacity) || "");
@@ -556,8 +556,8 @@ function focusOnLocation(ubicacion){
   const el = svgDoc.getElementById(ubicacion.id);
   if(!el) return;
   try {
-    el.setAttribute("fill","#CF142B"); //black
-    el.setAttribute("opacity","0.5");
+    el.setAttribute("fill","#CF142B"); //para resaltar la ubicación seleccionada al buscar
+    el.setAttribute("opacity","1");
   } catch(e){}
   showInfo(ubicacion);
 }
