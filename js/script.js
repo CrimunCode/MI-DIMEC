@@ -1,12 +1,27 @@
-/* ----------------- script.js (actualizado) ----------------- */
+/* ----------------- script.js (completo rearmado, optimizado y con cache) ----------------- */
+/*
+  - Caching de JSON
+  - Inyección de CSS dentro de cada SVG cargado en <object>
+  - Highlight robusto (<g> o <path>)
+  - Pulsing (clase .flecha-pulsando) inyectada dentro del SVG
+  - loadGeneralMap() que se encarga de reinyectar todo en cada recarga
+  - buildIndex() con caché y deduplicado
+*/
 
-const alias = {
-    "secretaria": "oficina secretaria dimec",
-    "dimec": "departamento de ingeniería mecánica"
+const INDEX_FILE = "data/ubicaciones_index.json";
+
+const idEdificiosSVG = {
+  "A": "Sector_Procesos",
+  "B": "Sector_Termofluidos",
+  "C": "Sector_Fundicion",
+  "D": "Sector_Hall_DIMEC",
+  "Biblioteca": "Biblioteca",
+  "OAME": "OAME",
+  "ALUMNI": "ALUMNI",
+  "Tunel": "Tunel",
+  "General": "Sector_Procesos"
 };
 
-
-/* ---------- Diccionario nombres edificios (texto paa sugerencias) ---------- */
 const nombresEdificios = {
   "A": "Sector: Procesos",
   "B": "Sector: Termofluidos",
@@ -19,135 +34,65 @@ const nombresEdificios = {
   "Tunel": "Tunel"
 };
 
-/* ---------- Mapeo ids reales en el SVG general (ajusta si es necesario) ---------- */
-const idEdificiosSVG = {
-  "A": "Sector_Procesos",
-  "B": "Sector_Termofluidos",
-  "C": "Sector_Fundicion",
-  "D": "Sector_Hall_DIMEC",
-  // agrega aquí otros ids que uses en el SVG general si aplican
-  "Biblioteca": "Biblioteca",
-  "OAME": "OAME",
-  "ALUMNI": "ALUMNI",
-  "Tunel": "Tunel"
+const alias = {
+  "secretaria": "oficina secretaria dimec",
+  "dimec": "departamento de ingeniería mecánica"
 };
 
-/* ---------- Utilidades para asegurar carga de <object> ---------- */
-function ensureObjectLoaded(obj) {
-  return new Promise(resolve => {
-    if (!obj) return resolve();
-    try {
-      if (obj.contentDocument && obj.contentDocument.readyState) return resolve();
-    } catch (e) {}
-    // si no está listo, espera al evento load
-    const onLoad = ()=> { obj.removeEventListener('load', onLoad); resolve(); };
-    obj.addEventListener('load', onLoad, { once: true });
-  });
-}
+/* ---------- CACHES ---------- */
+const jsonCache = new Map();
 
-function loadObjectData(obj, url) {
-  return new Promise(resolve => {
-    if (!obj) return resolve();
-    const onLoad = ()=> { obj.removeEventListener('load', onLoad); resolve(); };
-    obj.addEventListener('load', onLoad, { once: true });
-    // setAttribute AFTER listener to avoid race
-    obj.setAttribute('data', url);
-  });
-}
-
-/* ---------- Modal ---------- */
+/* ---------- DOM refs ---------- */
+const suggestionsEl = document.getElementById("suggestions");
+const searchInput = document.getElementById("searchInput");
 const modal = document.getElementById("infoModal");
-document.getElementById("closeModal").addEventListener("click", ()=> modal.classList.remove("active"));
+const modalCloseBtn = document.getElementById("closeModal");
 
-function showInfo(data) {
-  const modalContent = document.getElementById("modalContent");
-  modalContent.innerHTML = `
-    <h3>${data.nombre}</h3>
-    ${data.media && data.media.video ? `<video controls style="width:100%;border-radius:10px;" autoplay loop muted><source src="${data.media.video}" type="video/mp4"></video>` : ""}
-    <p><strong>Ubicación:</strong> ${data.ubicacion || ""}</p>
-    <p>${data.descripcion || ""}</p>
-  `;
+/* ---------- Fetch JSON with cache ---------- */
+async function fetchJSONCached(url){
+  if(!url) return null;
+  if(jsonCache.has(url)) return jsonCache.get(url);
+  const p = fetch(url).then(async r=>{
+    if(!r.ok) throw new Error('Fetch failed '+url);
+    return await r.json();
+  }).catch(e=>{
+    jsonCache.delete(url);
+    throw e;
+  });
+  jsonCache.set(url, p);
+  return p;
+}
 
-  // Si tiene varias fotos
-  if (data.media && data.media.fotos && data.media.fotos.length > 0) {
-    const img = document.createElement("img");
-    img.src = data.media.fotos[0];
-    img.alt = data.nombre;
-    img.style.width = "100%";
-    img.style.cursor = "pointer";
-    img.style.borderRadius = "10px";
-
-    // 👇 Añadimos evento dinámico
-    img.addEventListener("click", () => {
-      openLightboxGallery(data.media.fotos);
-    });
-
-    modalContent.appendChild(img);
-  } 
-  // Si tiene solo una foto (formato antiguo)
-  else if (data.media && data.media.foto) {
-    const img = document.createElement("img");
-    img.src = data.media.foto;
-    img.alt = data.nombre;
-    img.style.width = "100%";
-    img.style.cursor = "pointer";
-    img.style.borderRadius = "10px";
-
-    img.addEventListener("click", () => openLightbox(data.media.foto));
-    modalContent.appendChild(img);
+/* ---------- Inject CSS inside SVG document ---------- */
+function injectCSSIntoSVG(svgDoc){
+  try {
+    if(!svgDoc) return;
+    if(svgDoc.getElementById && svgDoc.getElementById('pulse-style')) return;
+    const styleEl = svgDoc.createElementNS("http://www.w3.org/2000/svg","style");
+    styleEl.setAttribute("id","pulse-style");
+    styleEl.textContent = `
+      @keyframes pulseSector {
+        0%   { transform: translateY(0px) scale(1); opacity: 0.8; }
+        50%  { transform: translateY(-6px) scale(1.06); opacity: 1; }
+        100% { transform: translateY(0px) scale(1); opacity: 0.8; }
+      }
+      .flecha-pulsando {
+        animation: pulseSector 1.2s infinite ease-in-out;
+        transform-origin: center;
+        transform-box: fill-box;
+        transition: fill 0.25s ease-out, opacity 0.25s ease-out, transform 0.25s ease-out;
+      }
+    `;
+    const svg = svgDoc.querySelector('svg');
+    if(svg) svg.appendChild(styleEl);
+  } catch(e){
+    console.warn("injectCSSIntoSVG error", e);
   }
-
-  modal.classList.add("active");
 }
 
-
-/* ---------- LIGHTBOX MEJORADO (para galería completa) ---------- */
-let lightboxImages = [];
-let currentLightboxIndex = 0;
-
-// Abre solo una imagen (modo antiguo)
-function openLightbox(src){
-  lightboxImages = [src];
-  currentLightboxIndex = 0;
-  document.getElementById("lightboxImg").src = src;
-  document.getElementById("lightbox").style.display = "flex";
-}
-
-// Abre toda la galería de imágenes
-function openLightboxGallery(fotos) {
-  if (!Array.isArray(fotos) || fotos.length === 0) return;
-  lightboxImages = fotos;
-  currentLightboxIndex = 0;
-
-  const img = document.getElementById("lightboxImg");
-  img.src = fotos[0];
-
-  const lightbox = document.getElementById("lightbox");
-  lightbox.style.display = "flex";
-}
-
-
-function navigateLightbox(direction){
-  if(lightboxImages.length <= 1) return;
-  currentLightboxIndex = (currentLightboxIndex + direction + lightboxImages.length) % lightboxImages.length;
-  document.getElementById("lightboxImg").src = lightboxImages[currentLightboxIndex];
-}
-
-document.getElementById("lightboxClose").addEventListener("click", ()=>{
-  document.getElementById("lightbox").style.display = "none";
-  lightboxImages = [];
-});
-
-document.getElementById("lightbox").addEventListener("click",(e)=>{
-  if(e.target.id === "lightbox"){
-    document.getElementById("lightbox").style.display = "none";
-    lightboxImages = [];
-  }
-});
-
-
-/* ---------- ZoomLayer seguro ---------- */
+/* ---------- crearZoomLayerSiHaceFalta ---------- */
 function crearZoomLayerSiHaceFalta(svgDoc){
+  if(!svgDoc) return null;
   const svg = svgDoc.querySelector("svg");
   if(!svg) return null;
   let gWrapper = svg.querySelector("#zoomLayer");
@@ -159,20 +104,21 @@ function crearZoomLayerSiHaceFalta(svgDoc){
   return gWrapper;
 }
 
-/* ---------- Marcadores (ubicaciones) ---------- */
+/* ---------- placeMarkers ---------- */
 let allMarkers = [];
 function placeMarkers(svgRoot, ubicaciones){
   allMarkers = [];
+  if(!svgRoot) return;
   ubicaciones.forEach(ubicacion=>{
     const target = svgRoot.ownerDocument.getElementById(ubicacion.id);
     if(!target) return;
     if(!target.__attached){
       try { target.setAttribute("fill","transparent"); } catch(e){}
       try { target.setAttribute("stroke","white"); } catch(e){}
-      try { target.setAttribute("pointer-events","all"); } catch(e){} // importante para hover cuando fill transparent
+      try { target.setAttribute("pointer-events","all"); } catch(e){}
       target.style.cursor="pointer";
       target.dataset.nombre = (ubicacion.nombre||"").toLowerCase();
-      target.addEventListener("mouseenter", ()=> target.setAttribute("fill","#003082")); //al pasar el muose sobre las ubicaciones del mapa
+      target.addEventListener("mouseenter", ()=> target.setAttribute("fill","#CF142B"));
       target.addEventListener("mouseleave", ()=> target.setAttribute("fill","transparent"));
       target.addEventListener("click", ()=> showInfo(ubicacion));
       target.__attached = true;
@@ -181,44 +127,47 @@ function placeMarkers(svgRoot, ubicaciones){
   });
 }
 
-/* ---------- No pintar mientras se escribe (opción 1) ---------- */
-function aplicarFiltrosYBusqueda(){
-  // deliberadamente vacío: el resaltado ocurre solo en hover sobre sugerencias
-}
-// si existía listener previo, ya se maneja desde index.html al incluir script
-document.getElementById("searchInput").removeEventListener && document.getElementById("searchInput").removeEventListener("input", aplicarFiltrosYBusqueda);
-document.getElementById("searchInput").addEventListener("input", aplicarFiltrosYBusqueda);
-
-/* ---------- Inicializar colores del plano general ---------- */
-function inicializarColoresPlanoGeneral(){
-  const obj = document.getElementById("svgGeneral");
-  if(!obj) return;
-  const svgDoc = obj.contentDocument;
-  if(!svgDoc) return;
-
-  Object.values(idEdificiosSVG).forEach(id => {
-    if(!id) return;
-    const el = svgDoc.getElementById(id);
-    if(el){
-      // guarda original si no existe
-      if(typeof el.dataset.originalFill === "undefined"){
-        el.dataset.originalFill = el.getAttribute("fill") || "";
-        el.dataset.originalOpacity = el.getAttribute("opacity") || "";
-      }
-      try {
-        el.setAttribute("fill","transparent");
-        el.setAttribute("opacity","1");
-        el.setAttribute("pointer-events","all");
-      } catch(e){}
-    }
-  });
+/* ---------- Modal ---------- */
+modalCloseBtn.addEventListener("click", ()=> modal.classList.remove("active"));
+function showInfo(data){
+  const modalContent = document.getElementById("modalContent");
+  modalContent.innerHTML = `
+    <h3>${data.nombre}</h3>
+    ${data.media && data.media.video ? `<video controls style="width:100%;border-radius:10px;" autoplay loop muted><source src="${data.media.video}" type="video/mp4"></video>` : ""}
+    <p><strong>Ubicación:</strong> ${data.ubicacion || ""}</p>
+    <div>${data.descripcion || ""}</div>
+  `;
+  if(data.media && data.media.fotos && data.media.fotos.length){
+    const img = document.createElement('img');
+    img.src = data.media.fotos[0];
+    img.alt = data.nombre;
+    img.style.width = "100%";
+    img.style.cursor = "pointer";
+    img.addEventListener("click", ()=> openLightboxGallery(data.media.fotos));
+    modalContent.appendChild(img);
+  } else if(data.media && data.media.foto){
+    const img = document.createElement('img');
+    img.src = data.media.foto;
+    img.alt = data.nombre;
+    img.style.width = "100%";
+    img.style.cursor = "pointer";
+    img.addEventListener("click", ()=> openLightbox(data.media.foto));
+    modalContent.appendChild(img);
+  }
+  modal.classList.add("active");
 }
 
-/* ---------- Autocomplete / index ---------- */
-function debounce(fn,wait){let t;return(...a)=>{clearTimeout(t);t=setTimeout(()=>fn(...a),wait);};}
-const INDEX_FILE = "data/ubicaciones_index.json";
-let mapsIndex = [], nameIndex = [], currentMap = null;
-let cachedGeneralLocations = null;
+/* ---------- Lightbox minimal ---------- */
+let lightboxImages = [], currentLightboxIndex = 0;
+function openLightbox(src){ lightboxImages=[src]; currentLightboxIndex=0; document.getElementById("lightboxImg").src=src; document.getElementById("lightbox").style.display="flex"; }
+function openLightboxGallery(fotos){ if(!Array.isArray(fotos)||fotos.length===0) return; lightboxImages=fotos; currentLightboxIndex=0; document.getElementById("lightboxImg").src=fotos[0]; document.getElementById("lightbox").style.display="flex"; }
+document.getElementById("lightboxClose").addEventListener("click", ()=> { document.getElementById("lightbox").style.display="none"; lightboxImages=[]; });
+document.getElementById("lightbox").addEventListener("click",(e)=>{ if(e.target.id==="lightbox"){ document.getElementById("lightbox").style.display="none"; lightboxImages=[]; } });
+
+/* ---------- Search/index ---------- */
+let mapsIndex = [], nameIndex = [], currentMap = null, cachedGeneralLocations = null;
+
+function debounce(fn, wait){ let t; return (...a)=>{ clearTimeout(t); t=setTimeout(()=>fn(...a),wait); }; }
 
 async function buildIndex(){
   try {
@@ -230,77 +179,52 @@ async function buildIndex(){
   }
   await Promise.all(mapsIndex.map(async entry=>{
     try {
-      const r = await fetch(entry.json);
-      if(!r.ok) return;
-      const items = await r.json();
-      items.forEach(it => {
-        const keywords = [
-            it.nombre || "",
-            it.id || "",
-            it.ubicacion || ""
-        ].join(" ").toLowerCase();
-
-      nameIndex.push({
-          nombreLower: keywords,   // antes solo era el nombre
-          item: it,
-          mapEntry: entry
-      });
+      const items = await fetchJSONCached(entry.json);
+      if(!items || !Array.isArray(items)) return;
+      items.forEach(it=>{
+        const keywords = [it.nombre||"", it.id||"", it.ubicacion||"", it.sector||""].join(" ").toLowerCase();
+        nameIndex.push({ nombreLower: keywords, item: it, mapEntry: entry });
       });
     } catch(e){}
   }));
+  nameIndex = nameIndex.filter((v,i,self) => i === self.findIndex(t => t.item && t.item.id === v.item.id));
 }
 
-/* ---------- Sugerencias ---------- */
-const suggestionsEl = document.getElementById("suggestions"),
-      searchInput = document.getElementById("searchInput");
-
+/* ---------- Suggestions UI ---------- */
 function showSuggestions(list){
   suggestionsEl.innerHTML = "";
-  if(!list || list.length === 0){ suggestionsEl.style.display = "none"; return; }
-
+  if(!list || list.length===0){ suggestionsEl.style.display='none'; return; }
   list.forEach(s=>{
-    const li = document.createElement("li");
-    const edificioNombre = nombresEdificios[s.item.sector] || s.item.sector;
+    const li = document.createElement('li');
+    const edificioClave = s.item.sector || s.mapEntry.edificio || "General";
+    const edificioNombre = nombresEdificios[edificioClave] || edificioClave;
     li.textContent = `${s.item.nombre} - ${edificioNombre} - Piso ${s.mapEntry.piso}`;
-
-    // guardamos la referencia por si quieres debug
-    li.dataset.edificio = s.mapEntry.edificio || "";
-
-    // hover => highlight edificio en plano general
-    li.addEventListener("mouseenter", ()=> {
-      try { highlightBuilding({ edificio: s.item.sector }); } catch(e){ console.warn("highlightBuilding err", e); }
-    });
+    li.dataset.edificio = edificioClave;
+    li.addEventListener("mouseenter", ()=> { try { highlightBuilding({ edificio: s.item.sector }); } catch(e){ console.warn("highlight err", e); } });
     li.addEventListener("mouseleave", ()=> { try { clearHighlight(); } catch(e){} });
-
-    // click => seleccionar
     li.addEventListener("click", ()=> selectSuggestion(s));
-
     suggestionsEl.appendChild(li);
   });
-
-  suggestionsEl.style.display = "block";
+  suggestionsEl.style.display='block';
 }
+function clearSuggestions(){ suggestionsEl.style.display='none'; suggestionsEl.innerHTML=''; }
 
-function clearSuggestions(){
-  suggestionsEl.style.display = "none";
-  suggestionsEl.innerHTML = "";
-}
-
-/* ---------- Eventos de búsqueda ---------- */
-searchInput.addEventListener("input", debounce(()=>{
-  const q = searchInput.value.trim().toLowerCase();
-  const query = alias[q] || q;
+const searchDebounced = debounce(()=>{
+  let q = searchInput.value.trim().toLowerCase();
   if(!q){ clearSuggestions(); return; }
+  if(alias[q]) q = alias[q];
   const starts = nameIndex.filter(n=>n.nombreLower.startsWith(q)).slice(0,10);
   const contains = nameIndex.filter(n=>n.nombreLower.includes(q) && !n.nombreLower.startsWith(q)).slice(0,10-starts.length);
   showSuggestions(starts.concat(contains));
-}, 150));
+}, 150);
+
+searchInput.addEventListener("input", searchDebounced);
 
 searchInput.addEventListener("keydown", e=>{
   if(e.key === "Enter"){
     let q = searchInput.value.trim().toLowerCase();
-    if (alias[q]) q = alias[q];
     if(!q) return;
+    if(alias[q]) q = alias[q];
     const pick = nameIndex.find(n=>n.nombreLower===q) || nameIndex.find(n=>n.nombreLower.startsWith(q));
     if(pick) selectSuggestion(pick);
     clearSuggestions(); searchInput.blur();
@@ -308,27 +232,14 @@ searchInput.addEventListener("keydown", e=>{
 });
 
 /* ---------- Resolve id robusto ---------- */
-function resolveSvgId(mapEntry){
-  if(!mapEntry) return null;
-  const key = String(mapEntry.edificio || "").trim();
+function resolveSvgId(key){
   if(!key) return null;
-  // Prefer mapping
   if(idEdificiosSVG[key]) return idEdificiosSVG[key];
-  // try direct variations
-  const cand = [
-    key,
-    "edificio" + key,
-    key.toUpperCase(),
-    key.replace(/\s+/g,"_"),
-    key.replace(/\s+/g,"")
-  ];
-  // if none found we will try later to search by substring
-  return cand[0]; // return first as baseline; highlightBuilding will try to find actual element
+  const cand = [ key, key.replace(/\s+/g,"_"), key.replace(/\s+/g,"").toLowerCase(), key.toLowerCase(), key.toUpperCase() ];
+  return cand[0];
 }
 
-/* ---------- Highlight / clear ---------- */
-
-/* ---------- Highlight robusto (reemplazar) ---------- */
+/* ---------- Highlight / Clear (robusto) ---------- */
 function highlightBuilding(mapEntry){
   try {
     const obj = document.getElementById("svgGeneral");
@@ -336,17 +247,15 @@ function highlightBuilding(mapEntry){
     const svgDoc = obj.contentDocument;
     if(!svgDoc) { console.warn("svgGeneral.contentDocument not ready"); return; }
 
-    clearHighlight(); // restore previous
+    clearHighlight();
 
-    // resolver id candidato
-    let key = (idEdificiosSVG[mapEntry.edificio] || mapEntry.edificio || "").toString().trim();
-    if(!key) { console.warn("No key for mapEntry", mapEntry); return; }
+    const rawKey = (mapEntry && mapEntry.edificio) ? mapEntry.edificio : (mapEntry || "");
+    if(!rawKey) { console.warn("No key for mapEntry", mapEntry); return; }
+    const candidateId = resolveSvgId(rawKey);
 
-    // intentar getElementById directo (varias variantes)
-    let el = svgDoc.getElementById(key) || svgDoc.getElementById(key.toLowerCase()) || svgDoc.getElementById(key.toUpperCase());
-    // fallback: buscar por substring (case-insensitive)
+    let el = svgDoc.getElementById(candidateId) || svgDoc.getElementById(candidateId.toLowerCase()) || svgDoc.getElementById(candidateId.toUpperCase());
     if(!el){
-      const needle = key.toLowerCase();
+      const needle = (candidateId||rawKey||"").toString().toLowerCase();
       const all = svgDoc.querySelectorAll('[id]');
       for(let i=0;i<all.length;i++){
         const id = (all[i].id||"").toString().toLowerCase();
@@ -356,58 +265,63 @@ function highlightBuilding(mapEntry){
         }
       }
     }
+    if(!el){ console.warn("No SVG element found for key:", candidateId||rawKey); return; }
 
-    if(!el){
-      console.warn("No SVG element found for key:", key);
-      return;
-    }
-
-    // Función que aplica el highlight a un elemento (y guarda originales)
     function applyHighlight(node){
-      if(!node || node.nodeType !== 1) return; // ELEMENT_NODE
+      if(!node || node.nodeType !== 1) return;
       try {
-        // Guarda originales como atributos data-... (seguro y fácil de restaurar)
-        if(node.hasAttribute("fill") || node.tagName.toLowerCase()==="path" || node.tagName.toLowerCase()==="rect" || node.tagName.toLowerCase()==="polygon"){
-          node.setAttribute("data-original-fill", node.getAttribute("fill") || "");
-          node.setAttribute("data-original-opacity", node.getAttribute("opacity") || (node.style && node.style.opacity) || "");
-          node.setAttribute("fill", "#000000ff"); //Para resaltar las flechas negras
-          node.setAttribute("opacity", "1");
-        } else {
-          // aún si no tiene fill explícito, forzamos visibilidad en caso de máscaras/opacity
-          node.setAttribute("data-original-opacity", node.getAttribute("opacity") || (node.style && node.style.opacity) || "");
-          node.setAttribute("opacity", "0.5");
-        }
-        // Asegurar visibilidad y eventos
-        node.setAttribute("display", node.getAttribute("display") || "inline");
-        node.style && (node.style.pointerEvents = "all");
-      } catch(e){ /* no bloquear */ }
+        if(!node.hasAttribute("data-original-fill")) node.setAttribute("data-original-fill", node.getAttribute("fill") || "");
+        if(!node.hasAttribute("data-original-opacity")) node.setAttribute("data-original-opacity", node.getAttribute("opacity") || (node.style && node.style.opacity) || "");
+        try { node.setAttribute("fill", "#CF142B"); } catch(e){}
+        try { node.setAttribute("opacity", "0.6"); } catch(e){}
+        try { node.setAttribute("display", node.getAttribute("display") || "inline"); } catch(e){}
+        try { node.style && (node.style.pointerEvents = "all"); } catch(e){}
+      } catch(e){}
     }
 
-    // Aplicar highlight al elemento principal y a todos sus hijos
     applyHighlight(el);
-    const children = el.querySelectorAll("*");
-    for(let i=0;i<children.length;i++){
-      applyHighlight(children[i]);
+
+    if(el.children && el.children.length>0){
+      const children = el.querySelectorAll("*");
+      for(let i=0;i<children.length;i++) applyHighlight(children[i]);
     }
 
-    // También intentar hacer visible cualquier ancestro que esté oculto por display/opacity
+    try {
+      if(el.classList) {
+        el.classList.add("flecha-pulsando");
+        el.style.transformBox = "fill-box";
+        el.style.transformOrigin = "center";
+        fixTransformOriginForElement(el);
+      }
+
+      const arrows = el.querySelectorAll('path, polygon, polyline, [id*="flecha"], [id*="arrow"], [class*="flecha"], [class*="arrow"]');
+      arrows.forEach(a => {
+        try {
+          a.classList.add("flecha-pulsando");
+          a.style.transformBox = "fill-box";
+          a.style.transformOrigin = "center";
+          fixTransformOriginForElement(a);
+        } catch(e){}
+      });
+    } catch(e){}
+
     let parent = el.parentNode;
     while(parent && parent !== svgDoc){
       try {
-        if(parent.setAttribute) {
-          parent.setAttribute("display", parent.getAttribute("display") || "inline");
+        if(parent.setAttribute){
+          if(!parent.hasAttribute("data-original-opacity")) parent.setAttribute("data-original-opacity", parent.getAttribute("opacity") || "");
           parent.setAttribute("opacity", parent.getAttribute("opacity") || "1");
+          parent.setAttribute("display", parent.getAttribute("display") || "inline");
         }
       } catch(e){}
       parent = parent.parentNode;
     }
 
-  } catch(err) {
+  } catch(err){
     console.error("highlightBuilding error:", err);
   }
 }
 
-/* ---------- clearHighlight robusto (reemplazar) ---------- */
 function clearHighlight(){
   try {
     const obj = document.getElementById("svgGeneral");
@@ -415,243 +329,201 @@ function clearHighlight(){
     const svgDoc = obj.contentDocument;
     if(!svgDoc) return;
 
-    // Restaurar todos los elementos que tengan data-original-fill u original-opacity
-    const touched = svgDoc.querySelectorAll('[data-original-fill], [data-original-opacity]');
-    if(touched && touched.length){
-      touched.forEach(el=>{
-        try {
-          if(el.hasAttribute("data-original-fill")){
-            const of = el.getAttribute("data-original-fill");
-            if(of === "") el.removeAttribute("fill");
-            else el.setAttribute("fill", of);
-            el.removeAttribute("data-original-fill");
-          }
-          if(el.hasAttribute("data-original-opacity")){
-            const oo = el.getAttribute("data-original-opacity");
-            if(oo === "") el.removeAttribute("opacity");
-            else el.setAttribute("opacity", oo);
-            el.removeAttribute("data-original-opacity");
-          }
-          // limpiamos display si lo forzamos
-          if(el.hasAttribute("display")) {
-            // solo borrar si fue agregado por highlight (no perfecto, pero seguro para la mayoría)
-            // si el elemento originalmente no tenía data-original-display, no lo tocamos
-            // (si quisieras, podríamos guardar data-original-display también)
-          }
-          if(el.style) el.style.pointerEvents = "";
-        } catch(e){}
-      });
-    }
+    const pulsing = svgDoc.querySelectorAll('.flecha-pulsando');
+    pulsing.forEach(el=> { try{ el.classList.remove('flecha-pulsando'); }catch(e){} });
 
-    // También restaurar IDs conocidos del mapping (por seguridad)
-    const ids = Object.values(idEdificiosSVG || {});
-    ids.forEach(id=>{
+    const touched = svgDoc.querySelectorAll('[data-original-fill], [data-original-opacity]');
+    touched.forEach(el=>{
       try {
-        const el = svgDoc.getElementById(id);
-        if(el && el.hasAttribute("data-original-fill")){
+        if(el.hasAttribute("data-original-fill")){
           const of = el.getAttribute("data-original-fill");
           if(of === "") el.removeAttribute("fill"); else el.setAttribute("fill", of);
           el.removeAttribute("data-original-fill");
         }
-        if(el && el.hasAttribute("data-original-opacity")){
+        if(el.hasAttribute("data-original-opacity")){
           const oo = el.getAttribute("data-original-opacity");
           if(oo === "") el.removeAttribute("opacity"); else el.setAttribute("opacity", oo);
           el.removeAttribute("data-original-opacity");
         }
+        if(el.style) el.style.pointerEvents = "";
       } catch(e){}
     });
 
-  } catch(err) {
+  } catch(err){
     console.error("clearHighlight error:", err);
   }
 }
 
-
-/* ---------- Funciones para animar transiciones ---------- */
-function fadeOut(el){
-  if(!el) return;
-  el.classList.remove("fade-in");
-  el.classList.add("fade-out");
+/* ---------- load SVG into object and inject CSS ---------- */
+function loadSVGIntoObject(obj, url){
+  if(!obj) return Promise.resolve(null);
+  return new Promise(resolve=>{
+    const onLoad = ()=>{
+      try {
+        const doc = obj.contentDocument;
+        injectCSSIntoSVG(doc);
+        resolve(doc);
+      } catch(e){
+        resolve(null);
+      }
+    };
+    obj.addEventListener('load', onLoad, { once: true });
+    obj.setAttribute('data', url);
+  });
 }
 
-function fadeIn(el){
-  if(!el) return;
-  el.classList.remove("fade-out");
-  el.classList.add("fade-in");
-}
-
-/* ---------- Selección de sugerencia (AHORA con highlight previo) ---------- */
+/* ---------- selectSuggestion ---------- */
 async function selectSuggestion(entry){
   const mapEntry = entry.mapEntry;
   const objOverlay = document.getElementById("svgOverlay");
-
-  await new Promise(resolve=>{
-    objOverlay.setAttribute("data", mapEntry.svg);
-    objOverlay.onload = ()=> resolve();
-  });
-
+  await loadSVGIntoObject(objOverlay, mapEntry.svg);
   currentMap = mapEntry;
 
   try {
-    const r = await fetch(mapEntry.json);
-    const data = await r.json();
+    const data = await fetchJSONCached(mapEntry.json);
     const svgDoc = objOverlay.contentDocument;
+    injectCSSIntoSVG(svgDoc);
     const svg = svgDoc.querySelector("svg");
-    // Asegurar que el SVG no tenga opacidad global
-    if (svg) {
-      svg.style.opacity = "1";
-      svg.style.visibility = "visible";
-    }
+    if(svg){ svg.style.opacity = "1"; svg.style.visibility = "visible"; }
 
-    // Fondo blanco semitransparente detrás del edificio
     let bg = svgDoc.getElementById("overlayBackground");
-    if (!bg) {
-      bg = svgDoc.createElementNS("http://www.w3.org/2000/svg", "rect");
-      bg.setAttribute("id", "overlayBackground");
-      bg.setAttribute("x", "0");
-      bg.setAttribute("y", "0");
-      bg.setAttribute("width", "100%");
-      bg.setAttribute("height", "100%");
-      bg.setAttribute("fill", "white");
-      bg.setAttribute("opacity", "0.1");
+    if(!bg){
+      bg = svgDoc.createElementNS("http://www.w3.org/2000/svg","rect");
+      bg.setAttribute("id","overlayBackground");
+      bg.setAttribute("x","0"); bg.setAttribute("y","0"); bg.setAttribute("width","100%"); bg.setAttribute("height","100%");
+      bg.setAttribute("fill","white"); bg.setAttribute("opacity","0.1");
       svg.insertBefore(bg, svg.firstChild);
     }
-
 
     const gWrapper = crearZoomLayerSiHaceFalta(svgDoc);
     placeMarkers(gWrapper, data);
 
-    // Activamos eventos del overlay
     objOverlay.style.pointerEvents = "auto";
-
     objOverlay.style.opacity = "1";
     objOverlay.style.visibility = "visible";
-
-  } catch(e) {
+  } catch(e){
     console.error("Error cargando overlay:", e);
   }
 
-  // Resaltamos el sector en el plano general
-  highlightBuilding({ edificio: entry.item.sector });
+  try { highlightBuilding({ edificio: entry.item.sector }); } catch(e){ console.warn(e); }
 
-  // Resaltamos ubicación seleccionada
   focusOnLocation(entry.item);
-
-  // Limpiamos sugerencias y ocultamos
   clearSuggestions();
   searchInput.blur();
 
-  // Hacemos semitransparente el plano general
   const general = document.getElementById("svgGeneral");
-  general.style.opacity = "0.1";
-  general.style.pointerEvents = "none"; // evita doble clic pero no bloquea overlay
+  if(general){ general.style.opacity = "0.1"; general.style.pointerEvents = "none"; }
 }
 
-
-/* ---------- Focus en la ubicación (overlay) ---------- */
+/* ---------- focusOnLocation in overlay ---------- */
 function focusOnLocation(ubicacion){
   const obj = document.getElementById("svgOverlay");
+  if(!obj) return;
   const svgDoc = obj.contentDocument;
   if(!svgDoc) return;
   const el = svgDoc.getElementById(ubicacion.id);
   if(!el) return;
   try {
-    el.setAttribute("fill","#CF142B"); //para resaltar la ubicación seleccionada al buscar
-    el.setAttribute("opacity","1");
+    el.setAttribute("fill","#CF142B");
+    el.setAttribute("opacity","0.5");
   } catch(e){}
   showInfo(ubicacion);
 }
 
-/* ---------- Reset optimizado ---------- */
-document.getElementById("resetViewBtn").addEventListener("click", async () => {
+/* ---------- loadGeneralMap (reusable and reinjects CSS) ---------- */
+async function loadGeneralMap(defaultMap){
   const objGeneral = document.getElementById("svgGeneral");
-  const objOverlay = document.getElementById("svgOverlay");
-
-  // Buscar el mapa general en el índice
-  const general = mapsIndex.find(
-    m => (m.edificio && m.edificio.toLowerCase() === "general") || m.piso === 0
-  );
-  const defaultMap = general || mapsIndex[0];
-  if (!defaultMap) return;
-
-  // Restaurar datos del mapa general
-  await new Promise(resolve => {
-    objGeneral.setAttribute("data", defaultMap.svg);
-    objGeneral.onload = () => resolve();
+  if(!objGeneral) return;
+  await new Promise(resolve=>{
+    const onLoad = async ()=>{
+      try {
+        const svgDoc = objGeneral.contentDocument;
+        injectCSSIntoSVG(svgDoc);
+        try {
+          const data = await fetchJSONCached(defaultMap.json);
+          const gWrapper = crearZoomLayerSiHaceFalta(svgDoc);
+          placeMarkers(gWrapper, data);
+          inicializarColoresPlanoGeneral();
+        } catch(e){
+          try { inicializarColoresPlanoGeneral(); } catch(err){}
+          console.warn("Error al cargar ubicaciones generales:", e);
+        }
+      } catch(e){ console.warn("loadGeneralMap onload err", e); }
+      resolve();
+    };
+    objGeneral.addEventListener('load', onLoad, { once: true });
+    objGeneral.setAttribute('data', defaultMap.svg);
   });
-  currentMap = defaultMap;
+}
 
-  try {
-    const r = await fetch(defaultMap.json);
-    const data = await r.json();
-    const svgDoc = objGeneral.contentDocument;
-    const gWrapper = crearZoomLayerSiHaceFalta(svgDoc);
-    placeMarkers(gWrapper, data);
-  } catch (e) {
-    console.error("Error recargando el mapa general:", e);
+/* ---------- Reset button ---------- */
+document.getElementById("resetViewBtn").addEventListener("click", async ()=>{
+  const general = mapsIndex.find(m => (m.edificio && m.edificio.toLowerCase()==="general") || m.piso===0);
+  const defaultMap = general || mapsIndex[0];
+  if(!defaultMap) return;
+
+  const objOverlay = document.getElementById("svgOverlay");
+  if(objOverlay){
+    objOverlay.removeAttribute('data');
+    objOverlay.style.opacity = "0";
+    objOverlay.style.visibility = "hidden";
+    objOverlay.style.pointerEvents = "none";
   }
 
-  // 🔧 Restaurar visibilidad e interactividad del mapa general
-  objGeneral.style.opacity = "1";
-  setTimeout(() => {
-  objGeneral.style.pointerEvents = "auto";
-  }, 300);
+  await loadGeneralMap(defaultMap);
 
-  objGeneral.style.visibility = "visible";
-  objGeneral.style.pointerEvents = "auto";
-
-  // 🔧 Ocultar y desactivar el overlay
-  objOverlay.removeAttribute("data");
-  objOverlay.style.opacity = "0";
-  objOverlay.style.visibility = "hidden";
-  objOverlay.style.pointerEvents = "none";
-
-  // 🔧 Limpiar modal y cuadro de búsqueda
+  const objGeneral = document.getElementById("svgGeneral");
+  if(objGeneral){
+    objGeneral.style.opacity = "1";
+    objGeneral.style.pointerEvents = "auto";
+    objGeneral.style.visibility = "visible";
+  }
   modal.classList.remove("active");
   document.getElementById("searchInput").value = "";
   clearSuggestions();
+  clearHighlight();
 });
 
+/* ---------- inicializarColoresPlanoGeneral ---------- */
+function inicializarColoresPlanoGeneral(){
+  const obj = document.getElementById("svgGeneral");
+  if(!obj) return;
+  const svgDoc = obj.contentDocument;
+  if(!svgDoc) return;
+  Object.values(idEdificiosSVG).forEach(id=>{
+    try {
+      const el = svgDoc.getElementById(id);
+      if(el){
+        if(typeof el.dataset.originalFill === "undefined"){
+          el.dataset.originalFill = el.getAttribute("fill") || "";
+          el.dataset.originalOpacity = el.getAttribute("opacity") || "";
+        }
+        el.setAttribute("fill","transparent");
+        el.setAttribute("opacity","1");
+        el.setAttribute("pointer-events","all");
+      }
+    } catch(e){}
+  });
+}
 
-/* ---------- Inicio: cargar index y plano general (una sola vez) ---------- */
+/* ---------- Startup ---------- */
 window.addEventListener("load", async ()=>{
   await buildIndex();
   const general = mapsIndex.find(m=>(m.edificio && m.edificio.toLowerCase()==="general") || m.piso===0);
   const defaultMap = general || mapsIndex[0];
   if(!defaultMap) return;
-
-  // cargar SVG general y luego JSON de ubicaciones (cache)
-  const objGeneral = document.getElementById("svgGeneral");
-  objGeneral.setAttribute("data", defaultMap.svg);
-  objGeneral.onload = async ()=>{
-    try {
-      const r = await fetch(defaultMap.json);
-      const data = await r.json();
-      cachedGeneralLocations = data;
-      const svgDoc = objGeneral.contentDocument;
-      const gWrapper = crearZoomLayerSiHaceFalta(svgDoc);
-      placeMarkers(gWrapper, data);
-      inicializarColoresPlanoGeneral();
-    } catch(e){
-      // aunque falle el JSON, intentamos inicializar colores
-      try { inicializarColoresPlanoGeneral(); } catch(err){}
-      console.warn("No se pudieron cargar ubicaciones generales:", e);
-    }
-  };
+  await loadGeneralMap(defaultMap);
 });
 
-/* ---------- GALERÍA: navegación ---------- */
+/* ---------- small gallery helper ---------- */
 let currentGalleryIndex = 0;
-
 function moveGallery(direction){
   const slide = document.getElementById("gallerySlide");
   if(!slide) return;
-
   const total = slide.children.length;
   currentGalleryIndex = (currentGalleryIndex + direction + total) % total;
-
   slide.style.transform = `translateX(-${currentGalleryIndex * 100}%)`;
 }
 
 
-/* ----------------- fin script.js ----------------- */
+/* ----------------- end script ----------------- */
