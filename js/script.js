@@ -82,6 +82,17 @@ function injectCSSIntoSVG(svgDoc){
         transform-box: fill-box;
         transition: fill 0.25s ease-out, opacity 0.25s ease-out, transform 0.25s ease-out;
       }
+      .foco-pulsante {
+        animation: focoPulse 1.4s infinite ease-in-out;
+        transform-origin: center;
+        transform-box: fill-box;
+      }
+
+    @keyframes focoPulse {
+      0%   { opacity: 1;   }
+      50%  { opacity: 0.5; }
+      100% { opacity: 1;   }
+    }
     `;
     const svg = svgDoc.querySelector('svg');
     if(svg) svg.appendChild(styleEl);
@@ -424,8 +435,17 @@ function focusOnLocation(ubicacion){
   const el = svgDoc.getElementById(ubicacion.id);
   if(!el) return;
   try {
-    el.setAttribute("fill","#CF142B");
-    el.setAttribute("opacity","0.5");
+    // Limpia pulsos previos
+    const svgDoc = obj.contentDocument;
+    svgDoc.querySelectorAll('.foco-pulsante').forEach(n => n.classList.remove('foco-pulsante'));
+
+    // Marca visualmente la ubicación
+    el.setAttribute("fill", "#CF142B");
+    el.setAttribute("opacity", "0.7");
+
+    // Añade la clase de animación
+    el.classList.add("foco-pulsante");
+
   } catch(e){}
   showInfo(ubicacion);
 }
@@ -464,6 +484,11 @@ document.getElementById("resetViewBtn").addEventListener("click", async ()=>{
 
   const objOverlay = document.getElementById("svgOverlay");
   if(objOverlay){
+    // Quitar pulso de cualquier ubicación
+    const svgDoc = document.getElementById("svgGeneral").contentDocument;
+    if (svgDoc) {
+      svgDoc.querySelectorAll('.foco-pulsante').forEach(n => n.classList.remove('foco-pulsante'));
+    }
     objOverlay.removeAttribute('data');
     objOverlay.style.opacity = "0";
     objOverlay.style.visibility = "hidden";
