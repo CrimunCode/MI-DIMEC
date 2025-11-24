@@ -83,7 +83,7 @@ function injectCSSIntoSVG(svgDoc){
         transition: fill 0.25s ease-out, opacity 0.25s ease-out, transform 0.25s ease-out;
       }
       .foco-pulsante {
-        animation: focoPulse 1.4s infinite ease-in-out;
+        animation: focoPulse 0.6s infinite ease-in-out;
         transform-origin: center;
         transform-box: fill-box;
       }
