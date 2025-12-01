@@ -19,7 +19,7 @@
         "tipo": "Oficina",
         "sector":"A",
         "ubicacion": "Sector Procesos, 2º Piso",
-        "descripcion": "",
+        "descripcion": "<strong>Información de Contacto:</strong><p><ul><li><strong>Correo: </strong><a href='mailto:cgarrido@userena.cl'>cgarrido@userena.cl</a></li><p><li><strong>Teléfono:</strong> +56 51 2204206</li><p><style>.imagen-izq {display: block; margin-left: 0; margin-right: auto;}</style><img src='imagenes/funcionarios/CGS.webp' alt='Carlos Garrido Soto' width='150' height='150' class='imagen-izq'></ul>",
         "x": 29.510,
         "y": 317.813,
         "media": {
@@ -33,7 +33,7 @@
         "tipo": "Oficina",
         "sector":"A",
         "ubicacion": "Sector Procesos, 2º Piso",
-        "descripcion": "",
+        "descripcion": "<strong>Información de Contacto:</strong><p><ul><li><strong>Correo: </strong><a href='mailto:alexander.alfonso@userena.cl'>alexander.alfonso@userena.cl</a></li><p><li><strong>Teléfono:</strong> +56 51 2204207</li><p><style>.imagen-izq {display: block; margin-left: 0; margin-right: auto;}</style><img src='imagenes/funcionarios/AAA.webp' alt='Alexander Alfonso Alvarez' width='150' height='150' class='imagen-izq'></ul>",
         "x": 18.245,
         "y": 312.039,
         "media": {

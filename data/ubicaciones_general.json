@@ -154,7 +154,7 @@
         "tipo": "Oficina",
         "sector": "A",
         "ubicacion":"Anfión Muñoz 850, 1º piso, sector Procesos",
-        "descripcion": "",
+        "descripcion": "<strong>Información de Contacto:</strong><p><ul><li><strong>Correo: </strong><a href='mailto:yerko.cevasco@userena.cl'>yerko.cevasco@userena.cl</a></li><p><li><strong>Teléfono:</strong> +56 51 2204065</li><p><style>.imagen-izq {display: block; margin-left: 0; margin-right: auto;}</style><img src='imagenes/funcionarios/YCR.webp' alt='Yerko Cevasco Reyes' width='150' height='150' class='imagen-izq'></ul><ul><li><strong>Correo: </strong><a href='mcuello@userena.cl'>mcuello@userena.cl</a></li><p><li><strong>Teléfono:</strong> +56 51 2204065</li><p><style>.imagen-izq {display: block; margin-left: 0; margin-right: auto;}</style><img src='imagenes/funcionarios/MCC.webp' alt='Manuel Cuello Cortes' width='150' height='150' class='imagen-izq'></ul>",
         "x": 59.780,
         "y": 115.688,
         "media": {
@@ -336,7 +336,7 @@
         "tipo": "Oficina",
         "sector": "B",
         "ubicacion": "Anfión Muñoz 830, 1º piso, sector Termofluidos",
-        "descripcion": "",
+        "descripcion": "<strong>Información de Contacto:</strong><p><ul><li><strong>Correo: </strong><a href='mailto:ldrodriguez@userena.cl'>ldrodriguez@userena.cl</a></li><p><li><strong>Teléfono:</strong> +56 51 2204183</li><p><style>.imagen-izq {display: block; margin-left: 0; margin-right: auto;}</style><img src='imagenes/funcionarios/LRC.webp' alt='Luis Rodriguez Chandía' width='150' height='150' class='imagen-izq'></ul>",
         "x": 82.552,
         "y": 106.619,
         "media": {
@@ -509,7 +509,7 @@
         "tipo": "Oficina",
         "sector": "D",
         "ubicacion": "Anfión Muñoz N° 810, 1º piso, sector Hall Secretaría DIMEC",
-        "descripcion": "<strong>Información de Contacto:</strong><p><ul><li><strong>Correo: </strong><a href='mailto:maria.toledo@userena.cl'>maria.toledo@userena.cl</a></li><p><li><strong>Teléfono:</strong> +56 51 2204260</li></ul>",
+        "descripcion": "<strong>Información de Contacto:</strong><p><ul><li><strong>Correo: </strong><a href='mailto:maria.toledo@userena.cl'>maria.toledo@userena.cl</a></li><p><li><strong>Teléfono:</strong> +56 51 2204260</li><p><style>.imagen-izq {display: block; margin-left: 0; margin-right: auto;}</style><img src='imagenes/funcionarios/MTC.webp' alt='María José Toledo Concha' width='150' height='150' class='imagen-izq'></ul>",
         "x": 111.189,
         "y": 129.416,
         "media": {
@@ -523,7 +523,7 @@
         "tipo": "Oficina",
         "sector": "D",
         "ubicacion": "Anfión Muñoz N° 810, 1º piso, sector Hall Secretaría DIMEC",
-        "descripcion": "",
+        "descripcion": "<strong>Información de Contacto:</strong><p><ul><li><strong>Correo: </strong><a href='mailto:cgarrido@userena.cl'>cgarrido@userena.cl</a></li><p><li><strong>Teléfono:</strong> +56 51 2204259</li><p><style>.imagen-izq {display: block; margin-left: 0; margin-right: auto;}</style><img src='imagenes/funcionarios/CGS.webp' alt='Carlos Garrido Soto' width='150' height='150' class='imagen-izq'></ul>",
         "x": 111.190,
         "y": 132.214,
         "media": {
@@ -635,7 +635,7 @@
         "tipo": "Oficina",
         "sector": "D",
         "ubicacion": "Anfión Muñoz N° 810, 1º piso, sector Hall Secretaría DIMEC",
-        "descripcion": "<strong>Información de Contacto:</strong><p><ul><li><strong>Correo: </strong><a href='mailto:gabriela.bricenog@userena.cl'>gabriela.bricenog@userena.cl</a></li><p></ul>",
+        "descripcion": "<strong>Información de Contacto:</strong><p><ul><li><strong>Correo: </strong><a href='mailto:gabriela.bricenog@userena.cl'>gabriela.bricenog@userena.cl</a></li><p><li><strong>Teléfono:</strong> +56 51 22042....</li><p><style>.imagen-izq {display: block; margin-left: 0; margin-right: auto;}</style><img src='imagenes/funcionarios/GBG.webp' alt='Gabriela Briceño Guzmán' width='150' height='150' class='imagen-izq'></ul>",
         "x": 111.487,
         "y": 122.430,
         "media": {
@@ -649,7 +649,7 @@
         "tipo": "Oficina",
         "sector": "D",
         "ubicacion": "Anfión Muñoz N° 810, 1º piso, sector Hall Secretaría DIMEC",
-        "descripcion": "<strong>Información de Contacto:</strong><p><ul><li><strong>Correo: </strong><a href='mailto:wilmer.velilla@userena.cl'>wilmer.velilla@userena.cl</a></li><p></ul>",
+        "descripcion": "<strong>Información de Contacto:</strong><p><ul><li><strong>Correo: </strong><a href='mailto:wilmer.velilla@userena.cl'>wilmer.velilla@userena.cl</a></li><p><li><strong>Teléfono:</strong> +56 51 22042....</li><p><style>.imagen-izq {display: block; margin-left: 0; margin-right: auto;}</style><img src='imagenes/funcionarios/WVD.webp' alt='Wilmer Velilla Díaz' width='150' height='150' class='imagen-izq'></ul>",
         "x": 111.487,
         "y": 120.579,
         "media": {
@@ -663,7 +663,7 @@
         "tipo": "Oficina",
         "sector": "D",
         "ubicacion": "Anfión Muñoz N° 810, 1º piso, sector Hall Secretaría DIMEC",
-        "descripcion": "<strong>Información de Contacto:</strong><p><ul><li><strong>Correo: </strong><a href='mailto:fabian.seguelg@userena.cl '>fabian.seguelg@userena.cl </a></li><p></ul>",
+        "descripcion": "<strong>Información de Contacto:</strong><p><ul><li><strong>Correo: </strong><a href='mailto:fabian.seguelg@userena.cl '>fabian.seguelg@userena.cl </a></li><p><li><strong>Teléfono:</strong> +56 51 22042....</li><p><style>.imagen-izq {display: block; margin-left: 0; margin-right: auto;}</style><img src='imagenes/funcionarios/FSG.webp' alt='Fabián Seguel González' width='150' height='150' class='imagen-izq'></ul>",
         "x": 104.352,
         "y": 122.394,
         "media": {
@@ -677,7 +677,7 @@
         "tipo": "Oficina",
         "sector": "D",
         "ubicacion": "Anfión Muñoz N° 810, 1º piso, sector Hall Secretaría DIMEC",
-        "descripcion": "<strong>Información de Contacto:</strong><p><ul><li><strong>Correo: </strong><a href='mailto: '> </a></li><p></ul>",
+        "descripcion": "<strong>Información de Contacto:</strong><p><ul><li><strong>Correo: </strong><a href='mailto:'> </a></li><p><li><strong>Teléfono:</strong> +56 51 22042....</li><p><style>.imagen-izq {display: block; margin-left: 0; margin-right: auto;}</style><img src='imagenes/funcionarios/NN_1.webp' alt='' width='150' height='150' class='imagen-izq'></ul>",
         "x": 111.487,
         "y": 118.634,
         "media": {
@@ -691,7 +691,7 @@
         "tipo": "Oficina",
         "sector": "D",
         "ubicacion": "Anfión Muñoz N° 810, 1º piso, sector Hall Secretaría DIMEC",
-        "descripcion": "<strong>Información de Contacto:</strong><p><ul><li><strong>Correo: </strong><a href='mailto: '> </a></li><p></ul>",
+        "descripcion": "<strong>Información de Contacto:</strong><p><ul><li><strong>Correo: </strong><a href='mailto:'> </a></li><p><li><strong>Teléfono:</strong> +56 51 22042....</li><p><style>.imagen-izq {display: block; margin-left: 0; margin-right: auto;}</style><img src='imagenes/funcionarios/NN_2.webp' alt='' width='150' height='150' class='imagen-izq'></ul>",
         "x": 111.487,
         "y": 116.106,
         "media": {

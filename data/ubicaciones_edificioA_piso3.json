@@ -47,7 +47,7 @@
         "tipo": "Oficina",
         "sector":"A",
         "ubicacion": "Sector Procesos, 3º Piso",
-        "descripcion": "",
+        "descripcion": "<strong>Información de Contacto:</strong><p><ul><li><strong>Correo: </strong><a href='mailto:nmoraga@userena.cl'>nmoraga@userena.cl</a></li><p><li><strong>Teléfono:</strong> +56 51 2204066</li><p><style>.imagen-izq {display: block; margin-left: 0; margin-right: auto;}</style><img src='imagenes/funcionarios/NMB.webp' alt='Nelson Moraga Benavides' width='150' height='150' class='imagen-izq'></ul>",
         "x": 18.271,
         "y": 311.925,
         "media": {
@@ -61,7 +61,7 @@
         "tipo": "Oficina",
         "sector":"A",
         "ubicacion": "Sector Procesos, 3º Piso",
-        "descripcion": "",
+        "descripcion": "<strong>Información de Contacto:</strong><p><ul><li><strong>Correo: </strong><a href='mailto:lsilva@userena.cl'>lsilva@userena.cl</a></li><p><li><strong>Teléfono:</strong> +56 51 2204208</li><p><style>.imagen-izq {display: block; margin-left: 0; margin-right: auto;}</style><img src='imagenes/funcionarios/LSL.webp' alt='Luis Silva Llanca' width='150' height='150' class='imagen-izq'></ul>",
         "x": 29.653,
         "y": 319.888,
         "media": {
@@ -75,7 +75,7 @@
         "tipo": "Oficina",
         "sector":"A",
         "ubicacion": "Sector Procesos, 3º Piso",
-        "descripcion": "",
+        "descripcion": "<strong>Información de Contacto:</strong><p><ul><li><strong>Correo: </strong><a href='mailto:'> </a></li><p><li><strong>Teléfono:</strong> +56 51 22042....</li><p><style>.imagen-izq {display: block; margin-left: 0; margin-right: auto;}</style><img src='imagenes/funcionarios/NN_3.webp' alt='' width='150' height='150' class='imagen-izq'></ul>",
         "x": 41.000,
         "y": 319.881,
         "media": {

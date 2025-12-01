@@ -33,11 +33,11 @@
         "tipo": "Oficina",
         "sector":"B",
         "ubicacion": "Anfión Muñoz 870, 3º piso, sector Termofluidos",
-        "descripcion": "",
+        "descripcion": "<strong>Información de Contacto:</strong><p><ul><li><strong>Correo: </strong><a href='mailto:cmneira@userena.cl'>cmneira@userena.cl</a></li><p><li><strong>Teléfono:</strong> +56 51 2204069</li><p><style>.imagen-izq {display: block; margin-left: 0; margin-right: auto;}</style><img src='imagenes/funcionarios/CMN.webp' alt='Cristian Muñoz Neira' width='150' height='150' class='imagen-izq'></ul><ul><li><strong>Correo: </strong><a href='mailto:giruiz@userena.cl'>giruiz@userena.cl</a></li><p><li><strong>Teléfono:</strong> +56 51 2204069</li><p><style>.imagen-izq {display: block; margin-left: 0; margin-right: auto;}</style><img src='imagenes/funcionarios/GRS.webp' alt='Gustavo Ruiz Saumón' width='150' height='150' class='imagen-izq'></ul>",
         "x": 141.136,
         "y": 169.572,
         "media": {
-            "foto": "imagenes/Ter_3P/Oficina_Paradocente.webp",
+            "foto": null,
             "video": null
         }
     },
@@ -187,7 +187,7 @@
         "tipo": "Oficina",
         "sector":"B",
         "ubicacion": "Anfión Muñoz 870, 3º piso, sector Termofluidos",
-        "descripcion": "",
+        "descripcion": "<strong>Información de Contacto:</strong><p><ul><li><strong>Correo: </strong><a href='mailto:jvera@userena.cl'>jvera@userena.cl</a></li><p><li><strong>Teléfono:</strong> +56 51 2204204</li><p><style>.imagen-izq {display: block; margin-left: 0; margin-right: auto;}</style><img src='imagenes/funcionarios/JVL.webp' alt='Jorge Vera Lemus' width='150' height='150' class='imagen-izq'></ul>",
         "x": 106.036,
         "y": 320.445,
         "media": {
@@ -197,11 +197,11 @@
     },
     {
         "id": "Oficina_LSB",
-        "nombre": "Oficina José Sagüas Bravo",
+        "nombre": "Oficina Leonardo Sagüas Bravo",
         "tipo": "Oficina",
         "sector":"B",
         "ubicacion": "Anfión Muñoz 870, 3º piso, sector Termofluidos",
-        "descripcion": "",
+        "descripcion": "<strong>Información de Contacto:</strong><p><ul><li><strong>Correo: </strong><a href='mailto:lsaguas@userena.cl'>lsaguas@userena.cl</a></li><p><li><strong>Teléfono:</strong> +56 51 2204205</li><p><style>.imagen-izq {display: block; margin-left: 0; margin-right: auto;}</style><img src='imagenes/funcionarios/LSB.webp' alt='José L. Sagüas Bravo' width='150' height='150' class='imagen-izq'></ul>",
         "x": 117.307,
         "y": 323.462,
         "media": {

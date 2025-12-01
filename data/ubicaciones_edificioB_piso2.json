@@ -1,11 +1,11 @@
 [
     {
         "id": "Oficina_YAC",
-        "nombre": "Oficina Yerko Aaguilera Contreras",
+        "nombre": "Oficina Yerko Aaguilera Carvajal",
         "tipo": "Oficina",
         "sector":"B",
         "ubicacion": "Anfión Muñoz 870, 2º piso, sector Termofluidos",
-        "descripcion": "",
+        "descripcion": "<strong>Información de Contacto:</strong><p><ul><li><strong>Correo: </strong><a href='mailto:yerko.aguilera@userena.cl'>yerko.aguilera@userena.cl</a></li><p><li><strong>Teléfono:</strong> +56 51 2204203</li><p><style>.imagen-izq {display: block; margin-left: 0; margin-right: auto;}</style><img src='imagenes/funcionarios/YAC.webp' alt='Yerko Aguilera Carvajal' width='150' height='150' class='imagen-izq'></ul>",
         "x": 127.358,
         "y": 317.817,
         "media": {
@@ -19,7 +19,7 @@
         "tipo": "Oficina",
         "sector":"B",
         "ubicacion": "Anfión Muñoz 870, 2º piso, sector Termofluidos",
-        "descripcion": "",
+        "descripcion": "<strong>Información de Contacto:</strong><p><ul><li><strong>Correo: </strong><a href='mailto:mgodoy@userena.cl'>mgodoy@userena.cl</a></li><p><li><strong>Teléfono:</strong> +56 51 2204070</li><p><style>.imagen-izq {display: block; margin-left: 0; margin-right: auto;}</style><img src='imagenes/funcionarios/MGS.webp' alt='Mauricio Godoy Seura' width='150' height='150' class='imagen-izq'></ul>",
         "x": 116.106,
         "y": 317.817,
         "media": {
@@ -33,7 +33,7 @@
         "tipo": "Oficina",
         "sector":"B",
         "ubicacion": "Anfión Muñoz 870, 2º piso, sector Termofluidos",
-        "descripcion": "",
+        "descripcion": "<strong>Información de Contacto:</strong><p><ul><li><strong>Correo: </strong><a href='mailto:cchavez@userena.cl'>cchavez@userena.cl</a></li><p><li><strong>Teléfono:</strong> +56 51 2204071</li><p><style>.imagen-izq {display: block; margin-left: 0; margin-right: auto;}</style><img src='imagenes/funcionarios/CCT.webp' alt='Cristian Chávez Toto' width='150' height='150' class='imagen-izq'></ul>",
         "x": 104.851,
         "y": 312.040,
         "media": {
